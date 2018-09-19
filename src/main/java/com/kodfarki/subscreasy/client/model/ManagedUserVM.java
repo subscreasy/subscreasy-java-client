@@ -30,7 +30,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * ManagedUserVM
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-30T00:20:36.956+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-19T15:02:48.500+03:00")
 public class ManagedUserVM {
   @SerializedName("activated")
   private Boolean activated = null;
@@ -79,6 +79,9 @@ public class ManagedUserVM {
 
   @SerializedName("resetDate")
   private String resetDate = null;
+
+  @SerializedName("siteName")
+  private String siteName = null;
 
   public ManagedUserVM activated(Boolean activated) {
     this.activated = activated;
@@ -376,6 +379,24 @@ public class ManagedUserVM {
     this.resetDate = resetDate;
   }
 
+  public ManagedUserVM siteName(String siteName) {
+    this.siteName = siteName;
+    return this;
+  }
+
+   /**
+   * Get siteName
+   * @return siteName
+  **/
+  @ApiModelProperty(value = "")
+  public String getSiteName() {
+    return siteName;
+  }
+
+  public void setSiteName(String siteName) {
+    this.siteName = siteName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -401,12 +422,13 @@ public class ManagedUserVM {
         Objects.equals(this.lastName, managedUserVM.lastName) &&
         Objects.equals(this.login, managedUserVM.login) &&
         Objects.equals(this.password, managedUserVM.password) &&
-        Objects.equals(this.resetDate, managedUserVM.resetDate);
+        Objects.equals(this.resetDate, managedUserVM.resetDate) &&
+        Objects.equals(this.siteName, managedUserVM.siteName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(activated, authorities, company, createdBy, createdDate, email, firstName, id, imageUrl, langKey, lastModifiedBy, lastModifiedDate, lastName, login, password, resetDate);
+    return Objects.hash(activated, authorities, company, createdBy, createdDate, email, firstName, id, imageUrl, langKey, lastModifiedBy, lastModifiedDate, lastName, login, password, resetDate, siteName);
   }
 
 
@@ -431,6 +453,7 @@ public class ManagedUserVM {
     sb.append("    login: ").append(toIndentedString(login)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    resetDate: ").append(toIndentedString(resetDate)).append("\n");
+    sb.append("    siteName: ").append(toIndentedString(siteName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

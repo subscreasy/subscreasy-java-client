@@ -29,13 +29,16 @@ import java.math.BigDecimal;
 /**
  * Offer
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-30T00:20:36.956+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-19T15:02:48.500+03:00")
 public class Offer {
   @SerializedName("company")
   private Company company = null;
 
   @SerializedName("id")
   private Long id = null;
+
+  @SerializedName("multiplePurchase")
+  private Boolean multiplePurchase = null;
 
   @SerializedName("name")
   private String name = null;
@@ -92,6 +95,24 @@ public class Offer {
 
   public void setId(Long id) {
     this.id = id;
+  }
+
+  public Offer multiplePurchase(Boolean multiplePurchase) {
+    this.multiplePurchase = multiplePurchase;
+    return this;
+  }
+
+   /**
+   * Get multiplePurchase
+   * @return multiplePurchase
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public Boolean isMultiplePurchase() {
+    return multiplePurchase;
+  }
+
+  public void setMultiplePurchase(Boolean multiplePurchase) {
+    this.multiplePurchase = multiplePurchase;
   }
 
   public Offer name(String name) {
@@ -157,7 +178,7 @@ public class Offer {
    * Get recurrence
    * @return recurrence
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public RecurrencePeriod getRecurrence() {
     return recurrence;
   }
@@ -232,6 +253,7 @@ public class Offer {
     Offer offer = (Offer) o;
     return Objects.equals(this.company, offer.company) &&
         Objects.equals(this.id, offer.id) &&
+        Objects.equals(this.multiplePurchase, offer.multiplePurchase) &&
         Objects.equals(this.name, offer.name) &&
         Objects.equals(this.openEnded, offer.openEnded) &&
         Objects.equals(this.price, offer.price) &&
@@ -243,7 +265,7 @@ public class Offer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(company, id, name, openEnded, price, recurrence, recurrenceCount, secureId, trialPeriod);
+    return Objects.hash(company, id, multiplePurchase, name, openEnded, price, recurrence, recurrenceCount, secureId, trialPeriod);
   }
 
 
@@ -254,6 +276,7 @@ public class Offer {
     
     sb.append("    company: ").append(toIndentedString(company)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    multiplePurchase: ").append(toIndentedString(multiplePurchase)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    openEnded: ").append(toIndentedString(openEnded)).append("\n");
     sb.append("    price: ").append(toIndentedString(price)).append("\n");

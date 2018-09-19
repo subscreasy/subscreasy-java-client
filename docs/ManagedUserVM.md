@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **login** | **String** |  | 
 **password** | **String** |  |  [optional]
 **resetDate** | **String** |  |  [optional]
+**siteName** | **String** |  |  [optional]
 
 
 

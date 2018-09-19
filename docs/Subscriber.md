@@ -4,25 +4,19 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**address** | **String** |  |  [optional]
-**city** | **String** |  |  [optional]
-**country** | **String** |  |  [optional]
+**billingAddress** | [**Address**](Address.md) |  |  [optional]
+**company** | [**Company**](Company.md) |  |  [optional]
+**createDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **email** | **String** |  |  [optional]
-**gsmNumber** | **String** |  |  [optional]
-**identityNumber** | **String** |  |  [optional]
-**ip** | **String** |  |  [optional]
-**lastLoginDate** | **String** |  |  [optional]
+**id** | **Long** |  |  [optional]
+**identificationNo** | **String** |  |  [optional]
 **name** | **String** |  |  [optional]
-**registrationDate** | **String** |  |  [optional]
+**phoneNumber** | **String** |  |  [optional]
 **secureId** | **String** |  |  [optional]
-**shippingAddress** | **String** |  |  [optional]
-**shippingCity** | **String** |  |  [optional]
-**shippingCountry** | **String** |  |  [optional]
-**shippingName** | **String** |  |  [optional]
-**shippingZipCode** | **String** |  |  [optional]
+**shippingAddress** | [**Address**](Address.md) |  |  [optional]
 **surname** | **String** |  |  [optional]
-**useBillingAddressForShipping** | **Boolean** |  |  [optional]
-**zipCode** | **String** |  |  [optional]
+**taxNumber** | **String** |  |  [optional]
+**worksFor** | **String** |  |  [optional]
 
 
 

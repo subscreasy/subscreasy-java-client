@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * MessageTemplate
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-30T00:20:36.956+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-19T15:02:48.500+03:00")
 public class MessageTemplate {
   @SerializedName("company")
   private Company company = null;
@@ -44,9 +44,23 @@ public class MessageTemplate {
     
     RENEWED("RENEWED"),
     
+    RENEWAL_FAILED("RENEWAL_FAILED"),
+    
     FINISHED("FINISHED"),
     
-    CANCELLED("CANCELLED");
+    CANCELLED("CANCELLED"),
+    
+    SUBSCRIBER_CREATED("SUBSCRIBER_CREATED"),
+    
+    SUBSCRIBER_UPDATED("SUBSCRIBER_UPDATED"),
+    
+    TRIAL_ENDING("TRIAL_ENDING"),
+    
+    PAYMENT_UPDATED("PAYMENT_UPDATED"),
+    
+    IMMEDIATE_CANCELLATION_REQUESTED("IMMEDIATE_CANCELLATION_REQUESTED"),
+    
+    ENDOFPERIOD_CANCELLATION_REQUESTED("ENDOFPERIOD_CANCELLATION_REQUESTED");
 
     private String value;
 

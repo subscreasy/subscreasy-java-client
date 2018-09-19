@@ -4,7 +4,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**capacity** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
 **currentUsage** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
 **endDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **id** | **Long** |  |  [optional]
@@ -15,7 +14,6 @@ Name | Type | Description | Notes
 **overUsageQuota** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
 **quotaOrigin** | [**QuotaOriginEnum**](#QuotaOriginEnum) |  |  [optional]
 **serviceOffering** | [**ServiceOffering**](ServiceOffering.md) |  |  [optional]
-**serviceType** | [**ServiceTypeEnum**](#ServiceTypeEnum) |  |  [optional]
 **startDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **status** | [**StatusEnum**](#StatusEnum) |  |  [optional]
 **subscriberId** | **String** |  |  [optional]
@@ -30,15 +28,6 @@ Name | Value
 ---- | -----
 SUBS | &quot;SUBS&quot;
 OVER | &quot;OVER&quot;
-
-
-<a name="ServiceTypeEnum"></a>
-## Enum: ServiceTypeEnum
-Name | Value
----- | -----
-ONOFF | &quot;ONOFF&quot;
-SEAT_BASED | &quot;SEAT_BASED&quot;
-USAGE_BASED | &quot;USAGE_BASED&quot;
 
 
 <a name="StatusEnum"></a>

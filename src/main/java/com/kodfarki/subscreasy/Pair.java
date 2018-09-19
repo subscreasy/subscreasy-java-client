@@ -13,7 +13,7 @@
 
 package com.kodfarki.subscreasy;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-30T00:20:36.956+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-19T15:02:48.500+03:00")
 public class Pair {
     private String name = "";
     private String value = "";

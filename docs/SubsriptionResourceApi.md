@@ -225,7 +225,7 @@ Name | Type | Description  | Notes
 
 <a name="startSubscriptionUsingPOST"></a>
 # **startSubscriptionUsingPOST**
-> SubscriptionCreateResult startSubscriptionUsingPOST(request)
+> StartSubscriptionResult startSubscriptionUsingPOST(request)
 
 startSubscription
 
@@ -249,7 +249,7 @@ apiKey.setApiKey("YOUR API KEY");
 SubsriptionResourceApi apiInstance = new SubsriptionResourceApi();
 StartSubscriptionRequest request = new StartSubscriptionRequest(); // StartSubscriptionRequest | request
 try {
-    SubscriptionCreateResult result = apiInstance.startSubscriptionUsingPOST(request);
+    StartSubscriptionResult result = apiInstance.startSubscriptionUsingPOST(request);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SubsriptionResourceApi#startSubscriptionUsingPOST");
@@ -265,7 +265,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SubscriptionCreateResult**](SubscriptionCreateResult.md)
+[**StartSubscriptionResult**](StartSubscriptionResult.md)
 
 ### Authorization
 

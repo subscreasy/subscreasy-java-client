@@ -297,12 +297,15 @@ public class SubscriberResourceApi {
     }
     /**
      * Build call for getAllSubscribersUsingGET
+     * @param page Page number of the requested page (optional)
+     * @param size Size of a page (optional)
+     * @param sort Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getAllSubscribersUsingGETCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getAllSubscribersUsingGETCall(Integer page, Integer size, List<String> sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -310,6 +313,12 @@ public class SubscriberResourceApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (page != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
+        if (size != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
+        if (sort != null)
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -344,10 +353,10 @@ public class SubscriberResourceApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getAllSubscribersUsingGETValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getAllSubscribersUsingGETValidateBeforeCall(Integer page, Integer size, List<String> sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = getAllSubscribersUsingGETCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAllSubscribersUsingGETCall(page, size, sort, progressListener, progressRequestListener);
         return call;
 
     }
@@ -355,22 +364,28 @@ public class SubscriberResourceApi {
     /**
      * getAllSubscribers
      * 
+     * @param page Page number of the requested page (optional)
+     * @param size Size of a page (optional)
+     * @param sort Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported. (optional)
      * @return List&lt;Subscriber&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<Subscriber> getAllSubscribersUsingGET() throws ApiException {
-        ApiResponse<List<Subscriber>> resp = getAllSubscribersUsingGETWithHttpInfo();
+    public List<Subscriber> getAllSubscribersUsingGET(Integer page, Integer size, List<String> sort) throws ApiException {
+        ApiResponse<List<Subscriber>> resp = getAllSubscribersUsingGETWithHttpInfo(page, size, sort);
         return resp.getData();
     }
 
     /**
      * getAllSubscribers
      * 
+     * @param page Page number of the requested page (optional)
+     * @param size Size of a page (optional)
+     * @param sort Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported. (optional)
      * @return ApiResponse&lt;List&lt;Subscriber&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<Subscriber>> getAllSubscribersUsingGETWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = getAllSubscribersUsingGETValidateBeforeCall(null, null);
+    public ApiResponse<List<Subscriber>> getAllSubscribersUsingGETWithHttpInfo(Integer page, Integer size, List<String> sort) throws ApiException {
+        com.squareup.okhttp.Call call = getAllSubscribersUsingGETValidateBeforeCall(page, size, sort, null, null);
         Type localVarReturnType = new TypeToken<List<Subscriber>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -378,11 +393,14 @@ public class SubscriberResourceApi {
     /**
      * getAllSubscribers (asynchronously)
      * 
+     * @param page Page number of the requested page (optional)
+     * @param size Size of a page (optional)
+     * @param sort Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAllSubscribersUsingGETAsync(final ApiCallback<List<Subscriber>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getAllSubscribersUsingGETAsync(Integer page, Integer size, List<String> sort, final ApiCallback<List<Subscriber>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -403,7 +421,7 @@ public class SubscriberResourceApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getAllSubscribersUsingGETValidateBeforeCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAllSubscribersUsingGETValidateBeforeCall(page, size, sort, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<Subscriber>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -651,6 +669,129 @@ public class SubscriberResourceApi {
 
         com.squareup.okhttp.Call call = getSubscriberByNameUsingGETValidateBeforeCall(name, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<Subscriber>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getSubscriberBySecureIdUsingGET
+     * @param secureId secureId (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getSubscriberBySecureIdUsingGETCall(String secureId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/subscribers/secureId/{secureId}"
+            .replaceAll("\\{" + "secureId" + "\\}", apiClient.escapeString(secureId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "*/*"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getSubscriberBySecureIdUsingGETValidateBeforeCall(String secureId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'secureId' is set
+        if (secureId == null) {
+            throw new ApiException("Missing the required parameter 'secureId' when calling getSubscriberBySecureIdUsingGET(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getSubscriberBySecureIdUsingGETCall(secureId, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * getSubscriberBySecureId
+     * 
+     * @param secureId secureId (required)
+     * @return Subscriber
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Subscriber getSubscriberBySecureIdUsingGET(String secureId) throws ApiException {
+        ApiResponse<Subscriber> resp = getSubscriberBySecureIdUsingGETWithHttpInfo(secureId);
+        return resp.getData();
+    }
+
+    /**
+     * getSubscriberBySecureId
+     * 
+     * @param secureId secureId (required)
+     * @return ApiResponse&lt;Subscriber&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Subscriber> getSubscriberBySecureIdUsingGETWithHttpInfo(String secureId) throws ApiException {
+        com.squareup.okhttp.Call call = getSubscriberBySecureIdUsingGETValidateBeforeCall(secureId, null, null);
+        Type localVarReturnType = new TypeToken<Subscriber>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * getSubscriberBySecureId (asynchronously)
+     * 
+     * @param secureId secureId (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getSubscriberBySecureIdUsingGETAsync(String secureId, final ApiCallback<Subscriber> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getSubscriberBySecureIdUsingGETValidateBeforeCall(secureId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Subscriber>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

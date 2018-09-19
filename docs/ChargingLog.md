@@ -14,11 +14,14 @@ Name | Type | Description | Notes
 **id** | **Long** |  |  [optional]
 **invoiceId** | **Long** |  |  [optional]
 **jobId** | **Long** |  |  [optional]
-**parent** | [**ChargingLog**](ChargingLog.md) |  |  [optional]
+**offerId** | **Long** |  |  [optional]
+**parentId** | **Long** |  |  [optional]
 **paymentGateway** | [**PaymentGatewayEnum**](#PaymentGatewayEnum) |  |  [optional]
 **paymentId** | **String** |  |  [optional]
 **price** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
 **reason** | [**ReasonEnum**](#ReasonEnum) |  |  [optional]
+**savedCard** | [**SavedCard**](SavedCard.md) |  |  [optional]
+**savedCardId** | **Long** |  |  [optional]
 **serviceInstanceId** | **Long** |  |  [optional]
 **status** | [**StatusEnum**](#StatusEnum) |  |  [optional]
 **subscriberSecureId** | **String** |  |  [optional]
@@ -33,6 +36,7 @@ Name | Value
 OFFLINE | &quot;OFFLINE&quot;
 IYZICO | &quot;IYZICO&quot;
 PAYU | &quot;PAYU&quot;
+PAYTR | &quot;PAYTR&quot;
 
 
 <a name="ReasonEnum"></a>
@@ -43,6 +47,8 @@ START | &quot;START&quot;
 RENEWAL | &quot;RENEWAL&quot;
 OVER_USAGE | &quot;OVER_USAGE&quot;
 REFUND | &quot;REFUND&quot;
+SAVE_CARD | &quot;SAVE_CARD&quot;
+TRIAL_PERIOD | &quot;TRIAL_PERIOD&quot;
 
 
 <a name="StatusEnum"></a>
@@ -50,7 +56,7 @@ REFUND | &quot;REFUND&quot;
 Name | Value
 ---- | -----
 NOT_PAID | &quot;NOT_PAID&quot;
-SUCCESS | &quot;SUCCESS&quot;
+PAID | &quot;PAID&quot;
 FAIL | &quot;FAIL&quot;
 REFUNDED | &quot;REFUNDED&quot;
 

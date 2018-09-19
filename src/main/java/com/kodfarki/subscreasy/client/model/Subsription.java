@@ -24,6 +24,7 @@ import com.kodfarki.subscreasy.client.model.Coupon;
 import com.kodfarki.subscreasy.client.model.Offer;
 import com.kodfarki.subscreasy.client.model.SavedCard;
 import com.kodfarki.subscreasy.client.model.ServiceInstance;
+import com.kodfarki.subscreasy.client.model.Subscriber;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -34,7 +35,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * Subsription
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-30T00:20:36.956+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-19T15:02:48.500+03:00")
 public class Subsription {
   @SerializedName("appliedCoupon")
   private Coupon appliedCoupon = null;
@@ -54,11 +55,126 @@ public class Subsription {
   @SerializedName("id")
   private Long id = null;
 
-  @SerializedName("nextChargingDate")
-  private OffsetDateTime nextChargingDate = null;
+  /**
+   * Gets or Sets lastEvent
+   */
+  @JsonAdapter(LastEventEnum.Adapter.class)
+  public enum LastEventEnum {
+    STARTED("STARTED"),
+    
+    RENEWED("RENEWED"),
+    
+    RENEWAL_FAILED("RENEWAL_FAILED"),
+    
+    FINISHED("FINISHED"),
+    
+    CANCELLED("CANCELLED"),
+    
+    SUBSCRIBER_CREATED("SUBSCRIBER_CREATED"),
+    
+    SUBSCRIBER_UPDATED("SUBSCRIBER_UPDATED"),
+    
+    TRIAL_ENDING("TRIAL_ENDING"),
+    
+    PAYMENT_UPDATED("PAYMENT_UPDATED"),
+    
+    IMMEDIATE_CANCELLATION_REQUESTED("IMMEDIATE_CANCELLATION_REQUESTED"),
+    
+    ENDOFPERIOD_CANCELLATION_REQUESTED("ENDOFPERIOD_CANCELLATION_REQUESTED");
+
+    private String value;
+
+    LastEventEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static LastEventEnum fromValue(String text) {
+      for (LastEventEnum b : LastEventEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<LastEventEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final LastEventEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public LastEventEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return LastEventEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("lastEvent")
+  private LastEventEnum lastEvent = null;
 
   @SerializedName("offer")
   private Offer offer = null;
+
+  /**
+   * Gets or Sets paymentMethod
+   */
+  @JsonAdapter(PaymentMethodEnum.Adapter.class)
+  public enum PaymentMethodEnum {
+    OFFLINE("OFFLINE"),
+    
+    CC("CC");
+
+    private String value;
+
+    PaymentMethodEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static PaymentMethodEnum fromValue(String text) {
+      for (PaymentMethodEnum b : PaymentMethodEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<PaymentMethodEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PaymentMethodEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public PaymentMethodEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return PaymentMethodEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("paymentMethod")
+  private PaymentMethodEnum paymentMethod = null;
 
   @SerializedName("services")
   private List<ServiceInstance> services = null;
@@ -122,11 +238,20 @@ public class Subsription {
   @SerializedName("status")
   private StatusEnum status = null;
 
-  @SerializedName("subscriberId")
-  private String subscriberId = null;
+  @SerializedName("subscriber")
+  private Subscriber subscriber = null;
 
-  @SerializedName("version")
-  private Long version = null;
+  @SerializedName("subscriberSecureId")
+  private String subscriberSecureId = null;
+
+  @SerializedName("termEndDate")
+  private OffsetDateTime termEndDate = null;
+
+  @SerializedName("termStartDate")
+  private OffsetDateTime termStartDate = null;
+
+  @SerializedName("trialEndDate")
+  private OffsetDateTime trialEndDate = null;
 
   public Subsription appliedCoupon(Coupon appliedCoupon) {
     this.appliedCoupon = appliedCoupon;
@@ -236,22 +361,22 @@ public class Subsription {
     this.id = id;
   }
 
-  public Subsription nextChargingDate(OffsetDateTime nextChargingDate) {
-    this.nextChargingDate = nextChargingDate;
+  public Subsription lastEvent(LastEventEnum lastEvent) {
+    this.lastEvent = lastEvent;
     return this;
   }
 
    /**
-   * Get nextChargingDate
-   * @return nextChargingDate
+   * Get lastEvent
+   * @return lastEvent
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getNextChargingDate() {
-    return nextChargingDate;
+  public LastEventEnum getLastEvent() {
+    return lastEvent;
   }
 
-  public void setNextChargingDate(OffsetDateTime nextChargingDate) {
-    this.nextChargingDate = nextChargingDate;
+  public void setLastEvent(LastEventEnum lastEvent) {
+    this.lastEvent = lastEvent;
   }
 
   public Subsription offer(Offer offer) {
@@ -270,6 +395,24 @@ public class Subsription {
 
   public void setOffer(Offer offer) {
     this.offer = offer;
+  }
+
+  public Subsription paymentMethod(PaymentMethodEnum paymentMethod) {
+    this.paymentMethod = paymentMethod;
+    return this;
+  }
+
+   /**
+   * Get paymentMethod
+   * @return paymentMethod
+  **/
+  @ApiModelProperty(value = "")
+  public PaymentMethodEnum getPaymentMethod() {
+    return paymentMethod;
+  }
+
+  public void setPaymentMethod(PaymentMethodEnum paymentMethod) {
+    this.paymentMethod = paymentMethod;
   }
 
   public Subsription services(List<ServiceInstance> services) {
@@ -334,40 +477,94 @@ public class Subsription {
     this.status = status;
   }
 
-  public Subsription subscriberId(String subscriberId) {
-    this.subscriberId = subscriberId;
+  public Subsription subscriber(Subscriber subscriber) {
+    this.subscriber = subscriber;
     return this;
   }
 
    /**
-   * Get subscriberId
-   * @return subscriberId
+   * Get subscriber
+   * @return subscriber
   **/
   @ApiModelProperty(value = "")
-  public String getSubscriberId() {
-    return subscriberId;
+  public Subscriber getSubscriber() {
+    return subscriber;
   }
 
-  public void setSubscriberId(String subscriberId) {
-    this.subscriberId = subscriberId;
+  public void setSubscriber(Subscriber subscriber) {
+    this.subscriber = subscriber;
   }
 
-  public Subsription version(Long version) {
-    this.version = version;
+  public Subsription subscriberSecureId(String subscriberSecureId) {
+    this.subscriberSecureId = subscriberSecureId;
     return this;
   }
 
    /**
-   * Get version
-   * @return version
+   * Get subscriberSecureId
+   * @return subscriberSecureId
   **/
   @ApiModelProperty(value = "")
-  public Long getVersion() {
-    return version;
+  public String getSubscriberSecureId() {
+    return subscriberSecureId;
   }
 
-  public void setVersion(Long version) {
-    this.version = version;
+  public void setSubscriberSecureId(String subscriberSecureId) {
+    this.subscriberSecureId = subscriberSecureId;
+  }
+
+  public Subsription termEndDate(OffsetDateTime termEndDate) {
+    this.termEndDate = termEndDate;
+    return this;
+  }
+
+   /**
+   * Get termEndDate
+   * @return termEndDate
+  **/
+  @ApiModelProperty(value = "")
+  public OffsetDateTime getTermEndDate() {
+    return termEndDate;
+  }
+
+  public void setTermEndDate(OffsetDateTime termEndDate) {
+    this.termEndDate = termEndDate;
+  }
+
+  public Subsription termStartDate(OffsetDateTime termStartDate) {
+    this.termStartDate = termStartDate;
+    return this;
+  }
+
+   /**
+   * Get termStartDate
+   * @return termStartDate
+  **/
+  @ApiModelProperty(value = "")
+  public OffsetDateTime getTermStartDate() {
+    return termStartDate;
+  }
+
+  public void setTermStartDate(OffsetDateTime termStartDate) {
+    this.termStartDate = termStartDate;
+  }
+
+  public Subsription trialEndDate(OffsetDateTime trialEndDate) {
+    this.trialEndDate = trialEndDate;
+    return this;
+  }
+
+   /**
+   * Get trialEndDate
+   * @return trialEndDate
+  **/
+  @ApiModelProperty(value = "")
+  public OffsetDateTime getTrialEndDate() {
+    return trialEndDate;
+  }
+
+  public void setTrialEndDate(OffsetDateTime trialEndDate) {
+    this.trialEndDate = trialEndDate;
   }
 
 
@@ -386,18 +583,22 @@ public class Subsription {
         Objects.equals(this.company, subsription.company) &&
         Objects.equals(this.endDate, subsription.endDate) &&
         Objects.equals(this.id, subsription.id) &&
-        Objects.equals(this.nextChargingDate, subsription.nextChargingDate) &&
+        Objects.equals(this.lastEvent, subsription.lastEvent) &&
         Objects.equals(this.offer, subsription.offer) &&
+        Objects.equals(this.paymentMethod, subsription.paymentMethod) &&
         Objects.equals(this.services, subsription.services) &&
         Objects.equals(this.startDate, subsription.startDate) &&
         Objects.equals(this.status, subsription.status) &&
-        Objects.equals(this.subscriberId, subsription.subscriberId) &&
-        Objects.equals(this.version, subsription.version);
+        Objects.equals(this.subscriber, subsription.subscriber) &&
+        Objects.equals(this.subscriberSecureId, subsription.subscriberSecureId) &&
+        Objects.equals(this.termEndDate, subsription.termEndDate) &&
+        Objects.equals(this.termStartDate, subsription.termStartDate) &&
+        Objects.equals(this.trialEndDate, subsription.trialEndDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(appliedCoupon, cancelDate, card, company, endDate, id, nextChargingDate, offer, services, startDate, status, subscriberId, version);
+    return Objects.hash(appliedCoupon, cancelDate, card, company, endDate, id, lastEvent, offer, paymentMethod, services, startDate, status, subscriber, subscriberSecureId, termEndDate, termStartDate, trialEndDate);
   }
 
 
@@ -412,13 +613,17 @@ public class Subsription {
     sb.append("    company: ").append(toIndentedString(company)).append("\n");
     sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    nextChargingDate: ").append(toIndentedString(nextChargingDate)).append("\n");
+    sb.append("    lastEvent: ").append(toIndentedString(lastEvent)).append("\n");
     sb.append("    offer: ").append(toIndentedString(offer)).append("\n");
+    sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
     sb.append("    services: ").append(toIndentedString(services)).append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    subscriberId: ").append(toIndentedString(subscriberId)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    subscriber: ").append(toIndentedString(subscriber)).append("\n");
+    sb.append("    subscriberSecureId: ").append(toIndentedString(subscriberSecureId)).append("\n");
+    sb.append("    termEndDate: ").append(toIndentedString(termEndDate)).append("\n");
+    sb.append("    termStartDate: ").append(toIndentedString(termStartDate)).append("\n");
+    sb.append("    trialEndDate: ").append(toIndentedString(trialEndDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

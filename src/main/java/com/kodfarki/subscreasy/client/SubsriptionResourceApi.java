@@ -29,7 +29,7 @@ import java.io.IOException;
 
 import com.kodfarki.subscreasy.client.model.Cancellation;
 import com.kodfarki.subscreasy.client.model.StartSubscriptionRequest;
-import com.kodfarki.subscreasy.client.model.SubscriptionCreateResult;
+import com.kodfarki.subscreasy.client.model.StartSubscriptionResult;
 import com.kodfarki.subscreasy.client.model.Subsription;
 
 import java.lang.reflect.Type;
@@ -615,11 +615,11 @@ public class SubsriptionResourceApi {
      * startSubscription
      * 
      * @param request request (required)
-     * @return SubscriptionCreateResult
+     * @return StartSubscriptionResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public SubscriptionCreateResult startSubscriptionUsingPOST(StartSubscriptionRequest request) throws ApiException {
-        ApiResponse<SubscriptionCreateResult> resp = startSubscriptionUsingPOSTWithHttpInfo(request);
+    public StartSubscriptionResult startSubscriptionUsingPOST(StartSubscriptionRequest request) throws ApiException {
+        ApiResponse<StartSubscriptionResult> resp = startSubscriptionUsingPOSTWithHttpInfo(request);
         return resp.getData();
     }
 
@@ -627,12 +627,12 @@ public class SubsriptionResourceApi {
      * startSubscription
      * 
      * @param request request (required)
-     * @return ApiResponse&lt;SubscriptionCreateResult&gt;
+     * @return ApiResponse&lt;StartSubscriptionResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<SubscriptionCreateResult> startSubscriptionUsingPOSTWithHttpInfo(StartSubscriptionRequest request) throws ApiException {
+    public ApiResponse<StartSubscriptionResult> startSubscriptionUsingPOSTWithHttpInfo(StartSubscriptionRequest request) throws ApiException {
         com.squareup.okhttp.Call call = startSubscriptionUsingPOSTValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<SubscriptionCreateResult>(){}.getType();
+        Type localVarReturnType = new TypeToken<StartSubscriptionResult>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -644,7 +644,7 @@ public class SubsriptionResourceApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call startSubscriptionUsingPOSTAsync(StartSubscriptionRequest request, final ApiCallback<SubscriptionCreateResult> callback) throws ApiException {
+    public com.squareup.okhttp.Call startSubscriptionUsingPOSTAsync(StartSubscriptionRequest request, final ApiCallback<StartSubscriptionResult> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -666,7 +666,7 @@ public class SubsriptionResourceApi {
         }
 
         com.squareup.okhttp.Call call = startSubscriptionUsingPOSTValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<SubscriptionCreateResult>(){}.getType();
+        Type localVarReturnType = new TypeToken<StartSubscriptionResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

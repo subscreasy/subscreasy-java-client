@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cancellationType** | [**CancellationTypeEnum**](#CancellationTypeEnum) |  |  [optional]
+**subscriberId** | **Long** |  |  [optional]
 **subscriptionId** | **Long** |  |  [optional]
 
 

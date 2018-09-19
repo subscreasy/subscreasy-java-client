@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * Company
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-30T00:20:36.956+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-19T15:02:48.500+03:00")
 public class Company {
   @SerializedName("address")
   private Address address = null;
@@ -37,6 +37,9 @@ public class Company {
 
   @SerializedName("name")
   private String name = null;
+
+  @SerializedName("siteName")
+  private String siteName = null;
 
   public Company address(Address address) {
     this.address = address;
@@ -92,6 +95,24 @@ public class Company {
     this.name = name;
   }
 
+  public Company siteName(String siteName) {
+    this.siteName = siteName;
+    return this;
+  }
+
+   /**
+   * Get siteName
+   * @return siteName
+  **/
+  @ApiModelProperty(value = "")
+  public String getSiteName() {
+    return siteName;
+  }
+
+  public void setSiteName(String siteName) {
+    this.siteName = siteName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -104,12 +125,13 @@ public class Company {
     Company company = (Company) o;
     return Objects.equals(this.address, company.address) &&
         Objects.equals(this.id, company.id) &&
-        Objects.equals(this.name, company.name);
+        Objects.equals(this.name, company.name) &&
+        Objects.equals(this.siteName, company.siteName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, id, name);
+    return Objects.hash(address, id, name, siteName);
   }
 
 
@@ -121,6 +143,7 @@ public class Company {
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    siteName: ").append(toIndentedString(siteName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

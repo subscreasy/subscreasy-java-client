@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**deleteChargingLogUsingDELETE**](ChargingLogResourceApi.md#deleteChargingLogUsingDELETE) | **DELETE** /api/charging-logs/{id} | deleteChargingLog
 [**getAllChargingLogsUsingGET**](ChargingLogResourceApi.md#getAllChargingLogsUsingGET) | **GET** /api/charging-logs | getAllChargingLogs
 [**getChargingLogUsingGET**](ChargingLogResourceApi.md#getChargingLogUsingGET) | **GET** /api/charging-logs/{id} | getChargingLog
+[**getUnpaidChargingLogsUsingGET**](ChargingLogResourceApi.md#getUnpaidChargingLogsUsingGET) | **GET** /api/charging-logs/unpaid | getUnpaidChargingLogs
 [**refundUsingPOST**](ChargingLogResourceApi.md#refundUsingPOST) | **POST** /api/charging-logs/refund/{chargingLogId} | refund
 [**updateChargingLogUsingPUT**](ChargingLogResourceApi.md#updateChargingLogUsingPUT) | **PUT** /api/charging-logs | updateChargingLog
 
@@ -217,6 +218,63 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ChargingLog**](ChargingLog.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+<a name="getUnpaidChargingLogsUsingGET"></a>
+# **getUnpaidChargingLogsUsingGET**
+> List&lt;ChargingLog&gt; getUnpaidChargingLogsUsingGET(page, size, sort)
+
+getUnpaidChargingLogs
+
+### Example
+```java
+// Import classes:
+//import com.kodfarki.subscreasy.ApiClient;
+//import com.kodfarki.subscreasy.ApiException;
+//import com.kodfarki.subscreasy.Configuration;
+//import com.kodfarki.subscreasy.auth.*;
+//import com.kodfarki.subscreasy.client.ChargingLogResourceApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKey
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+apiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKey.setApiKeyPrefix("Token");
+
+ChargingLogResourceApi apiInstance = new ChargingLogResourceApi();
+Integer page = 56; // Integer | Page number of the requested page
+Integer size = 56; // Integer | Size of a page
+List<String> sort = Arrays.asList("sort_example"); // List<String> | Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported.
+try {
+    List<ChargingLog> result = apiInstance.getUnpaidChargingLogsUsingGET(page, size, sort);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ChargingLogResourceApi#getUnpaidChargingLogsUsingGET");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **Integer**| Page number of the requested page | [optional]
+ **size** | **Integer**| Size of a page | [optional]
+ **sort** | [**List&lt;String&gt;**](String.md)| Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported. | [optional]
+
+### Return type
+
+[**List&lt;ChargingLog&gt;**](ChargingLog.md)
 
 ### Authorization
 

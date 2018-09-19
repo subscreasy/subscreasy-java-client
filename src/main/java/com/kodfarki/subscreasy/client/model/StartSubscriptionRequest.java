@@ -19,53 +19,95 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.kodfarki.subscreasy.client.model.Offer;
 import com.kodfarki.subscreasy.client.model.PaymentCard;
 import com.kodfarki.subscreasy.client.model.Subscriber;
-import com.kodfarki.subscreasy.client.model.SubscriptionPlan;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.math.BigDecimal;
 
 /**
  * StartSubscriptionRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-30T00:20:36.956+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-19T15:02:48.500+03:00")
 public class StartSubscriptionRequest {
-  @SerializedName("apiKey")
-  private String apiKey = null;
-
   @SerializedName("callbackUrl")
   private String callbackUrl = null;
+
+  @SerializedName("companySiteName")
+  private String companySiteName = null;
 
   @SerializedName("couponCode")
   private String couponCode = null;
 
+  @SerializedName("editable")
+  private Boolean editable = null;
+
   @SerializedName("offer")
-  private SubscriptionPlan offer = null;
+  private Offer offer = null;
 
   @SerializedName("paymentCard")
   private PaymentCard paymentCard = null;
 
+  /**
+   * Gets or Sets paymentType
+   */
+  @JsonAdapter(PaymentTypeEnum.Adapter.class)
+  public enum PaymentTypeEnum {
+    OFFLINE("OFFLINE"),
+    
+    CC("CC");
+
+    private String value;
+
+    PaymentTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static PaymentTypeEnum fromValue(String text) {
+      for (PaymentTypeEnum b : PaymentTypeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<PaymentTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PaymentTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public PaymentTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return PaymentTypeEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("paymentType")
+  private PaymentTypeEnum paymentType = null;
+
+  @SerializedName("price")
+  private BigDecimal price = null;
+
+  @SerializedName("privacyPolicyUrl")
+  private Boolean privacyPolicyUrl = null;
+
   @SerializedName("subscriber")
   private Subscriber subscriber = null;
-
-  public StartSubscriptionRequest apiKey(String apiKey) {
-    this.apiKey = apiKey;
-    return this;
-  }
-
-   /**
-   * Get apiKey
-   * @return apiKey
-  **/
-  @ApiModelProperty(value = "")
-  public String getApiKey() {
-    return apiKey;
-  }
-
-  public void setApiKey(String apiKey) {
-    this.apiKey = apiKey;
-  }
 
   public StartSubscriptionRequest callbackUrl(String callbackUrl) {
     this.callbackUrl = callbackUrl;
@@ -83,6 +125,24 @@ public class StartSubscriptionRequest {
 
   public void setCallbackUrl(String callbackUrl) {
     this.callbackUrl = callbackUrl;
+  }
+
+  public StartSubscriptionRequest companySiteName(String companySiteName) {
+    this.companySiteName = companySiteName;
+    return this;
+  }
+
+   /**
+   * Get companySiteName
+   * @return companySiteName
+  **/
+  @ApiModelProperty(value = "")
+  public String getCompanySiteName() {
+    return companySiteName;
+  }
+
+  public void setCompanySiteName(String companySiteName) {
+    this.companySiteName = companySiteName;
   }
 
   public StartSubscriptionRequest couponCode(String couponCode) {
@@ -103,7 +163,25 @@ public class StartSubscriptionRequest {
     this.couponCode = couponCode;
   }
 
-  public StartSubscriptionRequest offer(SubscriptionPlan offer) {
+  public StartSubscriptionRequest editable(Boolean editable) {
+    this.editable = editable;
+    return this;
+  }
+
+   /**
+   * Get editable
+   * @return editable
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isEditable() {
+    return editable;
+  }
+
+  public void setEditable(Boolean editable) {
+    this.editable = editable;
+  }
+
+  public StartSubscriptionRequest offer(Offer offer) {
     this.offer = offer;
     return this;
   }
@@ -113,11 +191,11 @@ public class StartSubscriptionRequest {
    * @return offer
   **/
   @ApiModelProperty(value = "")
-  public SubscriptionPlan getOffer() {
+  public Offer getOffer() {
     return offer;
   }
 
-  public void setOffer(SubscriptionPlan offer) {
+  public void setOffer(Offer offer) {
     this.offer = offer;
   }
 
@@ -137,6 +215,60 @@ public class StartSubscriptionRequest {
 
   public void setPaymentCard(PaymentCard paymentCard) {
     this.paymentCard = paymentCard;
+  }
+
+  public StartSubscriptionRequest paymentType(PaymentTypeEnum paymentType) {
+    this.paymentType = paymentType;
+    return this;
+  }
+
+   /**
+   * Get paymentType
+   * @return paymentType
+  **/
+  @ApiModelProperty(value = "")
+  public PaymentTypeEnum getPaymentType() {
+    return paymentType;
+  }
+
+  public void setPaymentType(PaymentTypeEnum paymentType) {
+    this.paymentType = paymentType;
+  }
+
+  public StartSubscriptionRequest price(BigDecimal price) {
+    this.price = price;
+    return this;
+  }
+
+   /**
+   * Get price
+   * @return price
+  **/
+  @ApiModelProperty(value = "")
+  public BigDecimal getPrice() {
+    return price;
+  }
+
+  public void setPrice(BigDecimal price) {
+    this.price = price;
+  }
+
+  public StartSubscriptionRequest privacyPolicyUrl(Boolean privacyPolicyUrl) {
+    this.privacyPolicyUrl = privacyPolicyUrl;
+    return this;
+  }
+
+   /**
+   * Get privacyPolicyUrl
+   * @return privacyPolicyUrl
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isPrivacyPolicyUrl() {
+    return privacyPolicyUrl;
+  }
+
+  public void setPrivacyPolicyUrl(Boolean privacyPolicyUrl) {
+    this.privacyPolicyUrl = privacyPolicyUrl;
   }
 
   public StartSubscriptionRequest subscriber(Subscriber subscriber) {
@@ -167,17 +299,21 @@ public class StartSubscriptionRequest {
       return false;
     }
     StartSubscriptionRequest startSubscriptionRequest = (StartSubscriptionRequest) o;
-    return Objects.equals(this.apiKey, startSubscriptionRequest.apiKey) &&
-        Objects.equals(this.callbackUrl, startSubscriptionRequest.callbackUrl) &&
+    return Objects.equals(this.callbackUrl, startSubscriptionRequest.callbackUrl) &&
+        Objects.equals(this.companySiteName, startSubscriptionRequest.companySiteName) &&
         Objects.equals(this.couponCode, startSubscriptionRequest.couponCode) &&
+        Objects.equals(this.editable, startSubscriptionRequest.editable) &&
         Objects.equals(this.offer, startSubscriptionRequest.offer) &&
         Objects.equals(this.paymentCard, startSubscriptionRequest.paymentCard) &&
+        Objects.equals(this.paymentType, startSubscriptionRequest.paymentType) &&
+        Objects.equals(this.price, startSubscriptionRequest.price) &&
+        Objects.equals(this.privacyPolicyUrl, startSubscriptionRequest.privacyPolicyUrl) &&
         Objects.equals(this.subscriber, startSubscriptionRequest.subscriber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey, callbackUrl, couponCode, offer, paymentCard, subscriber);
+    return Objects.hash(callbackUrl, companySiteName, couponCode, editable, offer, paymentCard, paymentType, price, privacyPolicyUrl, subscriber);
   }
 
 
@@ -186,11 +322,15 @@ public class StartSubscriptionRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class StartSubscriptionRequest {\n");
     
-    sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
     sb.append("    callbackUrl: ").append(toIndentedString(callbackUrl)).append("\n");
+    sb.append("    companySiteName: ").append(toIndentedString(companySiteName)).append("\n");
     sb.append("    couponCode: ").append(toIndentedString(couponCode)).append("\n");
+    sb.append("    editable: ").append(toIndentedString(editable)).append("\n");
     sb.append("    offer: ").append(toIndentedString(offer)).append("\n");
     sb.append("    paymentCard: ").append(toIndentedString(paymentCard)).append("\n");
+    sb.append("    paymentType: ").append(toIndentedString(paymentType)).append("\n");
+    sb.append("    price: ").append(toIndentedString(price)).append("\n");
+    sb.append("    privacyPolicyUrl: ").append(toIndentedString(privacyPolicyUrl)).append("\n");
     sb.append("    subscriber: ").append(toIndentedString(subscriber)).append("\n");
     sb.append("}");
     return sb.toString();

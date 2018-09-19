@@ -26,13 +26,16 @@ import java.io.IOException;
 /**
  * PaymentCard
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-30T00:20:36.956+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-19T15:02:48.500+03:00")
 public class PaymentCard {
   @SerializedName("cardAlias")
   private String cardAlias = null;
 
   @SerializedName("cardExpiry")
   private String cardExpiry = null;
+
+  @SerializedName("cardFamily")
+  private String cardFamily = null;
 
   @SerializedName("cardHolderName")
   private String cardHolderName = null;
@@ -92,6 +95,24 @@ public class PaymentCard {
 
   public void setCardExpiry(String cardExpiry) {
     this.cardExpiry = cardExpiry;
+  }
+
+  public PaymentCard cardFamily(String cardFamily) {
+    this.cardFamily = cardFamily;
+    return this;
+  }
+
+   /**
+   * Get cardFamily
+   * @return cardFamily
+  **/
+  @ApiModelProperty(value = "")
+  public String getCardFamily() {
+    return cardFamily;
+  }
+
+  public void setCardFamily(String cardFamily) {
+    this.cardFamily = cardFamily;
   }
 
   public PaymentCard cardHolderName(String cardHolderName) {
@@ -250,6 +271,7 @@ public class PaymentCard {
     PaymentCard paymentCard = (PaymentCard) o;
     return Objects.equals(this.cardAlias, paymentCard.cardAlias) &&
         Objects.equals(this.cardExpiry, paymentCard.cardExpiry) &&
+        Objects.equals(this.cardFamily, paymentCard.cardFamily) &&
         Objects.equals(this.cardHolderName, paymentCard.cardHolderName) &&
         Objects.equals(this.cardNumber, paymentCard.cardNumber) &&
         Objects.equals(this.cardToken, paymentCard.cardToken) &&
@@ -262,7 +284,7 @@ public class PaymentCard {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cardAlias, cardExpiry, cardHolderName, cardNumber, cardToken, cardUserKey, cvc, expireMonth, expireYear, registerCard);
+    return Objects.hash(cardAlias, cardExpiry, cardFamily, cardHolderName, cardNumber, cardToken, cardUserKey, cvc, expireMonth, expireYear, registerCard);
   }
 
 
@@ -273,6 +295,7 @@ public class PaymentCard {
     
     sb.append("    cardAlias: ").append(toIndentedString(cardAlias)).append("\n");
     sb.append("    cardExpiry: ").append(toIndentedString(cardExpiry)).append("\n");
+    sb.append("    cardFamily: ").append(toIndentedString(cardFamily)).append("\n");
     sb.append("    cardHolderName: ").append(toIndentedString(cardHolderName)).append("\n");
     sb.append("    cardNumber: ").append(toIndentedString(cardNumber)).append("\n");
     sb.append("    cardToken: ").append(toIndentedString(cardToken)).append("\n");

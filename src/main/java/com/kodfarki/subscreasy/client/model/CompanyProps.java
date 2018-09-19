@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * CompanyProps
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-30T00:20:36.956+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-19T15:02:48.500+03:00")
 public class CompanyProps {
   @SerializedName("apiKey")
   private String apiKey = null;
@@ -41,26 +41,22 @@ public class CompanyProps {
   @SerializedName("id")
   private Long id = null;
 
-  @SerializedName("paymentGatewayApiKey")
-  private String paymentGatewayApiKey = null;
-
-  @SerializedName("paymentGatewaySecurityKey")
-  private String paymentGatewaySecurityKey = null;
-
   /**
-   * Gets or Sets paymentMethod
+   * Gets or Sets paymentGateway
    */
-  @JsonAdapter(PaymentMethodEnum.Adapter.class)
-  public enum PaymentMethodEnum {
+  @JsonAdapter(PaymentGatewayEnum.Adapter.class)
+  public enum PaymentGatewayEnum {
     OFFLINE("OFFLINE"),
     
     IYZICO("IYZICO"),
     
-    PAYU("PAYU");
+    PAYU("PAYU"),
+    
+    PAYTR("PAYTR");
 
     private String value;
 
-    PaymentMethodEnum(String value) {
+    PaymentGatewayEnum(String value) {
       this.value = value;
     }
 
@@ -73,8 +69,8 @@ public class CompanyProps {
       return String.valueOf(value);
     }
 
-    public static PaymentMethodEnum fromValue(String text) {
-      for (PaymentMethodEnum b : PaymentMethodEnum.values()) {
+    public static PaymentGatewayEnum fromValue(String text) {
+      for (PaymentGatewayEnum b : PaymentGatewayEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
           return b;
         }
@@ -82,22 +78,40 @@ public class CompanyProps {
       return null;
     }
 
-    public static class Adapter extends TypeAdapter<PaymentMethodEnum> {
+    public static class Adapter extends TypeAdapter<PaymentGatewayEnum> {
       @Override
-      public void write(final JsonWriter jsonWriter, final PaymentMethodEnum enumeration) throws IOException {
+      public void write(final JsonWriter jsonWriter, final PaymentGatewayEnum enumeration) throws IOException {
         jsonWriter.value(enumeration.getValue());
       }
 
       @Override
-      public PaymentMethodEnum read(final JsonReader jsonReader) throws IOException {
+      public PaymentGatewayEnum read(final JsonReader jsonReader) throws IOException {
         String value = jsonReader.nextString();
-        return PaymentMethodEnum.fromValue(String.valueOf(value));
+        return PaymentGatewayEnum.fromValue(String.valueOf(value));
       }
     }
   }
 
-  @SerializedName("paymentMethod")
-  private PaymentMethodEnum paymentMethod = null;
+  @SerializedName("paymentGateway")
+  private PaymentGatewayEnum paymentGateway = null;
+
+  @SerializedName("paymentGatewayApiKey")
+  private String paymentGatewayApiKey = null;
+
+  @SerializedName("paymentGatewaySecurityKey")
+  private String paymentGatewaySecurityKey = null;
+
+  @SerializedName("paytrMerchantId")
+  private Integer paytrMerchantId = null;
+
+  @SerializedName("payuMerchantKeyRenewals")
+  private String payuMerchantKeyRenewals = null;
+
+  @SerializedName("payuSecretKeyRenewals")
+  private String payuSecretKeyRenewals = null;
+
+  @SerializedName("privacyPolicyUrl")
+  private String privacyPolicyUrl = null;
 
   @SerializedName("secureKey")
   private String secureKey = null;
@@ -174,6 +188,24 @@ public class CompanyProps {
     this.id = id;
   }
 
+  public CompanyProps paymentGateway(PaymentGatewayEnum paymentGateway) {
+    this.paymentGateway = paymentGateway;
+    return this;
+  }
+
+   /**
+   * Get paymentGateway
+   * @return paymentGateway
+  **/
+  @ApiModelProperty(value = "")
+  public PaymentGatewayEnum getPaymentGateway() {
+    return paymentGateway;
+  }
+
+  public void setPaymentGateway(PaymentGatewayEnum paymentGateway) {
+    this.paymentGateway = paymentGateway;
+  }
+
   public CompanyProps paymentGatewayApiKey(String paymentGatewayApiKey) {
     this.paymentGatewayApiKey = paymentGatewayApiKey;
     return this;
@@ -210,22 +242,76 @@ public class CompanyProps {
     this.paymentGatewaySecurityKey = paymentGatewaySecurityKey;
   }
 
-  public CompanyProps paymentMethod(PaymentMethodEnum paymentMethod) {
-    this.paymentMethod = paymentMethod;
+  public CompanyProps paytrMerchantId(Integer paytrMerchantId) {
+    this.paytrMerchantId = paytrMerchantId;
     return this;
   }
 
    /**
-   * Get paymentMethod
-   * @return paymentMethod
+   * Get paytrMerchantId
+   * @return paytrMerchantId
   **/
   @ApiModelProperty(value = "")
-  public PaymentMethodEnum getPaymentMethod() {
-    return paymentMethod;
+  public Integer getPaytrMerchantId() {
+    return paytrMerchantId;
   }
 
-  public void setPaymentMethod(PaymentMethodEnum paymentMethod) {
-    this.paymentMethod = paymentMethod;
+  public void setPaytrMerchantId(Integer paytrMerchantId) {
+    this.paytrMerchantId = paytrMerchantId;
+  }
+
+  public CompanyProps payuMerchantKeyRenewals(String payuMerchantKeyRenewals) {
+    this.payuMerchantKeyRenewals = payuMerchantKeyRenewals;
+    return this;
+  }
+
+   /**
+   * Get payuMerchantKeyRenewals
+   * @return payuMerchantKeyRenewals
+  **/
+  @ApiModelProperty(value = "")
+  public String getPayuMerchantKeyRenewals() {
+    return payuMerchantKeyRenewals;
+  }
+
+  public void setPayuMerchantKeyRenewals(String payuMerchantKeyRenewals) {
+    this.payuMerchantKeyRenewals = payuMerchantKeyRenewals;
+  }
+
+  public CompanyProps payuSecretKeyRenewals(String payuSecretKeyRenewals) {
+    this.payuSecretKeyRenewals = payuSecretKeyRenewals;
+    return this;
+  }
+
+   /**
+   * Get payuSecretKeyRenewals
+   * @return payuSecretKeyRenewals
+  **/
+  @ApiModelProperty(value = "")
+  public String getPayuSecretKeyRenewals() {
+    return payuSecretKeyRenewals;
+  }
+
+  public void setPayuSecretKeyRenewals(String payuSecretKeyRenewals) {
+    this.payuSecretKeyRenewals = payuSecretKeyRenewals;
+  }
+
+  public CompanyProps privacyPolicyUrl(String privacyPolicyUrl) {
+    this.privacyPolicyUrl = privacyPolicyUrl;
+    return this;
+  }
+
+   /**
+   * Get privacyPolicyUrl
+   * @return privacyPolicyUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getPrivacyPolicyUrl() {
+    return privacyPolicyUrl;
+  }
+
+  public void setPrivacyPolicyUrl(String privacyPolicyUrl) {
+    this.privacyPolicyUrl = privacyPolicyUrl;
   }
 
   public CompanyProps secureKey(String secureKey) {
@@ -260,15 +346,19 @@ public class CompanyProps {
         Objects.equals(this.callbackUrl, companyProps.callbackUrl) &&
         Objects.equals(this.company, companyProps.company) &&
         Objects.equals(this.id, companyProps.id) &&
+        Objects.equals(this.paymentGateway, companyProps.paymentGateway) &&
         Objects.equals(this.paymentGatewayApiKey, companyProps.paymentGatewayApiKey) &&
         Objects.equals(this.paymentGatewaySecurityKey, companyProps.paymentGatewaySecurityKey) &&
-        Objects.equals(this.paymentMethod, companyProps.paymentMethod) &&
+        Objects.equals(this.paytrMerchantId, companyProps.paytrMerchantId) &&
+        Objects.equals(this.payuMerchantKeyRenewals, companyProps.payuMerchantKeyRenewals) &&
+        Objects.equals(this.payuSecretKeyRenewals, companyProps.payuSecretKeyRenewals) &&
+        Objects.equals(this.privacyPolicyUrl, companyProps.privacyPolicyUrl) &&
         Objects.equals(this.secureKey, companyProps.secureKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey, callbackUrl, company, id, paymentGatewayApiKey, paymentGatewaySecurityKey, paymentMethod, secureKey);
+    return Objects.hash(apiKey, callbackUrl, company, id, paymentGateway, paymentGatewayApiKey, paymentGatewaySecurityKey, paytrMerchantId, payuMerchantKeyRenewals, payuSecretKeyRenewals, privacyPolicyUrl, secureKey);
   }
 
 
@@ -281,9 +371,13 @@ public class CompanyProps {
     sb.append("    callbackUrl: ").append(toIndentedString(callbackUrl)).append("\n");
     sb.append("    company: ").append(toIndentedString(company)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    paymentGateway: ").append(toIndentedString(paymentGateway)).append("\n");
     sb.append("    paymentGatewayApiKey: ").append(toIndentedString(paymentGatewayApiKey)).append("\n");
     sb.append("    paymentGatewaySecurityKey: ").append(toIndentedString(paymentGatewaySecurityKey)).append("\n");
-    sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
+    sb.append("    paytrMerchantId: ").append(toIndentedString(paytrMerchantId)).append("\n");
+    sb.append("    payuMerchantKeyRenewals: ").append(toIndentedString(payuMerchantKeyRenewals)).append("\n");
+    sb.append("    payuSecretKeyRenewals: ").append(toIndentedString(payuSecretKeyRenewals)).append("\n");
+    sb.append("    privacyPolicyUrl: ").append(toIndentedString(privacyPolicyUrl)).append("\n");
     sb.append("    secureKey: ").append(toIndentedString(secureKey)).append("\n");
     sb.append("}");
     return sb.toString();

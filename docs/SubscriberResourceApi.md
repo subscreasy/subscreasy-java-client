@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**getAllSubscribersUsingGET**](SubscriberResourceApi.md#getAllSubscribersUsingGET) | **GET** /api/subscribers | getAllSubscribers
 [**getSubscriberByEmailUsingGET**](SubscriberResourceApi.md#getSubscriberByEmailUsingGET) | **GET** /api/subscribers/email/{email} | getSubscriberByEmail
 [**getSubscriberByNameUsingGET**](SubscriberResourceApi.md#getSubscriberByNameUsingGET) | **GET** /api/subscribers/name/{name} | getSubscriberByName
+[**getSubscriberBySecureIdUsingGET**](SubscriberResourceApi.md#getSubscriberBySecureIdUsingGET) | **GET** /api/subscribers/secureId/{secureId} | getSubscriberBySecureId
 [**getSubscriberUsingGET**](SubscriberResourceApi.md#getSubscriberUsingGET) | **GET** /api/subscribers/{id} | getSubscriber
 [**updateSubscriberUsingPUT**](SubscriberResourceApi.md#updateSubscriberUsingPUT) | **PUT** /api/subscribers | updateSubscriber
 
@@ -120,7 +121,7 @@ null (empty response body)
 
 <a name="getAllSubscribersUsingGET"></a>
 # **getAllSubscribersUsingGET**
-> List&lt;Subscriber&gt; getAllSubscribersUsingGET()
+> List&lt;Subscriber&gt; getAllSubscribersUsingGET(page, size, sort)
 
 getAllSubscribers
 
@@ -142,8 +143,11 @@ apiKey.setApiKey("YOUR API KEY");
 //apiKey.setApiKeyPrefix("Token");
 
 SubscriberResourceApi apiInstance = new SubscriberResourceApi();
+Integer page = 56; // Integer | Page number of the requested page
+Integer size = 56; // Integer | Size of a page
+List<String> sort = Arrays.asList("sort_example"); // List<String> | Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported.
 try {
-    List<Subscriber> result = apiInstance.getAllSubscribersUsingGET();
+    List<Subscriber> result = apiInstance.getAllSubscribersUsingGET(page, size, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SubscriberResourceApi#getAllSubscribersUsingGET");
@@ -152,7 +156,12 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **Integer**| Page number of the requested page | [optional]
+ **size** | **Integer**| Size of a page | [optional]
+ **sort** | [**List&lt;String&gt;**](String.md)| Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported. | [optional]
 
 ### Return type
 
@@ -263,6 +272,59 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List&lt;Subscriber&gt;**](Subscriber.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+<a name="getSubscriberBySecureIdUsingGET"></a>
+# **getSubscriberBySecureIdUsingGET**
+> Subscriber getSubscriberBySecureIdUsingGET(secureId)
+
+getSubscriberBySecureId
+
+### Example
+```java
+// Import classes:
+//import com.kodfarki.subscreasy.ApiClient;
+//import com.kodfarki.subscreasy.ApiException;
+//import com.kodfarki.subscreasy.Configuration;
+//import com.kodfarki.subscreasy.auth.*;
+//import com.kodfarki.subscreasy.client.SubscriberResourceApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKey
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+apiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKey.setApiKeyPrefix("Token");
+
+SubscriberResourceApi apiInstance = new SubscriberResourceApi();
+String secureId = "secureId_example"; // String | secureId
+try {
+    Subscriber result = apiInstance.getSubscriberBySecureIdUsingGET(secureId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling SubscriberResourceApi#getSubscriberBySecureIdUsingGET");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **secureId** | **String**| secureId |
+
+### Return type
+
+[**Subscriber**](Subscriber.md)
 
 ### Authorization
 

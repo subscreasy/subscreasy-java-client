@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.kodfarki.subscreasy.client.model.ChargingLog;
+import com.kodfarki.subscreasy.client.model.SavedCard;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -29,7 +29,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * ChargingLog
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-30T00:20:36.956+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-19T15:02:48.500+03:00")
 public class ChargingLog {
   @SerializedName("appliedCoupon")
   private Long appliedCoupon = null;
@@ -61,8 +61,11 @@ public class ChargingLog {
   @SerializedName("jobId")
   private Long jobId = null;
 
-  @SerializedName("parent")
-  private ChargingLog parent = null;
+  @SerializedName("offerId")
+  private Long offerId = null;
+
+  @SerializedName("parentId")
+  private Long parentId = null;
 
   /**
    * Gets or Sets paymentGateway
@@ -73,7 +76,9 @@ public class ChargingLog {
     
     IYZICO("IYZICO"),
     
-    PAYU("PAYU");
+    PAYU("PAYU"),
+    
+    PAYTR("PAYTR");
 
     private String value;
 
@@ -133,7 +138,11 @@ public class ChargingLog {
     
     OVER_USAGE("OVER_USAGE"),
     
-    REFUND("REFUND");
+    REFUND("REFUND"),
+    
+    SAVE_CARD("SAVE_CARD"),
+    
+    TRIAL_PERIOD("TRIAL_PERIOD");
 
     private String value;
 
@@ -176,6 +185,12 @@ public class ChargingLog {
   @SerializedName("reason")
   private ReasonEnum reason = null;
 
+  @SerializedName("savedCard")
+  private SavedCard savedCard = null;
+
+  @SerializedName("savedCardId")
+  private Long savedCardId = null;
+
   @SerializedName("serviceInstanceId")
   private Long serviceInstanceId = null;
 
@@ -186,7 +201,7 @@ public class ChargingLog {
   public enum StatusEnum {
     NOT_PAID("NOT_PAID"),
     
-    SUCCESS("SUCCESS"),
+    PAID("PAID"),
     
     FAIL("FAIL"),
     
@@ -422,22 +437,40 @@ public class ChargingLog {
     this.jobId = jobId;
   }
 
-  public ChargingLog parent(ChargingLog parent) {
-    this.parent = parent;
+  public ChargingLog offerId(Long offerId) {
+    this.offerId = offerId;
     return this;
   }
 
    /**
-   * Get parent
-   * @return parent
+   * Get offerId
+   * @return offerId
   **/
   @ApiModelProperty(value = "")
-  public ChargingLog getParent() {
-    return parent;
+  public Long getOfferId() {
+    return offerId;
   }
 
-  public void setParent(ChargingLog parent) {
-    this.parent = parent;
+  public void setOfferId(Long offerId) {
+    this.offerId = offerId;
+  }
+
+  public ChargingLog parentId(Long parentId) {
+    this.parentId = parentId;
+    return this;
+  }
+
+   /**
+   * Get parentId
+   * @return parentId
+  **/
+  @ApiModelProperty(value = "")
+  public Long getParentId() {
+    return parentId;
+  }
+
+  public void setParentId(Long parentId) {
+    this.parentId = parentId;
   }
 
   public ChargingLog paymentGateway(PaymentGatewayEnum paymentGateway) {
@@ -510,6 +543,42 @@ public class ChargingLog {
 
   public void setReason(ReasonEnum reason) {
     this.reason = reason;
+  }
+
+  public ChargingLog savedCard(SavedCard savedCard) {
+    this.savedCard = savedCard;
+    return this;
+  }
+
+   /**
+   * Get savedCard
+   * @return savedCard
+  **/
+  @ApiModelProperty(value = "")
+  public SavedCard getSavedCard() {
+    return savedCard;
+  }
+
+  public void setSavedCard(SavedCard savedCard) {
+    this.savedCard = savedCard;
+  }
+
+  public ChargingLog savedCardId(Long savedCardId) {
+    this.savedCardId = savedCardId;
+    return this;
+  }
+
+   /**
+   * Get savedCardId
+   * @return savedCardId
+  **/
+  @ApiModelProperty(value = "")
+  public Long getSavedCardId() {
+    return savedCardId;
+  }
+
+  public void setSavedCardId(Long savedCardId) {
+    this.savedCardId = savedCardId;
   }
 
   public ChargingLog serviceInstanceId(Long serviceInstanceId) {
@@ -622,11 +691,14 @@ public class ChargingLog {
         Objects.equals(this.id, chargingLog.id) &&
         Objects.equals(this.invoiceId, chargingLog.invoiceId) &&
         Objects.equals(this.jobId, chargingLog.jobId) &&
-        Objects.equals(this.parent, chargingLog.parent) &&
+        Objects.equals(this.offerId, chargingLog.offerId) &&
+        Objects.equals(this.parentId, chargingLog.parentId) &&
         Objects.equals(this.paymentGateway, chargingLog.paymentGateway) &&
         Objects.equals(this.paymentId, chargingLog.paymentId) &&
         Objects.equals(this.price, chargingLog.price) &&
         Objects.equals(this.reason, chargingLog.reason) &&
+        Objects.equals(this.savedCard, chargingLog.savedCard) &&
+        Objects.equals(this.savedCardId, chargingLog.savedCardId) &&
         Objects.equals(this.serviceInstanceId, chargingLog.serviceInstanceId) &&
         Objects.equals(this.status, chargingLog.status) &&
         Objects.equals(this.subscriberSecureId, chargingLog.subscriberSecureId) &&
@@ -636,7 +708,7 @@ public class ChargingLog {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appliedCoupon, authCode, companyId, createDate, currency, errorCode, errorText, id, invoiceId, jobId, parent, paymentGateway, paymentId, price, reason, serviceInstanceId, status, subscriberSecureId, subscriptionId, transactionId);
+    return Objects.hash(appliedCoupon, authCode, companyId, createDate, currency, errorCode, errorText, id, invoiceId, jobId, offerId, parentId, paymentGateway, paymentId, price, reason, savedCard, savedCardId, serviceInstanceId, status, subscriberSecureId, subscriptionId, transactionId);
   }
 
 
@@ -655,11 +727,14 @@ public class ChargingLog {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    invoiceId: ").append(toIndentedString(invoiceId)).append("\n");
     sb.append("    jobId: ").append(toIndentedString(jobId)).append("\n");
-    sb.append("    parent: ").append(toIndentedString(parent)).append("\n");
+    sb.append("    offerId: ").append(toIndentedString(offerId)).append("\n");
+    sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
     sb.append("    paymentGateway: ").append(toIndentedString(paymentGateway)).append("\n");
     sb.append("    paymentId: ").append(toIndentedString(paymentId)).append("\n");
     sb.append("    price: ").append(toIndentedString(price)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
+    sb.append("    savedCard: ").append(toIndentedString(savedCard)).append("\n");
+    sb.append("    savedCardId: ").append(toIndentedString(savedCardId)).append("\n");
     sb.append("    serviceInstanceId: ").append(toIndentedString(serviceInstanceId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subscriberSecureId: ").append(toIndentedString(subscriberSecureId)).append("\n");

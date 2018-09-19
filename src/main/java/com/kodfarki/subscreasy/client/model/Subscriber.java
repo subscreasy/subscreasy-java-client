@@ -19,124 +19,109 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.kodfarki.subscreasy.client.model.Address;
+import com.kodfarki.subscreasy.client.model.Company;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
 
 /**
  * Subscriber
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-30T00:20:36.956+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-19T15:02:48.500+03:00")
 public class Subscriber {
-  @SerializedName("address")
-  private String address = null;
+  @SerializedName("billingAddress")
+  private Address billingAddress = null;
 
-  @SerializedName("city")
-  private String city = null;
+  @SerializedName("company")
+  private Company company = null;
 
-  @SerializedName("country")
-  private String country = null;
+  @SerializedName("createDate")
+  private OffsetDateTime createDate = null;
 
   @SerializedName("email")
   private String email = null;
 
-  @SerializedName("gsmNumber")
-  private String gsmNumber = null;
+  @SerializedName("id")
+  private Long id = null;
 
-  @SerializedName("identityNumber")
-  private String identityNumber = null;
-
-  @SerializedName("ip")
-  private String ip = null;
-
-  @SerializedName("lastLoginDate")
-  private String lastLoginDate = null;
+  @SerializedName("identificationNo")
+  private String identificationNo = null;
 
   @SerializedName("name")
   private String name = null;
 
-  @SerializedName("registrationDate")
-  private String registrationDate = null;
+  @SerializedName("phoneNumber")
+  private String phoneNumber = null;
 
   @SerializedName("secureId")
   private String secureId = null;
 
   @SerializedName("shippingAddress")
-  private String shippingAddress = null;
-
-  @SerializedName("shippingCity")
-  private String shippingCity = null;
-
-  @SerializedName("shippingCountry")
-  private String shippingCountry = null;
-
-  @SerializedName("shippingName")
-  private String shippingName = null;
-
-  @SerializedName("shippingZipCode")
-  private String shippingZipCode = null;
+  private Address shippingAddress = null;
 
   @SerializedName("surname")
   private String surname = null;
 
-  @SerializedName("useBillingAddressForShipping")
-  private Boolean useBillingAddressForShipping = null;
+  @SerializedName("taxNumber")
+  private String taxNumber = null;
 
-  @SerializedName("zipCode")
-  private String zipCode = null;
+  @SerializedName("worksFor")
+  private String worksFor = null;
 
-  public Subscriber address(String address) {
-    this.address = address;
+  public Subscriber billingAddress(Address billingAddress) {
+    this.billingAddress = billingAddress;
     return this;
   }
 
    /**
-   * Get address
-   * @return address
+   * Get billingAddress
+   * @return billingAddress
   **/
   @ApiModelProperty(value = "")
-  public String getAddress() {
-    return address;
+  public Address getBillingAddress() {
+    return billingAddress;
   }
 
-  public void setAddress(String address) {
-    this.address = address;
+  public void setBillingAddress(Address billingAddress) {
+    this.billingAddress = billingAddress;
   }
 
-  public Subscriber city(String city) {
-    this.city = city;
+  public Subscriber company(Company company) {
+    this.company = company;
     return this;
   }
 
    /**
-   * Get city
-   * @return city
+   * Get company
+   * @return company
   **/
   @ApiModelProperty(value = "")
-  public String getCity() {
-    return city;
+  public Company getCompany() {
+    return company;
   }
 
-  public void setCity(String city) {
-    this.city = city;
+  public void setCompany(Company company) {
+    this.company = company;
   }
 
-  public Subscriber country(String country) {
-    this.country = country;
+  public Subscriber createDate(OffsetDateTime createDate) {
+    this.createDate = createDate;
     return this;
   }
 
    /**
-   * Get country
-   * @return country
+   * Get createDate
+   * @return createDate
   **/
   @ApiModelProperty(value = "")
-  public String getCountry() {
-    return country;
+  public OffsetDateTime getCreateDate() {
+    return createDate;
   }
 
-  public void setCountry(String country) {
-    this.country = country;
+  public void setCreateDate(OffsetDateTime createDate) {
+    this.createDate = createDate;
   }
 
   public Subscriber email(String email) {
@@ -157,76 +142,40 @@ public class Subscriber {
     this.email = email;
   }
 
-  public Subscriber gsmNumber(String gsmNumber) {
-    this.gsmNumber = gsmNumber;
+  public Subscriber id(Long id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get gsmNumber
-   * @return gsmNumber
+   * Get id
+   * @return id
   **/
   @ApiModelProperty(value = "")
-  public String getGsmNumber() {
-    return gsmNumber;
+  public Long getId() {
+    return id;
   }
 
-  public void setGsmNumber(String gsmNumber) {
-    this.gsmNumber = gsmNumber;
+  public void setId(Long id) {
+    this.id = id;
   }
 
-  public Subscriber identityNumber(String identityNumber) {
-    this.identityNumber = identityNumber;
+  public Subscriber identificationNo(String identificationNo) {
+    this.identificationNo = identificationNo;
     return this;
   }
 
    /**
-   * Get identityNumber
-   * @return identityNumber
+   * Get identificationNo
+   * @return identificationNo
   **/
   @ApiModelProperty(value = "")
-  public String getIdentityNumber() {
-    return identityNumber;
+  public String getIdentificationNo() {
+    return identificationNo;
   }
 
-  public void setIdentityNumber(String identityNumber) {
-    this.identityNumber = identityNumber;
-  }
-
-  public Subscriber ip(String ip) {
-    this.ip = ip;
-    return this;
-  }
-
-   /**
-   * Get ip
-   * @return ip
-  **/
-  @ApiModelProperty(value = "")
-  public String getIp() {
-    return ip;
-  }
-
-  public void setIp(String ip) {
-    this.ip = ip;
-  }
-
-  public Subscriber lastLoginDate(String lastLoginDate) {
-    this.lastLoginDate = lastLoginDate;
-    return this;
-  }
-
-   /**
-   * Get lastLoginDate
-   * @return lastLoginDate
-  **/
-  @ApiModelProperty(value = "")
-  public String getLastLoginDate() {
-    return lastLoginDate;
-  }
-
-  public void setLastLoginDate(String lastLoginDate) {
-    this.lastLoginDate = lastLoginDate;
+  public void setIdentificationNo(String identificationNo) {
+    this.identificationNo = identificationNo;
   }
 
   public Subscriber name(String name) {
@@ -247,22 +196,22 @@ public class Subscriber {
     this.name = name;
   }
 
-  public Subscriber registrationDate(String registrationDate) {
-    this.registrationDate = registrationDate;
+  public Subscriber phoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
     return this;
   }
 
    /**
-   * Get registrationDate
-   * @return registrationDate
+   * Get phoneNumber
+   * @return phoneNumber
   **/
   @ApiModelProperty(value = "")
-  public String getRegistrationDate() {
-    return registrationDate;
+  public String getPhoneNumber() {
+    return phoneNumber;
   }
 
-  public void setRegistrationDate(String registrationDate) {
-    this.registrationDate = registrationDate;
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
   }
 
   public Subscriber secureId(String secureId) {
@@ -283,7 +232,7 @@ public class Subscriber {
     this.secureId = secureId;
   }
 
-  public Subscriber shippingAddress(String shippingAddress) {
+  public Subscriber shippingAddress(Address shippingAddress) {
     this.shippingAddress = shippingAddress;
     return this;
   }
@@ -293,84 +242,12 @@ public class Subscriber {
    * @return shippingAddress
   **/
   @ApiModelProperty(value = "")
-  public String getShippingAddress() {
+  public Address getShippingAddress() {
     return shippingAddress;
   }
 
-  public void setShippingAddress(String shippingAddress) {
+  public void setShippingAddress(Address shippingAddress) {
     this.shippingAddress = shippingAddress;
-  }
-
-  public Subscriber shippingCity(String shippingCity) {
-    this.shippingCity = shippingCity;
-    return this;
-  }
-
-   /**
-   * Get shippingCity
-   * @return shippingCity
-  **/
-  @ApiModelProperty(value = "")
-  public String getShippingCity() {
-    return shippingCity;
-  }
-
-  public void setShippingCity(String shippingCity) {
-    this.shippingCity = shippingCity;
-  }
-
-  public Subscriber shippingCountry(String shippingCountry) {
-    this.shippingCountry = shippingCountry;
-    return this;
-  }
-
-   /**
-   * Get shippingCountry
-   * @return shippingCountry
-  **/
-  @ApiModelProperty(value = "")
-  public String getShippingCountry() {
-    return shippingCountry;
-  }
-
-  public void setShippingCountry(String shippingCountry) {
-    this.shippingCountry = shippingCountry;
-  }
-
-  public Subscriber shippingName(String shippingName) {
-    this.shippingName = shippingName;
-    return this;
-  }
-
-   /**
-   * Get shippingName
-   * @return shippingName
-  **/
-  @ApiModelProperty(value = "")
-  public String getShippingName() {
-    return shippingName;
-  }
-
-  public void setShippingName(String shippingName) {
-    this.shippingName = shippingName;
-  }
-
-  public Subscriber shippingZipCode(String shippingZipCode) {
-    this.shippingZipCode = shippingZipCode;
-    return this;
-  }
-
-   /**
-   * Get shippingZipCode
-   * @return shippingZipCode
-  **/
-  @ApiModelProperty(value = "")
-  public String getShippingZipCode() {
-    return shippingZipCode;
-  }
-
-  public void setShippingZipCode(String shippingZipCode) {
-    this.shippingZipCode = shippingZipCode;
   }
 
   public Subscriber surname(String surname) {
@@ -391,40 +268,40 @@ public class Subscriber {
     this.surname = surname;
   }
 
-  public Subscriber useBillingAddressForShipping(Boolean useBillingAddressForShipping) {
-    this.useBillingAddressForShipping = useBillingAddressForShipping;
+  public Subscriber taxNumber(String taxNumber) {
+    this.taxNumber = taxNumber;
     return this;
   }
 
    /**
-   * Get useBillingAddressForShipping
-   * @return useBillingAddressForShipping
+   * Get taxNumber
+   * @return taxNumber
   **/
   @ApiModelProperty(value = "")
-  public Boolean isUseBillingAddressForShipping() {
-    return useBillingAddressForShipping;
+  public String getTaxNumber() {
+    return taxNumber;
   }
 
-  public void setUseBillingAddressForShipping(Boolean useBillingAddressForShipping) {
-    this.useBillingAddressForShipping = useBillingAddressForShipping;
+  public void setTaxNumber(String taxNumber) {
+    this.taxNumber = taxNumber;
   }
 
-  public Subscriber zipCode(String zipCode) {
-    this.zipCode = zipCode;
+  public Subscriber worksFor(String worksFor) {
+    this.worksFor = worksFor;
     return this;
   }
 
    /**
-   * Get zipCode
-   * @return zipCode
+   * Get worksFor
+   * @return worksFor
   **/
   @ApiModelProperty(value = "")
-  public String getZipCode() {
-    return zipCode;
+  public String getWorksFor() {
+    return worksFor;
   }
 
-  public void setZipCode(String zipCode) {
-    this.zipCode = zipCode;
+  public void setWorksFor(String worksFor) {
+    this.worksFor = worksFor;
   }
 
 
@@ -437,30 +314,24 @@ public class Subscriber {
       return false;
     }
     Subscriber subscriber = (Subscriber) o;
-    return Objects.equals(this.address, subscriber.address) &&
-        Objects.equals(this.city, subscriber.city) &&
-        Objects.equals(this.country, subscriber.country) &&
+    return Objects.equals(this.billingAddress, subscriber.billingAddress) &&
+        Objects.equals(this.company, subscriber.company) &&
+        Objects.equals(this.createDate, subscriber.createDate) &&
         Objects.equals(this.email, subscriber.email) &&
-        Objects.equals(this.gsmNumber, subscriber.gsmNumber) &&
-        Objects.equals(this.identityNumber, subscriber.identityNumber) &&
-        Objects.equals(this.ip, subscriber.ip) &&
-        Objects.equals(this.lastLoginDate, subscriber.lastLoginDate) &&
+        Objects.equals(this.id, subscriber.id) &&
+        Objects.equals(this.identificationNo, subscriber.identificationNo) &&
         Objects.equals(this.name, subscriber.name) &&
-        Objects.equals(this.registrationDate, subscriber.registrationDate) &&
+        Objects.equals(this.phoneNumber, subscriber.phoneNumber) &&
         Objects.equals(this.secureId, subscriber.secureId) &&
         Objects.equals(this.shippingAddress, subscriber.shippingAddress) &&
-        Objects.equals(this.shippingCity, subscriber.shippingCity) &&
-        Objects.equals(this.shippingCountry, subscriber.shippingCountry) &&
-        Objects.equals(this.shippingName, subscriber.shippingName) &&
-        Objects.equals(this.shippingZipCode, subscriber.shippingZipCode) &&
         Objects.equals(this.surname, subscriber.surname) &&
-        Objects.equals(this.useBillingAddressForShipping, subscriber.useBillingAddressForShipping) &&
-        Objects.equals(this.zipCode, subscriber.zipCode);
+        Objects.equals(this.taxNumber, subscriber.taxNumber) &&
+        Objects.equals(this.worksFor, subscriber.worksFor);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, city, country, email, gsmNumber, identityNumber, ip, lastLoginDate, name, registrationDate, secureId, shippingAddress, shippingCity, shippingCountry, shippingName, shippingZipCode, surname, useBillingAddressForShipping, zipCode);
+    return Objects.hash(billingAddress, company, createDate, email, id, identificationNo, name, phoneNumber, secureId, shippingAddress, surname, taxNumber, worksFor);
   }
 
 
@@ -469,25 +340,19 @@ public class Subscriber {
     StringBuilder sb = new StringBuilder();
     sb.append("class Subscriber {\n");
     
-    sb.append("    address: ").append(toIndentedString(address)).append("\n");
-    sb.append("    city: ").append(toIndentedString(city)).append("\n");
-    sb.append("    country: ").append(toIndentedString(country)).append("\n");
+    sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
+    sb.append("    company: ").append(toIndentedString(company)).append("\n");
+    sb.append("    createDate: ").append(toIndentedString(createDate)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    gsmNumber: ").append(toIndentedString(gsmNumber)).append("\n");
-    sb.append("    identityNumber: ").append(toIndentedString(identityNumber)).append("\n");
-    sb.append("    ip: ").append(toIndentedString(ip)).append("\n");
-    sb.append("    lastLoginDate: ").append(toIndentedString(lastLoginDate)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    identificationNo: ").append(toIndentedString(identificationNo)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    registrationDate: ").append(toIndentedString(registrationDate)).append("\n");
+    sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    secureId: ").append(toIndentedString(secureId)).append("\n");
     sb.append("    shippingAddress: ").append(toIndentedString(shippingAddress)).append("\n");
-    sb.append("    shippingCity: ").append(toIndentedString(shippingCity)).append("\n");
-    sb.append("    shippingCountry: ").append(toIndentedString(shippingCountry)).append("\n");
-    sb.append("    shippingName: ").append(toIndentedString(shippingName)).append("\n");
-    sb.append("    shippingZipCode: ").append(toIndentedString(shippingZipCode)).append("\n");
     sb.append("    surname: ").append(toIndentedString(surname)).append("\n");
-    sb.append("    useBillingAddressForShipping: ").append(toIndentedString(useBillingAddressForShipping)).append("\n");
-    sb.append("    zipCode: ").append(toIndentedString(zipCode)).append("\n");
+    sb.append("    taxNumber: ").append(toIndentedString(taxNumber)).append("\n");
+    sb.append("    worksFor: ").append(toIndentedString(worksFor)).append("\n");
     sb.append("}");
     return sb.toString();
   }

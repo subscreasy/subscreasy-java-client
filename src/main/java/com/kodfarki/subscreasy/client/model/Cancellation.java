@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * Cancellation
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-30T00:20:36.956+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-19T15:02:48.500+03:00")
 public class Cancellation {
   /**
    * Gets or Sets cancellationType
@@ -78,6 +78,9 @@ public class Cancellation {
   @SerializedName("cancellationType")
   private CancellationTypeEnum cancellationType = null;
 
+  @SerializedName("subscriberId")
+  private Long subscriberId = null;
+
   @SerializedName("subscriptionId")
   private Long subscriptionId = null;
 
@@ -97,6 +100,24 @@ public class Cancellation {
 
   public void setCancellationType(CancellationTypeEnum cancellationType) {
     this.cancellationType = cancellationType;
+  }
+
+  public Cancellation subscriberId(Long subscriberId) {
+    this.subscriberId = subscriberId;
+    return this;
+  }
+
+   /**
+   * Get subscriberId
+   * @return subscriberId
+  **/
+  @ApiModelProperty(value = "")
+  public Long getSubscriberId() {
+    return subscriberId;
+  }
+
+  public void setSubscriberId(Long subscriberId) {
+    this.subscriberId = subscriberId;
   }
 
   public Cancellation subscriptionId(Long subscriptionId) {
@@ -128,12 +149,13 @@ public class Cancellation {
     }
     Cancellation cancellation = (Cancellation) o;
     return Objects.equals(this.cancellationType, cancellation.cancellationType) &&
+        Objects.equals(this.subscriberId, cancellation.subscriberId) &&
         Objects.equals(this.subscriptionId, cancellation.subscriptionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cancellationType, subscriptionId);
+    return Objects.hash(cancellationType, subscriberId, subscriptionId);
   }
 
 
@@ -143,6 +165,7 @@ public class Cancellation {
     sb.append("class Cancellation {\n");
     
     sb.append("    cancellationType: ").append(toIndentedString(cancellationType)).append("\n");
+    sb.append("    subscriberId: ").append(toIndentedString(subscriberId)).append("\n");
     sb.append("    subscriptionId: ").append(toIndentedString(subscriptionId)).append("\n");
     sb.append("}");
     return sb.toString();

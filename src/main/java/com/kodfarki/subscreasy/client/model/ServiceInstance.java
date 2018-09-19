@@ -31,11 +31,8 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * ServiceInstance
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-30T00:20:36.956+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-19T15:02:48.500+03:00")
 public class ServiceInstance {
-  @SerializedName("capacity")
-  private BigDecimal capacity = null;
-
   @SerializedName("currentUsage")
   private BigDecimal currentUsage = null;
 
@@ -112,58 +109,6 @@ public class ServiceInstance {
 
   @SerializedName("serviceOffering")
   private ServiceOffering serviceOffering = null;
-
-  /**
-   * Gets or Sets serviceType
-   */
-  @JsonAdapter(ServiceTypeEnum.Adapter.class)
-  public enum ServiceTypeEnum {
-    ONOFF("ONOFF"),
-    
-    SEAT_BASED("SEAT_BASED"),
-    
-    USAGE_BASED("USAGE_BASED");
-
-    private String value;
-
-    ServiceTypeEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static ServiceTypeEnum fromValue(String text) {
-      for (ServiceTypeEnum b : ServiceTypeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      return null;
-    }
-
-    public static class Adapter extends TypeAdapter<ServiceTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ServiceTypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public ServiceTypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return ServiceTypeEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
-
-  @SerializedName("serviceType")
-  private ServiceTypeEnum serviceType = null;
 
   @SerializedName("startDate")
   private OffsetDateTime startDate = null;
@@ -284,24 +229,6 @@ public class ServiceInstance {
 
   @SerializedName("version")
   private Long version = null;
-
-  public ServiceInstance capacity(BigDecimal capacity) {
-    this.capacity = capacity;
-    return this;
-  }
-
-   /**
-   * Get capacity
-   * @return capacity
-  **/
-  @ApiModelProperty(value = "")
-  public BigDecimal getCapacity() {
-    return capacity;
-  }
-
-  public void setCapacity(BigDecimal capacity) {
-    this.capacity = capacity;
-  }
 
   public ServiceInstance currentUsage(BigDecimal currentUsage) {
     this.currentUsage = currentUsage;
@@ -483,24 +410,6 @@ public class ServiceInstance {
     this.serviceOffering = serviceOffering;
   }
 
-  public ServiceInstance serviceType(ServiceTypeEnum serviceType) {
-    this.serviceType = serviceType;
-    return this;
-  }
-
-   /**
-   * Get serviceType
-   * @return serviceType
-  **/
-  @ApiModelProperty(value = "")
-  public ServiceTypeEnum getServiceType() {
-    return serviceType;
-  }
-
-  public void setServiceType(ServiceTypeEnum serviceType) {
-    this.serviceType = serviceType;
-  }
-
   public ServiceInstance startDate(OffsetDateTime startDate) {
     this.startDate = startDate;
     return this;
@@ -619,8 +528,7 @@ public class ServiceInstance {
       return false;
     }
     ServiceInstance serviceInstance = (ServiceInstance) o;
-    return Objects.equals(this.capacity, serviceInstance.capacity) &&
-        Objects.equals(this.currentUsage, serviceInstance.currentUsage) &&
+    return Objects.equals(this.currentUsage, serviceInstance.currentUsage) &&
         Objects.equals(this.endDate, serviceInstance.endDate) &&
         Objects.equals(this.id, serviceInstance.id) &&
         Objects.equals(this.name, serviceInstance.name) &&
@@ -630,7 +538,6 @@ public class ServiceInstance {
         Objects.equals(this.overUsageQuota, serviceInstance.overUsageQuota) &&
         Objects.equals(this.quotaOrigin, serviceInstance.quotaOrigin) &&
         Objects.equals(this.serviceOffering, serviceInstance.serviceOffering) &&
-        Objects.equals(this.serviceType, serviceInstance.serviceType) &&
         Objects.equals(this.startDate, serviceInstance.startDate) &&
         Objects.equals(this.status, serviceInstance.status) &&
         Objects.equals(this.subscriberId, serviceInstance.subscriberId) &&
@@ -641,7 +548,7 @@ public class ServiceInstance {
 
   @Override
   public int hashCode() {
-    return Objects.hash(capacity, currentUsage, endDate, id, name, numberOfUnits, offer, overUsage, overUsageQuota, quotaOrigin, serviceOffering, serviceType, startDate, status, subscriberId, subscription, type, version);
+    return Objects.hash(currentUsage, endDate, id, name, numberOfUnits, offer, overUsage, overUsageQuota, quotaOrigin, serviceOffering, startDate, status, subscriberId, subscription, type, version);
   }
 
 
@@ -650,7 +557,6 @@ public class ServiceInstance {
     StringBuilder sb = new StringBuilder();
     sb.append("class ServiceInstance {\n");
     
-    sb.append("    capacity: ").append(toIndentedString(capacity)).append("\n");
     sb.append("    currentUsage: ").append(toIndentedString(currentUsage)).append("\n");
     sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
@@ -661,7 +567,6 @@ public class ServiceInstance {
     sb.append("    overUsageQuota: ").append(toIndentedString(overUsageQuota)).append("\n");
     sb.append("    quotaOrigin: ").append(toIndentedString(quotaOrigin)).append("\n");
     sb.append("    serviceOffering: ").append(toIndentedString(serviceOffering)).append("\n");
-    sb.append("    serviceType: ").append(toIndentedString(serviceType)).append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subscriberId: ").append(toIndentedString(subscriberId)).append("\n");

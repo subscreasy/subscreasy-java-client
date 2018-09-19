@@ -4,13 +4,69 @@ All URIs are relative to *https://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**createCompanyUserUsingPOST**](UserResourceApi.md#createCompanyUserUsingPOST) | **POST** /api/users/company | createCompanyUser
 [**createUserUsingPOST**](UserResourceApi.md#createUserUsingPOST) | **POST** /api/users | createUser
 [**deleteUserUsingDELETE**](UserResourceApi.md#deleteUserUsingDELETE) | **DELETE** /api/users/{login} | deleteUser
+[**getAllUsersByAuthenticatedCompanyUsingGET**](UserResourceApi.md#getAllUsersByAuthenticatedCompanyUsingGET) | **GET** /api/users/company | getAllUsersByAuthenticatedCompany
+[**getAllUsersByCompanyIdUsingGET**](UserResourceApi.md#getAllUsersByCompanyIdUsingGET) | **GET** /api/users/company/{companyId} | getAllUsersByCompanyId
 [**getAllUsersUsingGET**](UserResourceApi.md#getAllUsersUsingGET) | **GET** /api/users | getAllUsers
 [**getAuthoritiesUsingGET**](UserResourceApi.md#getAuthoritiesUsingGET) | **GET** /api/users/authorities | getAuthorities
 [**getUserUsingGET**](UserResourceApi.md#getUserUsingGET) | **GET** /api/users/{login} | getUser
 [**updateUserUsingPUT**](UserResourceApi.md#updateUserUsingPUT) | **PUT** /api/users | updateUser
 
+
+<a name="createCompanyUserUsingPOST"></a>
+# **createCompanyUserUsingPOST**
+> ResponseEntity createCompanyUserUsingPOST(managedUserVM)
+
+createCompanyUser
+
+### Example
+```java
+// Import classes:
+//import com.kodfarki.subscreasy.ApiClient;
+//import com.kodfarki.subscreasy.ApiException;
+//import com.kodfarki.subscreasy.Configuration;
+//import com.kodfarki.subscreasy.auth.*;
+//import com.kodfarki.subscreasy.client.UserResourceApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKey
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+apiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKey.setApiKeyPrefix("Token");
+
+UserResourceApi apiInstance = new UserResourceApi();
+ManagedUserVM managedUserVM = new ManagedUserVM(); // ManagedUserVM | managedUserVM
+try {
+    ResponseEntity result = apiInstance.createCompanyUserUsingPOST(managedUserVM);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling UserResourceApi#createCompanyUserUsingPOST");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **managedUserVM** | [**ManagedUserVM**](ManagedUserVM.md)| managedUserVM |
+
+### Return type
+
+[**ResponseEntity**](ResponseEntity.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
 
 <a name="createUserUsingPOST"></a>
 # **createUserUsingPOST**
@@ -107,6 +163,108 @@ Name | Type | Description  | Notes
 ### Return type
 
 null (empty response body)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+<a name="getAllUsersByAuthenticatedCompanyUsingGET"></a>
+# **getAllUsersByAuthenticatedCompanyUsingGET**
+> List&lt;User&gt; getAllUsersByAuthenticatedCompanyUsingGET()
+
+getAllUsersByAuthenticatedCompany
+
+### Example
+```java
+// Import classes:
+//import com.kodfarki.subscreasy.ApiClient;
+//import com.kodfarki.subscreasy.ApiException;
+//import com.kodfarki.subscreasy.Configuration;
+//import com.kodfarki.subscreasy.auth.*;
+//import com.kodfarki.subscreasy.client.UserResourceApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKey
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+apiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKey.setApiKeyPrefix("Token");
+
+UserResourceApi apiInstance = new UserResourceApi();
+try {
+    List<User> result = apiInstance.getAllUsersByAuthenticatedCompanyUsingGET();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling UserResourceApi#getAllUsersByAuthenticatedCompanyUsingGET");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**List&lt;User&gt;**](User.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+<a name="getAllUsersByCompanyIdUsingGET"></a>
+# **getAllUsersByCompanyIdUsingGET**
+> List&lt;User&gt; getAllUsersByCompanyIdUsingGET(companyId)
+
+getAllUsersByCompanyId
+
+### Example
+```java
+// Import classes:
+//import com.kodfarki.subscreasy.ApiClient;
+//import com.kodfarki.subscreasy.ApiException;
+//import com.kodfarki.subscreasy.Configuration;
+//import com.kodfarki.subscreasy.auth.*;
+//import com.kodfarki.subscreasy.client.UserResourceApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKey
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+apiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKey.setApiKeyPrefix("Token");
+
+UserResourceApi apiInstance = new UserResourceApi();
+Long companyId = 789L; // Long | companyId
+try {
+    List<User> result = apiInstance.getAllUsersByCompanyIdUsingGET(companyId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling UserResourceApi#getAllUsersByCompanyIdUsingGET");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **companyId** | **Long**| companyId |
+
+### Return type
+
+[**List&lt;User&gt;**](User.md)
 
 ### Authorization
 
@@ -225,7 +383,7 @@ This endpoint does not need any parameter.
 
 <a name="getUserUsingGET"></a>
 # **getUserUsingGET**
-> User getUserUsingGET(login)
+> UserDTO getUserUsingGET(login)
 
 getUser
 
@@ -249,7 +407,7 @@ apiKey.setApiKey("YOUR API KEY");
 UserResourceApi apiInstance = new UserResourceApi();
 String login = "login_example"; // String | login
 try {
-    User result = apiInstance.getUserUsingGET(login);
+    UserDTO result = apiInstance.getUserUsingGET(login);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UserResourceApi#getUserUsingGET");
@@ -265,7 +423,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**User**](User.md)
+[**UserDTO**](UserDTO.md)
 
 ### Authorization
 

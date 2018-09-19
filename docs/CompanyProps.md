@@ -8,19 +8,24 @@ Name | Type | Description | Notes
 **callbackUrl** | **String** |  |  [optional]
 **company** | [**Company**](Company.md) |  |  [optional]
 **id** | **Long** |  |  [optional]
+**paymentGateway** | [**PaymentGatewayEnum**](#PaymentGatewayEnum) |  |  [optional]
 **paymentGatewayApiKey** | **String** |  |  [optional]
 **paymentGatewaySecurityKey** | **String** |  |  [optional]
-**paymentMethod** | [**PaymentMethodEnum**](#PaymentMethodEnum) |  |  [optional]
+**paytrMerchantId** | **Integer** |  |  [optional]
+**payuMerchantKeyRenewals** | **String** |  |  [optional]
+**payuSecretKeyRenewals** | **String** |  |  [optional]
+**privacyPolicyUrl** | **String** |  |  [optional]
 **secureKey** | **String** |  |  [optional]
 
 
-<a name="PaymentMethodEnum"></a>
-## Enum: PaymentMethodEnum
+<a name="PaymentGatewayEnum"></a>
+## Enum: PaymentGatewayEnum
 Name | Value
 ---- | -----
 OFFLINE | &quot;OFFLINE&quot;
 IYZICO | &quot;IYZICO&quot;
 PAYU | &quot;PAYU&quot;
+PAYTR | &quot;PAYTR&quot;
 
 
 
