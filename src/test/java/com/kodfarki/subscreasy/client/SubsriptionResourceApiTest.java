@@ -99,20 +99,4 @@ public class SubsriptionResourceApiTest {
         // TODO: test validations
     }
     
-    /**
-     * startSubscription
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void startSubscriptionUsingPOSTTest() throws ApiException {
-        StartSubscriptionRequest request = null;
-        SubscriptionCreateResult response = api.startSubscriptionUsingPOST(request);
-
-        // TODO: test validations
-    }
-    
 }

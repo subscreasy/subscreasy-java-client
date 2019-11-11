@@ -49,22 +49,6 @@ public class ProductResourceApiTest {
     }
     
     /**
-     * deleteProduct
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void deleteProductUsingDELETETest() throws ApiException {
-        Long id = null;
-        api.deleteProductUsingDELETE(id);
-
-        // TODO: test validations
-    }
-    
-    /**
      * getAllProducts
      *
      * 

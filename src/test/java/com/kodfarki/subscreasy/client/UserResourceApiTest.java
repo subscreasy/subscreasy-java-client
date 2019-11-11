@@ -100,22 +100,6 @@ public class UserResourceApiTest {
     }
     
     /**
-     * getUser
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getUserUsingGETTest() throws ApiException {
-        String login = null;
-        User response = api.getUserUsingGET(login);
-
-        // TODO: test validations
-    }
-    
-    /**
      * updateUser
      *
      * 

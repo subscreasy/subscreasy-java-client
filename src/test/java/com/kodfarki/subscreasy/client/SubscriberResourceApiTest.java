@@ -65,53 +65,6 @@ public class SubscriberResourceApiTest {
     }
     
     /**
-     * getAllSubscribers
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getAllSubscribersUsingGETTest() throws ApiException {
-        List<Subscriber> response = api.getAllSubscribersUsingGET();
-
-        // TODO: test validations
-    }
-    
-    /**
-     * getSubscriberByEmail
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getSubscriberByEmailUsingGETTest() throws ApiException {
-        String email = null;
-        List<Subscriber> response = api.getSubscriberByEmailUsingGET(email);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * getSubscriberByName
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getSubscriberByNameUsingGETTest() throws ApiException {
-        String name = null;
-        List<Subscriber> response = api.getSubscriberByNameUsingGET(name);
-
-        // TODO: test validations
-    }
-    
-    /**
      * getSubscriber
      *
      * 
