@@ -35,7 +35,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * Subsription
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-19T15:02:48.500+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-11T10:08:09.886+03:00")
 public class Subsription {
   @SerializedName("appliedCoupon")
   private Coupon appliedCoupon = null;
@@ -80,7 +80,9 @@ public class Subsription {
     
     IMMEDIATE_CANCELLATION_REQUESTED("IMMEDIATE_CANCELLATION_REQUESTED"),
     
-    ENDOFPERIOD_CANCELLATION_REQUESTED("ENDOFPERIOD_CANCELLATION_REQUESTED");
+    ENDOFPERIOD_CANCELLATION_REQUESTED("ENDOFPERIOD_CANCELLATION_REQUESTED"),
+    
+    PRICE_UPDATED("PRICE_UPDATED");
 
     private String value;
 
@@ -133,7 +135,9 @@ public class Subsription {
   public enum PaymentMethodEnum {
     OFFLINE("OFFLINE"),
     
-    CC("CC");
+    CC("CC"),
+    
+    MOBILE("MOBILE");
 
     private String value;
 
@@ -195,7 +199,11 @@ public class Subsription {
     
     FINISHED("FINISHED"),
     
-    CANCELLED("CANCELLED");
+    CANCELLED("CANCELLED"),
+    
+    IN_TRIAL("IN_TRIAL"),
+    
+    PAYMENT_DUE("PAYMENT_DUE");
 
     private String value;
 

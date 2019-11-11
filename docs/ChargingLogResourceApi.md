@@ -1,6 +1,6 @@
 # ChargingLogResourceApi
 
-All URIs are relative to *https://localhost:8080*
+All URIs are relative to *https://app.subscreasy.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,7 +8,8 @@ Method | HTTP request | Description
 [**deleteChargingLogUsingDELETE**](ChargingLogResourceApi.md#deleteChargingLogUsingDELETE) | **DELETE** /api/charging-logs/{id} | deleteChargingLog
 [**getAllChargingLogsUsingGET**](ChargingLogResourceApi.md#getAllChargingLogsUsingGET) | **GET** /api/charging-logs | getAllChargingLogs
 [**getChargingLogUsingGET**](ChargingLogResourceApi.md#getChargingLogUsingGET) | **GET** /api/charging-logs/{id} | getChargingLog
-[**getUnpaidChargingLogsUsingGET**](ChargingLogResourceApi.md#getUnpaidChargingLogsUsingGET) | **GET** /api/charging-logs/unpaid | getUnpaidChargingLogs
+[**getChargingLogsByStatusUsingGET**](ChargingLogResourceApi.md#getChargingLogsByStatusUsingGET) | **GET** /api/charging-logs/status/{status} | getChargingLogsByStatus
+[**getPaymentsByMerchantSubscriberIdUsingGET**](ChargingLogResourceApi.md#getPaymentsByMerchantSubscriberIdUsingGET) | **GET** /api/charging-logs/subscriber/m/{merchantSubscriberId} | getPaymentsByMerchantSubscriberId
 [**refundUsingPOST**](ChargingLogResourceApi.md#refundUsingPOST) | **POST** /api/charging-logs/refund/{chargingLogId} | refund
 [**updateChargingLogUsingPUT**](ChargingLogResourceApi.md#updateChargingLogUsingPUT) | **PUT** /api/charging-logs | updateChargingLog
 
@@ -228,11 +229,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: */*
 
-<a name="getUnpaidChargingLogsUsingGET"></a>
-# **getUnpaidChargingLogsUsingGET**
-> List&lt;ChargingLog&gt; getUnpaidChargingLogsUsingGET(page, size, sort)
+<a name="getChargingLogsByStatusUsingGET"></a>
+# **getChargingLogsByStatusUsingGET**
+> List&lt;ChargingLog&gt; getChargingLogsByStatusUsingGET(status, page, size, sort)
 
-getUnpaidChargingLogs
+getChargingLogsByStatus
 
 ### Example
 ```java
@@ -252,14 +253,15 @@ apiKey.setApiKey("YOUR API KEY");
 //apiKey.setApiKeyPrefix("Token");
 
 ChargingLogResourceApi apiInstance = new ChargingLogResourceApi();
+String status = "status_example"; // String | status
 Integer page = 56; // Integer | Page number of the requested page
 Integer size = 56; // Integer | Size of a page
 List<String> sort = Arrays.asList("sort_example"); // List<String> | Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported.
 try {
-    List<ChargingLog> result = apiInstance.getUnpaidChargingLogsUsingGET(page, size, sort);
+    List<ChargingLog> result = apiInstance.getChargingLogsByStatusUsingGET(status, page, size, sort);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling ChargingLogResourceApi#getUnpaidChargingLogsUsingGET");
+    System.err.println("Exception when calling ChargingLogResourceApi#getChargingLogsByStatusUsingGET");
     e.printStackTrace();
 }
 ```
@@ -268,6 +270,66 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **status** | **String**| status |
+ **page** | **Integer**| Page number of the requested page | [optional]
+ **size** | **Integer**| Size of a page | [optional]
+ **sort** | [**List&lt;String&gt;**](String.md)| Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported. | [optional]
+
+### Return type
+
+[**List&lt;ChargingLog&gt;**](ChargingLog.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+<a name="getPaymentsByMerchantSubscriberIdUsingGET"></a>
+# **getPaymentsByMerchantSubscriberIdUsingGET**
+> List&lt;ChargingLog&gt; getPaymentsByMerchantSubscriberIdUsingGET(merchantSubscriberId, page, size, sort)
+
+getPaymentsByMerchantSubscriberId
+
+### Example
+```java
+// Import classes:
+//import com.kodfarki.subscreasy.ApiClient;
+//import com.kodfarki.subscreasy.ApiException;
+//import com.kodfarki.subscreasy.Configuration;
+//import com.kodfarki.subscreasy.auth.*;
+//import com.kodfarki.subscreasy.client.ChargingLogResourceApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKey
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+apiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKey.setApiKeyPrefix("Token");
+
+ChargingLogResourceApi apiInstance = new ChargingLogResourceApi();
+String merchantSubscriberId = "merchantSubscriberId_example"; // String | merchantSubscriberId
+Integer page = 56; // Integer | Page number of the requested page
+Integer size = 56; // Integer | Size of a page
+List<String> sort = Arrays.asList("sort_example"); // List<String> | Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported.
+try {
+    List<ChargingLog> result = apiInstance.getPaymentsByMerchantSubscriberIdUsingGET(merchantSubscriberId, page, size, sort);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ChargingLogResourceApi#getPaymentsByMerchantSubscriberIdUsingGET");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **merchantSubscriberId** | **String**| merchantSubscriberId |
  **page** | **Integer**| Page number of the requested page | [optional]
  **size** | **Integer**| Size of a page | [optional]
  **sort** | [**List&lt;String&gt;**](String.md)| Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported. | [optional]

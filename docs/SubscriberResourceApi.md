@@ -1,11 +1,12 @@
 # SubscriberResourceApi
 
-All URIs are relative to *https://localhost:8080*
+All URIs are relative to *https://app.subscreasy.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createSubscriberUsingPOST**](SubscriberResourceApi.md#createSubscriberUsingPOST) | **POST** /api/subscribers | createSubscriber
 [**deleteSubscriberUsingDELETE**](SubscriberResourceApi.md#deleteSubscriberUsingDELETE) | **DELETE** /api/subscribers/{id} | deleteSubscriber
+[**findAllSubscribersUsingGET**](SubscriberResourceApi.md#findAllSubscribersUsingGET) | **GET** /api/subscribers/find-all | findAllSubscribers
 [**getAllSubscribersUsingGET**](SubscriberResourceApi.md#getAllSubscribersUsingGET) | **GET** /api/subscribers | getAllSubscribers
 [**getSubscriberByEmailUsingGET**](SubscriberResourceApi.md#getSubscriberByEmailUsingGET) | **GET** /api/subscribers/email/{email} | getSubscriberByEmail
 [**getSubscriberByNameUsingGET**](SubscriberResourceApi.md#getSubscriberByNameUsingGET) | **GET** /api/subscribers/name/{name} | getSubscriberByName
@@ -119,6 +120,55 @@ null (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: */*
 
+<a name="findAllSubscribersUsingGET"></a>
+# **findAllSubscribersUsingGET**
+> List&lt;Subscriber&gt; findAllSubscribersUsingGET()
+
+findAllSubscribers
+
+### Example
+```java
+// Import classes:
+//import com.kodfarki.subscreasy.ApiClient;
+//import com.kodfarki.subscreasy.ApiException;
+//import com.kodfarki.subscreasy.Configuration;
+//import com.kodfarki.subscreasy.auth.*;
+//import com.kodfarki.subscreasy.client.SubscriberResourceApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKey
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+apiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKey.setApiKeyPrefix("Token");
+
+SubscriberResourceApi apiInstance = new SubscriberResourceApi();
+try {
+    List<Subscriber> result = apiInstance.findAllSubscribersUsingGET();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling SubscriberResourceApi#findAllSubscribersUsingGET");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**List&lt;Subscriber&gt;**](Subscriber.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
 <a name="getAllSubscribersUsingGET"></a>
 # **getAllSubscribersUsingGET**
 > List&lt;Subscriber&gt; getAllSubscribersUsingGET(page, size, sort)
@@ -178,7 +228,7 @@ Name | Type | Description  | Notes
 
 <a name="getSubscriberByEmailUsingGET"></a>
 # **getSubscriberByEmailUsingGET**
-> List&lt;Subscriber&gt; getSubscriberByEmailUsingGET(email)
+> List&lt;Subscriber&gt; getSubscriberByEmailUsingGET(email, page, size, sort)
 
 getSubscriberByEmail
 
@@ -201,8 +251,11 @@ apiKey.setApiKey("YOUR API KEY");
 
 SubscriberResourceApi apiInstance = new SubscriberResourceApi();
 String email = "email_example"; // String | email
+Integer page = 56; // Integer | Page number of the requested page
+Integer size = 56; // Integer | Size of a page
+List<String> sort = Arrays.asList("sort_example"); // List<String> | Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported.
 try {
-    List<Subscriber> result = apiInstance.getSubscriberByEmailUsingGET(email);
+    List<Subscriber> result = apiInstance.getSubscriberByEmailUsingGET(email, page, size, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SubscriberResourceApi#getSubscriberByEmailUsingGET");
@@ -215,6 +268,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **email** | **String**| email |
+ **page** | **Integer**| Page number of the requested page | [optional]
+ **size** | **Integer**| Size of a page | [optional]
+ **sort** | [**List&lt;String&gt;**](String.md)| Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported. | [optional]
 
 ### Return type
 
@@ -231,7 +287,7 @@ Name | Type | Description  | Notes
 
 <a name="getSubscriberByNameUsingGET"></a>
 # **getSubscriberByNameUsingGET**
-> List&lt;Subscriber&gt; getSubscriberByNameUsingGET(name)
+> List&lt;Subscriber&gt; getSubscriberByNameUsingGET(name, page, size, sort)
 
 getSubscriberByName
 
@@ -254,8 +310,11 @@ apiKey.setApiKey("YOUR API KEY");
 
 SubscriberResourceApi apiInstance = new SubscriberResourceApi();
 String name = "name_example"; // String | name
+Integer page = 56; // Integer | Page number of the requested page
+Integer size = 56; // Integer | Size of a page
+List<String> sort = Arrays.asList("sort_example"); // List<String> | Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported.
 try {
-    List<Subscriber> result = apiInstance.getSubscriberByNameUsingGET(name);
+    List<Subscriber> result = apiInstance.getSubscriberByNameUsingGET(name, page, size, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SubscriberResourceApi#getSubscriberByNameUsingGET");
@@ -268,6 +327,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name |
+ **page** | **Integer**| Page number of the requested page | [optional]
+ **size** | **Integer**| Size of a page | [optional]
+ **sort** | [**List&lt;String&gt;**](String.md)| Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported. | [optional]
 
 ### Return type
 

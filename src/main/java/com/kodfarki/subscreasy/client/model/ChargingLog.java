@@ -29,7 +29,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * ChargingLog
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-19T15:02:48.500+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-11T10:08:09.886+03:00")
 public class ChargingLog {
   @SerializedName("appliedCoupon")
   private Long appliedCoupon = null;
@@ -78,7 +78,9 @@ public class ChargingLog {
     
     PAYU("PAYU"),
     
-    PAYTR("PAYTR");
+    PAYTR("PAYTR"),
+    
+    MOBILEXPRESS("MOBILEXPRESS");
 
     private String value;
 
@@ -185,6 +187,9 @@ public class ChargingLog {
   @SerializedName("reason")
   private ReasonEnum reason = null;
 
+  @SerializedName("refundDate")
+  private OffsetDateTime refundDate = null;
+
   @SerializedName("savedCard")
   private SavedCard savedCard = null;
 
@@ -248,11 +253,17 @@ public class ChargingLog {
   @SerializedName("status")
   private StatusEnum status = null;
 
+  @SerializedName("subscriberId")
+  private Long subscriberId = null;
+
   @SerializedName("subscriberSecureId")
   private String subscriberSecureId = null;
 
   @SerializedName("subscriptionId")
   private Long subscriptionId = null;
+
+  @SerializedName("threeds")
+  private Boolean threeds = null;
 
   @SerializedName("transactionId")
   private String transactionId = null;
@@ -545,6 +556,24 @@ public class ChargingLog {
     this.reason = reason;
   }
 
+  public ChargingLog refundDate(OffsetDateTime refundDate) {
+    this.refundDate = refundDate;
+    return this;
+  }
+
+   /**
+   * Get refundDate
+   * @return refundDate
+  **/
+  @ApiModelProperty(value = "")
+  public OffsetDateTime getRefundDate() {
+    return refundDate;
+  }
+
+  public void setRefundDate(OffsetDateTime refundDate) {
+    this.refundDate = refundDate;
+  }
+
   public ChargingLog savedCard(SavedCard savedCard) {
     this.savedCard = savedCard;
     return this;
@@ -617,6 +646,24 @@ public class ChargingLog {
     this.status = status;
   }
 
+  public ChargingLog subscriberId(Long subscriberId) {
+    this.subscriberId = subscriberId;
+    return this;
+  }
+
+   /**
+   * Get subscriberId
+   * @return subscriberId
+  **/
+  @ApiModelProperty(value = "")
+  public Long getSubscriberId() {
+    return subscriberId;
+  }
+
+  public void setSubscriberId(Long subscriberId) {
+    this.subscriberId = subscriberId;
+  }
+
   public ChargingLog subscriberSecureId(String subscriberSecureId) {
     this.subscriberSecureId = subscriberSecureId;
     return this;
@@ -651,6 +698,24 @@ public class ChargingLog {
 
   public void setSubscriptionId(Long subscriptionId) {
     this.subscriptionId = subscriptionId;
+  }
+
+  public ChargingLog threeds(Boolean threeds) {
+    this.threeds = threeds;
+    return this;
+  }
+
+   /**
+   * Get threeds
+   * @return threeds
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isThreeds() {
+    return threeds;
+  }
+
+  public void setThreeds(Boolean threeds) {
+    this.threeds = threeds;
   }
 
   public ChargingLog transactionId(String transactionId) {
@@ -697,18 +762,21 @@ public class ChargingLog {
         Objects.equals(this.paymentId, chargingLog.paymentId) &&
         Objects.equals(this.price, chargingLog.price) &&
         Objects.equals(this.reason, chargingLog.reason) &&
+        Objects.equals(this.refundDate, chargingLog.refundDate) &&
         Objects.equals(this.savedCard, chargingLog.savedCard) &&
         Objects.equals(this.savedCardId, chargingLog.savedCardId) &&
         Objects.equals(this.serviceInstanceId, chargingLog.serviceInstanceId) &&
         Objects.equals(this.status, chargingLog.status) &&
+        Objects.equals(this.subscriberId, chargingLog.subscriberId) &&
         Objects.equals(this.subscriberSecureId, chargingLog.subscriberSecureId) &&
         Objects.equals(this.subscriptionId, chargingLog.subscriptionId) &&
+        Objects.equals(this.threeds, chargingLog.threeds) &&
         Objects.equals(this.transactionId, chargingLog.transactionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(appliedCoupon, authCode, companyId, createDate, currency, errorCode, errorText, id, invoiceId, jobId, offerId, parentId, paymentGateway, paymentId, price, reason, savedCard, savedCardId, serviceInstanceId, status, subscriberSecureId, subscriptionId, transactionId);
+    return Objects.hash(appliedCoupon, authCode, companyId, createDate, currency, errorCode, errorText, id, invoiceId, jobId, offerId, parentId, paymentGateway, paymentId, price, reason, refundDate, savedCard, savedCardId, serviceInstanceId, status, subscriberId, subscriberSecureId, subscriptionId, threeds, transactionId);
   }
 
 
@@ -733,12 +801,15 @@ public class ChargingLog {
     sb.append("    paymentId: ").append(toIndentedString(paymentId)).append("\n");
     sb.append("    price: ").append(toIndentedString(price)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
+    sb.append("    refundDate: ").append(toIndentedString(refundDate)).append("\n");
     sb.append("    savedCard: ").append(toIndentedString(savedCard)).append("\n");
     sb.append("    savedCardId: ").append(toIndentedString(savedCardId)).append("\n");
     sb.append("    serviceInstanceId: ").append(toIndentedString(serviceInstanceId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    subscriberId: ").append(toIndentedString(subscriberId)).append("\n");
     sb.append("    subscriberSecureId: ").append(toIndentedString(subscriberSecureId)).append("\n");
     sb.append("    subscriptionId: ").append(toIndentedString(subscriptionId)).append("\n");
+    sb.append("    threeds: ").append(toIndentedString(threeds)).append("\n");
     sb.append("    transactionId: ").append(toIndentedString(transactionId)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -26,10 +26,13 @@ import java.io.IOException;
 /**
  * Address
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-19T15:02:48.500+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-11T10:08:09.886+03:00")
 public class Address {
   @SerializedName("city")
   private String city = null;
+
+  @SerializedName("companyId")
+  private Long companyId = null;
 
   @SerializedName("country")
   private String country = null;
@@ -65,6 +68,24 @@ public class Address {
 
   public void setCity(String city) {
     this.city = city;
+  }
+
+  public Address companyId(Long companyId) {
+    this.companyId = companyId;
+    return this;
+  }
+
+   /**
+   * Get companyId
+   * @return companyId
+  **/
+  @ApiModelProperty(value = "")
+  public Long getCompanyId() {
+    return companyId;
+  }
+
+  public void setCompanyId(Long companyId) {
+    this.companyId = companyId;
   }
 
   public Address country(String country) {
@@ -186,6 +207,7 @@ public class Address {
     }
     Address address = (Address) o;
     return Objects.equals(this.city, address.city) &&
+        Objects.equals(this.companyId, address.companyId) &&
         Objects.equals(this.country, address.country) &&
         Objects.equals(this.id, address.id) &&
         Objects.equals(this.name, address.name) &&
@@ -196,7 +218,7 @@ public class Address {
 
   @Override
   public int hashCode() {
-    return Objects.hash(city, country, id, name, postalCode, stateProvince, streetAddress);
+    return Objects.hash(city, companyId, country, id, name, postalCode, stateProvince, streetAddress);
   }
 
 
@@ -206,6 +228,7 @@ public class Address {
     sb.append("class Address {\n");
     
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
+    sb.append("    companyId: ").append(toIndentedString(companyId)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

@@ -1,6 +1,6 @@
 # BankAccountResourceApi
 
-All URIs are relative to *https://localhost:8080*
+All URIs are relative to *https://app.subscreasy.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**deleteBankAccountUsingDELETE**](BankAccountResourceApi.md#deleteBankAccountUsingDELETE) | **DELETE** /api/bank-accounts/{id} | deleteBankAccount
 [**getAllBankAccountsUsingGET**](BankAccountResourceApi.md#getAllBankAccountsUsingGET) | **GET** /api/bank-accounts | getAllBankAccounts
 [**getBankAccountUsingGET**](BankAccountResourceApi.md#getBankAccountUsingGET) | **GET** /api/bank-accounts/{id} | getBankAccount
+[**getBankAccountsByCompanyUsingGET**](BankAccountResourceApi.md#getBankAccountsByCompanyUsingGET) | **GET** /api/bank-accounts/company/{companyId} | getBankAccountsByCompany
 [**updateBankAccountUsingPUT**](BankAccountResourceApi.md#updateBankAccountUsingPUT) | **PUT** /api/bank-accounts | updateBankAccount
 
 
@@ -208,6 +209,59 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**BankAccount**](BankAccount.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+<a name="getBankAccountsByCompanyUsingGET"></a>
+# **getBankAccountsByCompanyUsingGET**
+> List&lt;BankAccount&gt; getBankAccountsByCompanyUsingGET(companyId)
+
+getBankAccountsByCompany
+
+### Example
+```java
+// Import classes:
+//import com.kodfarki.subscreasy.ApiClient;
+//import com.kodfarki.subscreasy.ApiException;
+//import com.kodfarki.subscreasy.Configuration;
+//import com.kodfarki.subscreasy.auth.*;
+//import com.kodfarki.subscreasy.client.BankAccountResourceApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKey
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+apiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKey.setApiKeyPrefix("Token");
+
+BankAccountResourceApi apiInstance = new BankAccountResourceApi();
+Long companyId = 789L; // Long | companyId
+try {
+    List<BankAccount> result = apiInstance.getBankAccountsByCompanyUsingGET(companyId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling BankAccountResourceApi#getBankAccountsByCompanyUsingGET");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **companyId** | **Long**| companyId |
+
+### Return type
+
+[**List&lt;BankAccount&gt;**](BankAccount.md)
 
 ### Authorization
 

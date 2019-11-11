@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * StartSubscriptionResult
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-19T15:02:48.500+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-11T10:08:09.886+03:00")
 public class StartSubscriptionResult {
   @SerializedName("payment")
   private ChargingLog payment = null;

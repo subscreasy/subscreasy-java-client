@@ -28,13 +28,16 @@ import java.util.List;
 /**
  * ProfileInfoVM
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-19T15:02:48.500+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-11T10:08:09.886+03:00")
 public class ProfileInfoVM {
   @SerializedName("activeProfiles")
   private List<String> activeProfiles = null;
 
   @SerializedName("ribbonEnv")
   private String ribbonEnv = null;
+
+  @SerializedName("version")
+  private String version = null;
 
   public ProfileInfoVM activeProfiles(List<String> activeProfiles) {
     this.activeProfiles = activeProfiles;
@@ -80,6 +83,24 @@ public class ProfileInfoVM {
     this.ribbonEnv = ribbonEnv;
   }
 
+  public ProfileInfoVM version(String version) {
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * Get version
+   * @return version
+  **/
+  @ApiModelProperty(value = "")
+  public String getVersion() {
+    return version;
+  }
+
+  public void setVersion(String version) {
+    this.version = version;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -91,12 +112,13 @@ public class ProfileInfoVM {
     }
     ProfileInfoVM profileInfoVM = (ProfileInfoVM) o;
     return Objects.equals(this.activeProfiles, profileInfoVM.activeProfiles) &&
-        Objects.equals(this.ribbonEnv, profileInfoVM.ribbonEnv);
+        Objects.equals(this.ribbonEnv, profileInfoVM.ribbonEnv) &&
+        Objects.equals(this.version, profileInfoVM.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeProfiles, ribbonEnv);
+    return Objects.hash(activeProfiles, ribbonEnv, version);
   }
 
 
@@ -107,6 +129,7 @@ public class ProfileInfoVM {
     
     sb.append("    activeProfiles: ").append(toIndentedString(activeProfiles)).append("\n");
     sb.append("    ribbonEnv: ").append(toIndentedString(ribbonEnv)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }

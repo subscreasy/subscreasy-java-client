@@ -27,7 +27,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * Deduction
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-19T15:02:48.500+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-11T10:08:09.886+03:00")
 public class Deduction {
   @SerializedName("amount")
   private Long amount = null;
@@ -38,14 +38,20 @@ public class Deduction {
   @SerializedName("serviceId")
   private Long serviceId = null;
 
+  @SerializedName("serviceName")
+  private String serviceName = null;
+
+  @SerializedName("subscriberEmail")
+  private String subscriberEmail = null;
+
+  @SerializedName("subscriberSecureId")
+  private String subscriberSecureId = null;
+
   @SerializedName("usageEndTime")
   private OffsetDateTime usageEndTime = null;
 
   @SerializedName("usageStartTime")
   private OffsetDateTime usageStartTime = null;
-
-  @SerializedName("userId")
-  private String userId = null;
 
   public Deduction amount(Long amount) {
     this.amount = amount;
@@ -101,6 +107,60 @@ public class Deduction {
     this.serviceId = serviceId;
   }
 
+  public Deduction serviceName(String serviceName) {
+    this.serviceName = serviceName;
+    return this;
+  }
+
+   /**
+   * Get serviceName
+   * @return serviceName
+  **/
+  @ApiModelProperty(value = "")
+  public String getServiceName() {
+    return serviceName;
+  }
+
+  public void setServiceName(String serviceName) {
+    this.serviceName = serviceName;
+  }
+
+  public Deduction subscriberEmail(String subscriberEmail) {
+    this.subscriberEmail = subscriberEmail;
+    return this;
+  }
+
+   /**
+   * Get subscriberEmail
+   * @return subscriberEmail
+  **/
+  @ApiModelProperty(value = "")
+  public String getSubscriberEmail() {
+    return subscriberEmail;
+  }
+
+  public void setSubscriberEmail(String subscriberEmail) {
+    this.subscriberEmail = subscriberEmail;
+  }
+
+  public Deduction subscriberSecureId(String subscriberSecureId) {
+    this.subscriberSecureId = subscriberSecureId;
+    return this;
+  }
+
+   /**
+   * Get subscriberSecureId
+   * @return subscriberSecureId
+  **/
+  @ApiModelProperty(value = "")
+  public String getSubscriberSecureId() {
+    return subscriberSecureId;
+  }
+
+  public void setSubscriberSecureId(String subscriberSecureId) {
+    this.subscriberSecureId = subscriberSecureId;
+  }
+
   public Deduction usageEndTime(OffsetDateTime usageEndTime) {
     this.usageEndTime = usageEndTime;
     return this;
@@ -137,24 +197,6 @@ public class Deduction {
     this.usageStartTime = usageStartTime;
   }
 
-  public Deduction userId(String userId) {
-    this.userId = userId;
-    return this;
-  }
-
-   /**
-   * Get userId
-   * @return userId
-  **/
-  @ApiModelProperty(value = "")
-  public String getUserId() {
-    return userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -168,14 +210,16 @@ public class Deduction {
     return Objects.equals(this.amount, deduction.amount) &&
         Objects.equals(this.id, deduction.id) &&
         Objects.equals(this.serviceId, deduction.serviceId) &&
+        Objects.equals(this.serviceName, deduction.serviceName) &&
+        Objects.equals(this.subscriberEmail, deduction.subscriberEmail) &&
+        Objects.equals(this.subscriberSecureId, deduction.subscriberSecureId) &&
         Objects.equals(this.usageEndTime, deduction.usageEndTime) &&
-        Objects.equals(this.usageStartTime, deduction.usageStartTime) &&
-        Objects.equals(this.userId, deduction.userId);
+        Objects.equals(this.usageStartTime, deduction.usageStartTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, id, serviceId, usageEndTime, usageStartTime, userId);
+    return Objects.hash(amount, id, serviceId, serviceName, subscriberEmail, subscriberSecureId, usageEndTime, usageStartTime);
   }
 
 
@@ -187,9 +231,11 @@ public class Deduction {
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    serviceId: ").append(toIndentedString(serviceId)).append("\n");
+    sb.append("    serviceName: ").append(toIndentedString(serviceName)).append("\n");
+    sb.append("    subscriberEmail: ").append(toIndentedString(subscriberEmail)).append("\n");
+    sb.append("    subscriberSecureId: ").append(toIndentedString(subscriberSecureId)).append("\n");
     sb.append("    usageEndTime: ").append(toIndentedString(usageEndTime)).append("\n");
     sb.append("    usageStartTime: ").append(toIndentedString(usageStartTime)).append("\n");
-    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

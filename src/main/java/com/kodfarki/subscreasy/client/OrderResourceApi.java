@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import com.kodfarki.subscreasy.client.model.CreateOrderRequest;
 import com.kodfarki.subscreasy.client.model.Order;
 
 import java.lang.reflect.Type;
@@ -57,14 +56,14 @@ public class OrderResourceApi {
 
     /**
      * Build call for createOrderUsingPOST
-     * @param orderRequest orderRequest (required)
+     * @param order order (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createOrderUsingPOSTCall(CreateOrderRequest orderRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = orderRequest;
+    public com.squareup.okhttp.Call createOrderUsingPOSTCall(Order order, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = order;
 
         // create path and map variables
         String localVarPath = "/api/orders";
@@ -77,13 +76,13 @@ public class OrderResourceApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "text/html;charset=UTF-8"
+            "*/*"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/x-www-form-urlencoded;charset=UTF-8"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -105,15 +104,15 @@ public class OrderResourceApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createOrderUsingPOSTValidateBeforeCall(CreateOrderRequest orderRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call createOrderUsingPOSTValidateBeforeCall(Order order, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        // verify the required parameter 'orderRequest' is set
-        if (orderRequest == null) {
-            throw new ApiException("Missing the required parameter 'orderRequest' when calling createOrderUsingPOST(Async)");
+        // verify the required parameter 'order' is set
+        if (order == null) {
+            throw new ApiException("Missing the required parameter 'order' when calling createOrderUsingPOST(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = createOrderUsingPOSTCall(orderRequest, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = createOrderUsingPOSTCall(order, progressListener, progressRequestListener);
         return call;
 
     }
@@ -121,24 +120,24 @@ public class OrderResourceApi {
     /**
      * createOrder
      * 
-     * @param orderRequest orderRequest (required)
+     * @param order order (required)
      * @return Order
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Order createOrderUsingPOST(CreateOrderRequest orderRequest) throws ApiException {
-        ApiResponse<Order> resp = createOrderUsingPOSTWithHttpInfo(orderRequest);
+    public Order createOrderUsingPOST(Order order) throws ApiException {
+        ApiResponse<Order> resp = createOrderUsingPOSTWithHttpInfo(order);
         return resp.getData();
     }
 
     /**
      * createOrder
      * 
-     * @param orderRequest orderRequest (required)
+     * @param order order (required)
      * @return ApiResponse&lt;Order&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Order> createOrderUsingPOSTWithHttpInfo(CreateOrderRequest orderRequest) throws ApiException {
-        com.squareup.okhttp.Call call = createOrderUsingPOSTValidateBeforeCall(orderRequest, null, null);
+    public ApiResponse<Order> createOrderUsingPOSTWithHttpInfo(Order order) throws ApiException {
+        com.squareup.okhttp.Call call = createOrderUsingPOSTValidateBeforeCall(order, null, null);
         Type localVarReturnType = new TypeToken<Order>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -146,12 +145,12 @@ public class OrderResourceApi {
     /**
      * createOrder (asynchronously)
      * 
-     * @param orderRequest orderRequest (required)
+     * @param order order (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createOrderUsingPOSTAsync(CreateOrderRequest orderRequest, final ApiCallback<Order> callback) throws ApiException {
+    public com.squareup.okhttp.Call createOrderUsingPOSTAsync(Order order, final ApiCallback<Order> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -172,9 +171,128 @@ public class OrderResourceApi {
             };
         }
 
-        com.squareup.okhttp.Call call = createOrderUsingPOSTValidateBeforeCall(orderRequest, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = createOrderUsingPOSTValidateBeforeCall(order, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Order>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for deleteOrderUsingDELETE
+     * @param id id (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteOrderUsingDELETECall(Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/orders/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "*/*"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apiKey" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteOrderUsingDELETEValidateBeforeCall(Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling deleteOrderUsingDELETE(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = deleteOrderUsingDELETECall(id, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * deleteOrder
+     * 
+     * @param id id (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void deleteOrderUsingDELETE(Long id) throws ApiException {
+        deleteOrderUsingDELETEWithHttpInfo(id);
+    }
+
+    /**
+     * deleteOrder
+     * 
+     * @param id id (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> deleteOrderUsingDELETEWithHttpInfo(Long id) throws ApiException {
+        com.squareup.okhttp.Call call = deleteOrderUsingDELETEValidateBeforeCall(id, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * deleteOrder (asynchronously)
+     * 
+     * @param id id (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteOrderUsingDELETEAsync(Long id, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteOrderUsingDELETEValidateBeforeCall(id, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
         return call;
     }
     /**

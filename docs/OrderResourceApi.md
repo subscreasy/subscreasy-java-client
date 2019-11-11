@@ -1,10 +1,11 @@
 # OrderResourceApi
 
-All URIs are relative to *https://localhost:8080*
+All URIs are relative to *https://app.subscreasy.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createOrderUsingPOST**](OrderResourceApi.md#createOrderUsingPOST) | **POST** /api/orders | createOrder
+[**deleteOrderUsingDELETE**](OrderResourceApi.md#deleteOrderUsingDELETE) | **DELETE** /api/orders/{id} | deleteOrder
 [**getAllOrdersUsingGET**](OrderResourceApi.md#getAllOrdersUsingGET) | **GET** /api/orders | getAllOrders
 [**getOrderUsingGET**](OrderResourceApi.md#getOrderUsingGET) | **GET** /api/orders/{id} | getOrder
 [**updateOrderUsingPUT**](OrderResourceApi.md#updateOrderUsingPUT) | **PUT** /api/orders | updateOrder
@@ -12,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="createOrderUsingPOST"></a>
 # **createOrderUsingPOST**
-> Order createOrderUsingPOST(orderRequest)
+> Order createOrderUsingPOST(order)
 
 createOrder
 
@@ -34,9 +35,9 @@ apiKey.setApiKey("YOUR API KEY");
 //apiKey.setApiKeyPrefix("Token");
 
 OrderResourceApi apiInstance = new OrderResourceApi();
-CreateOrderRequest orderRequest = new CreateOrderRequest(); // CreateOrderRequest | orderRequest
+Order order = new Order(); // Order | order
 try {
-    Order result = apiInstance.createOrderUsingPOST(orderRequest);
+    Order result = apiInstance.createOrderUsingPOST(order);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrderResourceApi#createOrderUsingPOST");
@@ -48,7 +49,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderRequest** | [**CreateOrderRequest**](CreateOrderRequest.md)| orderRequest |
+ **order** | [**Order**](Order.md)| order |
 
 ### Return type
 
@@ -60,8 +61,60 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded;charset=UTF-8
- - **Accept**: text/html;charset=UTF-8
+ - **Content-Type**: application/json
+ - **Accept**: */*
+
+<a name="deleteOrderUsingDELETE"></a>
+# **deleteOrderUsingDELETE**
+> deleteOrderUsingDELETE(id)
+
+deleteOrder
+
+### Example
+```java
+// Import classes:
+//import com.kodfarki.subscreasy.ApiClient;
+//import com.kodfarki.subscreasy.ApiException;
+//import com.kodfarki.subscreasy.Configuration;
+//import com.kodfarki.subscreasy.auth.*;
+//import com.kodfarki.subscreasy.client.OrderResourceApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKey
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+apiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKey.setApiKeyPrefix("Token");
+
+OrderResourceApi apiInstance = new OrderResourceApi();
+Long id = 789L; // Long | id
+try {
+    apiInstance.deleteOrderUsingDELETE(id);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrderResourceApi#deleteOrderUsingDELETE");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Long**| id |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
 
 <a name="getAllOrdersUsingGET"></a>
 # **getAllOrdersUsingGET**

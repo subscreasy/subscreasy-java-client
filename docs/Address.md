@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **city** | **String** |  |  [optional]
+**companyId** | **Long** |  |  [optional]
 **country** | **String** |  |  [optional]
 **id** | **Long** |  |  [optional]
 **name** | **String** |  |  [optional]

@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **activeProfiles** | **List&lt;String&gt;** |  |  [optional]
 **ribbonEnv** | **String** |  |  [optional]
+**version** | **String** |  |  [optional]
 
 
 

@@ -52,7 +52,7 @@ import com.kodfarki.subscreasy.auth.OAuth;
 
 public class ApiClient {
 
-    private String basePath = "https://localhost:8080";
+    private String basePath = "https://app.subscreasy.com";
     private boolean debugging = false;
     private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
     private String tempFolderPath = null;
@@ -106,7 +106,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g https://localhost:8080
+     * @param basePath Base path of the URL (e.g https://app.subscreasy.com
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {

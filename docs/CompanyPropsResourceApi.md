@@ -1,6 +1,6 @@
 # CompanyPropsResourceApi
 
-All URIs are relative to *https://localhost:8080*
+All URIs are relative to *https://app.subscreasy.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,6 +9,8 @@ Method | HTTP request | Description
 [**getAllCompanyPropsUsingGET**](CompanyPropsResourceApi.md#getAllCompanyPropsUsingGET) | **GET** /api/company-props | getAllCompanyProps
 [**getCompanyPropsByCompanyIdUsingGET**](CompanyPropsResourceApi.md#getCompanyPropsByCompanyIdUsingGET) | **GET** /api/company-props/company/{companyId} | getCompanyPropsByCompanyId
 [**updateCompanyPropsUsingPUT**](CompanyPropsResourceApi.md#updateCompanyPropsUsingPUT) | **PUT** /api/company-props | updateCompanyProps
+[**uploadCSSUsingPOST**](CompanyPropsResourceApi.md#uploadCSSUsingPOST) | **POST** /api/company-props/uploadCSS | uploadCSS
+[**uploadFileUsingPOST**](CompanyPropsResourceApi.md#uploadFileUsingPOST) | **POST** /api/company-props/uploadFile | uploadFile
 
 
 <a name="createCompanyPropsUsingPOST"></a>
@@ -269,5 +271,111 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: */*
+
+<a name="uploadCSSUsingPOST"></a>
+# **uploadCSSUsingPOST**
+> Object uploadCSSUsingPOST(file)
+
+uploadCSS
+
+### Example
+```java
+// Import classes:
+//import com.kodfarki.subscreasy.ApiClient;
+//import com.kodfarki.subscreasy.ApiException;
+//import com.kodfarki.subscreasy.Configuration;
+//import com.kodfarki.subscreasy.auth.*;
+//import com.kodfarki.subscreasy.client.CompanyPropsResourceApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKey
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+apiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKey.setApiKeyPrefix("Token");
+
+CompanyPropsResourceApi apiInstance = new CompanyPropsResourceApi();
+File file = new File("/path/to/file.txt"); // File | file
+try {
+    Object result = apiInstance.uploadCSSUsingPOST(file);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CompanyPropsResourceApi#uploadCSSUsingPOST");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **file** | **File**| file |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: */*
+
+<a name="uploadFileUsingPOST"></a>
+# **uploadFileUsingPOST**
+> Object uploadFileUsingPOST(file)
+
+uploadFile
+
+### Example
+```java
+// Import classes:
+//import com.kodfarki.subscreasy.ApiClient;
+//import com.kodfarki.subscreasy.ApiException;
+//import com.kodfarki.subscreasy.Configuration;
+//import com.kodfarki.subscreasy.auth.*;
+//import com.kodfarki.subscreasy.client.CompanyPropsResourceApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKey
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+apiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKey.setApiKeyPrefix("Token");
+
+CompanyPropsResourceApi apiInstance = new CompanyPropsResourceApi();
+File file = new File("/path/to/file.txt"); // File | file
+try {
+    Object result = apiInstance.uploadFileUsingPOST(file);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CompanyPropsResourceApi#uploadFileUsingPOST");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **file** | **File**| file |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
  - **Accept**: */*
 

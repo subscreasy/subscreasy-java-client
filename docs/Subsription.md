@@ -38,6 +38,7 @@ TRIAL_ENDING | &quot;TRIAL_ENDING&quot;
 PAYMENT_UPDATED | &quot;PAYMENT_UPDATED&quot;
 IMMEDIATE_CANCELLATION_REQUESTED | &quot;IMMEDIATE_CANCELLATION_REQUESTED&quot;
 ENDOFPERIOD_CANCELLATION_REQUESTED | &quot;ENDOFPERIOD_CANCELLATION_REQUESTED&quot;
+PRICE_UPDATED | &quot;PRICE_UPDATED&quot;
 
 
 <a name="PaymentMethodEnum"></a>
@@ -46,6 +47,7 @@ Name | Value
 ---- | -----
 OFFLINE | &quot;OFFLINE&quot;
 CC | &quot;CC&quot;
+MOBILE | &quot;MOBILE&quot;
 
 
 <a name="StatusEnum"></a>
@@ -57,6 +59,8 @@ ACTIVE | &quot;ACTIVE&quot;
 SUSPENDED | &quot;SUSPENDED&quot;
 FINISHED | &quot;FINISHED&quot;
 CANCELLED | &quot;CANCELLED&quot;
+IN_TRIAL | &quot;IN_TRIAL&quot;
+PAYMENT_DUE | &quot;PAYMENT_DUE&quot;
 
 
 

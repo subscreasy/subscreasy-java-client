@@ -22,11 +22,12 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
 
 /**
  * SavedCard
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-19T15:02:48.500+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-11T10:08:09.886+03:00")
 public class SavedCard {
   @SerializedName("binNumber")
   private String binNumber = null;
@@ -43,6 +44,9 @@ public class SavedCard {
   @SerializedName("cardBankName")
   private String cardBankName = null;
 
+  @SerializedName("cardCVV")
+  private String cardCVV = null;
+
   @SerializedName("cardFamily")
   private String cardFamily = null;
 
@@ -55,8 +59,17 @@ public class SavedCard {
   @SerializedName("cartType")
   private String cartType = null;
 
+  @SerializedName("companyId")
+  private Long companyId = null;
+
+  @SerializedName("expireDate")
+  private OffsetDateTime expireDate = null;
+
   @SerializedName("id")
   private Long id = null;
+
+  @SerializedName("subscriberId")
+  private Long subscriberId = null;
 
   public SavedCard binNumber(String binNumber) {
     this.binNumber = binNumber;
@@ -148,6 +161,24 @@ public class SavedCard {
     this.cardBankName = cardBankName;
   }
 
+  public SavedCard cardCVV(String cardCVV) {
+    this.cardCVV = cardCVV;
+    return this;
+  }
+
+   /**
+   * Get cardCVV
+   * @return cardCVV
+  **/
+  @ApiModelProperty(value = "")
+  public String getCardCVV() {
+    return cardCVV;
+  }
+
+  public void setCardCVV(String cardCVV) {
+    this.cardCVV = cardCVV;
+  }
+
   public SavedCard cardFamily(String cardFamily) {
     this.cardFamily = cardFamily;
     return this;
@@ -220,6 +251,42 @@ public class SavedCard {
     this.cartType = cartType;
   }
 
+  public SavedCard companyId(Long companyId) {
+    this.companyId = companyId;
+    return this;
+  }
+
+   /**
+   * Get companyId
+   * @return companyId
+  **/
+  @ApiModelProperty(value = "")
+  public Long getCompanyId() {
+    return companyId;
+  }
+
+  public void setCompanyId(Long companyId) {
+    this.companyId = companyId;
+  }
+
+  public SavedCard expireDate(OffsetDateTime expireDate) {
+    this.expireDate = expireDate;
+    return this;
+  }
+
+   /**
+   * Get expireDate
+   * @return expireDate
+  **/
+  @ApiModelProperty(value = "")
+  public OffsetDateTime getExpireDate() {
+    return expireDate;
+  }
+
+  public void setExpireDate(OffsetDateTime expireDate) {
+    this.expireDate = expireDate;
+  }
+
   public SavedCard id(Long id) {
     this.id = id;
     return this;
@@ -238,6 +305,24 @@ public class SavedCard {
     this.id = id;
   }
 
+  public SavedCard subscriberId(Long subscriberId) {
+    this.subscriberId = subscriberId;
+    return this;
+  }
+
+   /**
+   * Get subscriberId
+   * @return subscriberId
+  **/
+  @ApiModelProperty(value = "")
+  public Long getSubscriberId() {
+    return subscriberId;
+  }
+
+  public void setSubscriberId(Long subscriberId) {
+    this.subscriberId = subscriberId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -253,16 +338,20 @@ public class SavedCard {
         Objects.equals(this.cardAssociation, savedCard.cardAssociation) &&
         Objects.equals(this.cardBankCode, savedCard.cardBankCode) &&
         Objects.equals(this.cardBankName, savedCard.cardBankName) &&
+        Objects.equals(this.cardCVV, savedCard.cardCVV) &&
         Objects.equals(this.cardFamily, savedCard.cardFamily) &&
         Objects.equals(this.cardToken, savedCard.cardToken) &&
         Objects.equals(this.cardUserKey, savedCard.cardUserKey) &&
         Objects.equals(this.cartType, savedCard.cartType) &&
-        Objects.equals(this.id, savedCard.id);
+        Objects.equals(this.companyId, savedCard.companyId) &&
+        Objects.equals(this.expireDate, savedCard.expireDate) &&
+        Objects.equals(this.id, savedCard.id) &&
+        Objects.equals(this.subscriberId, savedCard.subscriberId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(binNumber, cardAlias, cardAssociation, cardBankCode, cardBankName, cardFamily, cardToken, cardUserKey, cartType, id);
+    return Objects.hash(binNumber, cardAlias, cardAssociation, cardBankCode, cardBankName, cardCVV, cardFamily, cardToken, cardUserKey, cartType, companyId, expireDate, id, subscriberId);
   }
 
 
@@ -276,11 +365,15 @@ public class SavedCard {
     sb.append("    cardAssociation: ").append(toIndentedString(cardAssociation)).append("\n");
     sb.append("    cardBankCode: ").append(toIndentedString(cardBankCode)).append("\n");
     sb.append("    cardBankName: ").append(toIndentedString(cardBankName)).append("\n");
+    sb.append("    cardCVV: ").append(toIndentedString(cardCVV)).append("\n");
     sb.append("    cardFamily: ").append(toIndentedString(cardFamily)).append("\n");
     sb.append("    cardToken: ").append(toIndentedString(cardToken)).append("\n");
     sb.append("    cardUserKey: ").append(toIndentedString(cardUserKey)).append("\n");
     sb.append("    cartType: ").append(toIndentedString(cartType)).append("\n");
+    sb.append("    companyId: ").append(toIndentedString(companyId)).append("\n");
+    sb.append("    expireDate: ").append(toIndentedString(expireDate)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    subscriberId: ").append(toIndentedString(subscriberId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

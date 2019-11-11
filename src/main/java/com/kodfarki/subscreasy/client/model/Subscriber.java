@@ -29,7 +29,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * Subscriber
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-19T15:02:48.500+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-11T10:08:09.886+03:00")
 public class Subscriber {
   @SerializedName("billingAddress")
   private Address billingAddress = null;
@@ -49,6 +49,9 @@ public class Subscriber {
   @SerializedName("identificationNo")
   private String identificationNo = null;
 
+  @SerializedName("merchantSubscriberId")
+  private String merchantSubscriberId = null;
+
   @SerializedName("name")
   private String name = null;
 
@@ -63,6 +66,9 @@ public class Subscriber {
 
   @SerializedName("surname")
   private String surname = null;
+
+  @SerializedName("taxAdministration")
+  private String taxAdministration = null;
 
   @SerializedName("taxNumber")
   private String taxNumber = null;
@@ -178,6 +184,24 @@ public class Subscriber {
     this.identificationNo = identificationNo;
   }
 
+  public Subscriber merchantSubscriberId(String merchantSubscriberId) {
+    this.merchantSubscriberId = merchantSubscriberId;
+    return this;
+  }
+
+   /**
+   * Get merchantSubscriberId
+   * @return merchantSubscriberId
+  **/
+  @ApiModelProperty(value = "")
+  public String getMerchantSubscriberId() {
+    return merchantSubscriberId;
+  }
+
+  public void setMerchantSubscriberId(String merchantSubscriberId) {
+    this.merchantSubscriberId = merchantSubscriberId;
+  }
+
   public Subscriber name(String name) {
     this.name = name;
     return this;
@@ -268,6 +292,24 @@ public class Subscriber {
     this.surname = surname;
   }
 
+  public Subscriber taxAdministration(String taxAdministration) {
+    this.taxAdministration = taxAdministration;
+    return this;
+  }
+
+   /**
+   * Get taxAdministration
+   * @return taxAdministration
+  **/
+  @ApiModelProperty(value = "")
+  public String getTaxAdministration() {
+    return taxAdministration;
+  }
+
+  public void setTaxAdministration(String taxAdministration) {
+    this.taxAdministration = taxAdministration;
+  }
+
   public Subscriber taxNumber(String taxNumber) {
     this.taxNumber = taxNumber;
     return this;
@@ -320,18 +362,20 @@ public class Subscriber {
         Objects.equals(this.email, subscriber.email) &&
         Objects.equals(this.id, subscriber.id) &&
         Objects.equals(this.identificationNo, subscriber.identificationNo) &&
+        Objects.equals(this.merchantSubscriberId, subscriber.merchantSubscriberId) &&
         Objects.equals(this.name, subscriber.name) &&
         Objects.equals(this.phoneNumber, subscriber.phoneNumber) &&
         Objects.equals(this.secureId, subscriber.secureId) &&
         Objects.equals(this.shippingAddress, subscriber.shippingAddress) &&
         Objects.equals(this.surname, subscriber.surname) &&
+        Objects.equals(this.taxAdministration, subscriber.taxAdministration) &&
         Objects.equals(this.taxNumber, subscriber.taxNumber) &&
         Objects.equals(this.worksFor, subscriber.worksFor);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(billingAddress, company, createDate, email, id, identificationNo, name, phoneNumber, secureId, shippingAddress, surname, taxNumber, worksFor);
+    return Objects.hash(billingAddress, company, createDate, email, id, identificationNo, merchantSubscriberId, name, phoneNumber, secureId, shippingAddress, surname, taxAdministration, taxNumber, worksFor);
   }
 
 
@@ -346,11 +390,13 @@ public class Subscriber {
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    identificationNo: ").append(toIndentedString(identificationNo)).append("\n");
+    sb.append("    merchantSubscriberId: ").append(toIndentedString(merchantSubscriberId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    secureId: ").append(toIndentedString(secureId)).append("\n");
     sb.append("    shippingAddress: ").append(toIndentedString(shippingAddress)).append("\n");
     sb.append("    surname: ").append(toIndentedString(surname)).append("\n");
+    sb.append("    taxAdministration: ").append(toIndentedString(taxAdministration)).append("\n");
     sb.append("    taxNumber: ").append(toIndentedString(taxNumber)).append("\n");
     sb.append("    worksFor: ").append(toIndentedString(worksFor)).append("\n");
     sb.append("}");

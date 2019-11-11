@@ -5,7 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cardAlias** | **String** |  |  [optional]
-**cardExpiry** | **String** |  |  [optional]
 **cardFamily** | **String** |  |  [optional]
 **cardHolderName** | **String** |  |  [optional]
 **cardNumber** | **String** |  |  [optional]

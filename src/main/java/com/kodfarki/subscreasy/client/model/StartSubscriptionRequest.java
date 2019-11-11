@@ -30,7 +30,7 @@ import java.math.BigDecimal;
 /**
  * StartSubscriptionRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-19T15:02:48.500+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-11T10:08:09.886+03:00")
 public class StartSubscriptionRequest {
   @SerializedName("callbackUrl")
   private String callbackUrl = null;
@@ -57,7 +57,9 @@ public class StartSubscriptionRequest {
   public enum PaymentTypeEnum {
     OFFLINE("OFFLINE"),
     
-    CC("CC");
+    CC("CC"),
+    
+    MOBILE("MOBILE");
 
     private String value;
 
@@ -106,8 +108,61 @@ public class StartSubscriptionRequest {
   @SerializedName("privacyPolicyUrl")
   private Boolean privacyPolicyUrl = null;
 
+  /**
+   * Gets or Sets productType
+   */
+  @JsonAdapter(ProductTypeEnum.Adapter.class)
+  public enum ProductTypeEnum {
+    PHYSICAL("PHYSICAL"),
+    
+    SERVICE("SERVICE");
+
+    private String value;
+
+    ProductTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ProductTypeEnum fromValue(String text) {
+      for (ProductTypeEnum b : ProductTypeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ProductTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ProductTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ProductTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return ProductTypeEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("productType")
+  private ProductTypeEnum productType = null;
+
   @SerializedName("subscriber")
   private Subscriber subscriber = null;
+
+  @SerializedName("subscriberFromDb")
+  private Subscriber subscriberFromDb = null;
 
   public StartSubscriptionRequest callbackUrl(String callbackUrl) {
     this.callbackUrl = callbackUrl;
@@ -271,6 +326,24 @@ public class StartSubscriptionRequest {
     this.privacyPolicyUrl = privacyPolicyUrl;
   }
 
+  public StartSubscriptionRequest productType(ProductTypeEnum productType) {
+    this.productType = productType;
+    return this;
+  }
+
+   /**
+   * Get productType
+   * @return productType
+  **/
+  @ApiModelProperty(value = "")
+  public ProductTypeEnum getProductType() {
+    return productType;
+  }
+
+  public void setProductType(ProductTypeEnum productType) {
+    this.productType = productType;
+  }
+
   public StartSubscriptionRequest subscriber(Subscriber subscriber) {
     this.subscriber = subscriber;
     return this;
@@ -287,6 +360,24 @@ public class StartSubscriptionRequest {
 
   public void setSubscriber(Subscriber subscriber) {
     this.subscriber = subscriber;
+  }
+
+  public StartSubscriptionRequest subscriberFromDb(Subscriber subscriberFromDb) {
+    this.subscriberFromDb = subscriberFromDb;
+    return this;
+  }
+
+   /**
+   * Get subscriberFromDb
+   * @return subscriberFromDb
+  **/
+  @ApiModelProperty(value = "")
+  public Subscriber getSubscriberFromDb() {
+    return subscriberFromDb;
+  }
+
+  public void setSubscriberFromDb(Subscriber subscriberFromDb) {
+    this.subscriberFromDb = subscriberFromDb;
   }
 
 
@@ -308,12 +399,14 @@ public class StartSubscriptionRequest {
         Objects.equals(this.paymentType, startSubscriptionRequest.paymentType) &&
         Objects.equals(this.price, startSubscriptionRequest.price) &&
         Objects.equals(this.privacyPolicyUrl, startSubscriptionRequest.privacyPolicyUrl) &&
-        Objects.equals(this.subscriber, startSubscriptionRequest.subscriber);
+        Objects.equals(this.productType, startSubscriptionRequest.productType) &&
+        Objects.equals(this.subscriber, startSubscriptionRequest.subscriber) &&
+        Objects.equals(this.subscriberFromDb, startSubscriptionRequest.subscriberFromDb);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(callbackUrl, companySiteName, couponCode, editable, offer, paymentCard, paymentType, price, privacyPolicyUrl, subscriber);
+    return Objects.hash(callbackUrl, companySiteName, couponCode, editable, offer, paymentCard, paymentType, price, privacyPolicyUrl, productType, subscriber, subscriberFromDb);
   }
 
 
@@ -331,7 +424,9 @@ public class StartSubscriptionRequest {
     sb.append("    paymentType: ").append(toIndentedString(paymentType)).append("\n");
     sb.append("    price: ").append(toIndentedString(price)).append("\n");
     sb.append("    privacyPolicyUrl: ").append(toIndentedString(privacyPolicyUrl)).append("\n");
+    sb.append("    productType: ").append(toIndentedString(productType)).append("\n");
     sb.append("    subscriber: ").append(toIndentedString(subscriber)).append("\n");
+    sb.append("    subscriberFromDb: ").append(toIndentedString(subscriberFromDb)).append("\n");
     sb.append("}");
     return sb.toString();
   }

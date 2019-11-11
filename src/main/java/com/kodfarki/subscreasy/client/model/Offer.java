@@ -25,17 +25,80 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
+import org.threeten.bp.OffsetDateTime;
 
 /**
  * Offer
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-19T15:02:48.500+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-11T10:08:09.886+03:00")
 public class Offer {
   @SerializedName("company")
   private Company company = null;
 
+  @SerializedName("createDate")
+  private OffsetDateTime createDate = null;
+
+  /**
+   * Gets or Sets currency
+   */
+  @JsonAdapter(CurrencyEnum.Adapter.class)
+  public enum CurrencyEnum {
+    TRY("TRY"),
+    
+    USD("USD");
+
+    private String value;
+
+    CurrencyEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static CurrencyEnum fromValue(String text) {
+      for (CurrencyEnum b : CurrencyEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<CurrencyEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final CurrencyEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public CurrencyEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return CurrencyEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("currency")
+  private CurrencyEnum currency = null;
+
+  @SerializedName("description")
+  private String description = null;
+
+  @SerializedName("disablePaymentForm")
+  private Boolean disablePaymentForm = null;
+
   @SerializedName("id")
   private Long id = null;
+
+  @SerializedName("imagePath")
+  private String imagePath = null;
 
   @SerializedName("multiplePurchase")
   private Boolean multiplePurchase = null;
@@ -46,14 +109,120 @@ public class Offer {
   @SerializedName("openEnded")
   private Boolean openEnded = null;
 
+  @SerializedName("physicalProduct")
+  private Boolean physicalProduct = null;
+
   @SerializedName("price")
   private BigDecimal price = null;
+
+  /**
+   * Gets or Sets productType
+   */
+  @JsonAdapter(ProductTypeEnum.Adapter.class)
+  public enum ProductTypeEnum {
+    PHYSICAL("PHYSICAL"),
+    
+    SERVICE("SERVICE");
+
+    private String value;
+
+    ProductTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ProductTypeEnum fromValue(String text) {
+      for (ProductTypeEnum b : ProductTypeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ProductTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ProductTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ProductTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return ProductTypeEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("productType")
+  private ProductTypeEnum productType = null;
 
   @SerializedName("recurrence")
   private RecurrencePeriod recurrence = null;
 
   @SerializedName("recurrenceCount")
   private Integer recurrenceCount = null;
+
+  @SerializedName("renewalBillcycleBased")
+  private Boolean renewalBillcycleBased = null;
+
+  /**
+   * Gets or Sets renewalType
+   */
+  @JsonAdapter(RenewalTypeEnum.Adapter.class)
+  public enum RenewalTypeEnum {
+    BILLCYCLE("BILLCYCLE"),
+    
+    START_DATE("START_DATE");
+
+    private String value;
+
+    RenewalTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static RenewalTypeEnum fromValue(String text) {
+      for (RenewalTypeEnum b : RenewalTypeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<RenewalTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RenewalTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RenewalTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return RenewalTypeEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("renewalType")
+  private RenewalTypeEnum renewalType = null;
 
   @SerializedName("secureId")
   private String secureId = null;
@@ -79,6 +248,78 @@ public class Offer {
     this.company = company;
   }
 
+  public Offer createDate(OffsetDateTime createDate) {
+    this.createDate = createDate;
+    return this;
+  }
+
+   /**
+   * Get createDate
+   * @return createDate
+  **/
+  @ApiModelProperty(value = "")
+  public OffsetDateTime getCreateDate() {
+    return createDate;
+  }
+
+  public void setCreateDate(OffsetDateTime createDate) {
+    this.createDate = createDate;
+  }
+
+  public Offer currency(CurrencyEnum currency) {
+    this.currency = currency;
+    return this;
+  }
+
+   /**
+   * Get currency
+   * @return currency
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public CurrencyEnum getCurrency() {
+    return currency;
+  }
+
+  public void setCurrency(CurrencyEnum currency) {
+    this.currency = currency;
+  }
+
+  public Offer description(String description) {
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Get description
+   * @return description
+  **/
+  @ApiModelProperty(value = "")
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public Offer disablePaymentForm(Boolean disablePaymentForm) {
+    this.disablePaymentForm = disablePaymentForm;
+    return this;
+  }
+
+   /**
+   * Get disablePaymentForm
+   * @return disablePaymentForm
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public Boolean isDisablePaymentForm() {
+    return disablePaymentForm;
+  }
+
+  public void setDisablePaymentForm(Boolean disablePaymentForm) {
+    this.disablePaymentForm = disablePaymentForm;
+  }
+
   public Offer id(Long id) {
     this.id = id;
     return this;
@@ -95,6 +336,24 @@ public class Offer {
 
   public void setId(Long id) {
     this.id = id;
+  }
+
+  public Offer imagePath(String imagePath) {
+    this.imagePath = imagePath;
+    return this;
+  }
+
+   /**
+   * Get imagePath
+   * @return imagePath
+  **/
+  @ApiModelProperty(value = "")
+  public String getImagePath() {
+    return imagePath;
+  }
+
+  public void setImagePath(String imagePath) {
+    this.imagePath = imagePath;
   }
 
   public Offer multiplePurchase(Boolean multiplePurchase) {
@@ -151,6 +410,24 @@ public class Offer {
     this.openEnded = openEnded;
   }
 
+  public Offer physicalProduct(Boolean physicalProduct) {
+    this.physicalProduct = physicalProduct;
+    return this;
+  }
+
+   /**
+   * Get physicalProduct
+   * @return physicalProduct
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isPhysicalProduct() {
+    return physicalProduct;
+  }
+
+  public void setPhysicalProduct(Boolean physicalProduct) {
+    this.physicalProduct = physicalProduct;
+  }
+
   public Offer price(BigDecimal price) {
     this.price = price;
     return this;
@@ -167,6 +444,24 @@ public class Offer {
 
   public void setPrice(BigDecimal price) {
     this.price = price;
+  }
+
+  public Offer productType(ProductTypeEnum productType) {
+    this.productType = productType;
+    return this;
+  }
+
+   /**
+   * Get productType
+   * @return productType
+  **/
+  @ApiModelProperty(value = "")
+  public ProductTypeEnum getProductType() {
+    return productType;
+  }
+
+  public void setProductType(ProductTypeEnum productType) {
+    this.productType = productType;
   }
 
   public Offer recurrence(RecurrencePeriod recurrence) {
@@ -203,6 +498,42 @@ public class Offer {
 
   public void setRecurrenceCount(Integer recurrenceCount) {
     this.recurrenceCount = recurrenceCount;
+  }
+
+  public Offer renewalBillcycleBased(Boolean renewalBillcycleBased) {
+    this.renewalBillcycleBased = renewalBillcycleBased;
+    return this;
+  }
+
+   /**
+   * Get renewalBillcycleBased
+   * @return renewalBillcycleBased
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isRenewalBillcycleBased() {
+    return renewalBillcycleBased;
+  }
+
+  public void setRenewalBillcycleBased(Boolean renewalBillcycleBased) {
+    this.renewalBillcycleBased = renewalBillcycleBased;
+  }
+
+  public Offer renewalType(RenewalTypeEnum renewalType) {
+    this.renewalType = renewalType;
+    return this;
+  }
+
+   /**
+   * Get renewalType
+   * @return renewalType
+  **/
+  @ApiModelProperty(value = "")
+  public RenewalTypeEnum getRenewalType() {
+    return renewalType;
+  }
+
+  public void setRenewalType(RenewalTypeEnum renewalType) {
+    this.renewalType = renewalType;
   }
 
   public Offer secureId(String secureId) {
@@ -252,20 +583,29 @@ public class Offer {
     }
     Offer offer = (Offer) o;
     return Objects.equals(this.company, offer.company) &&
+        Objects.equals(this.createDate, offer.createDate) &&
+        Objects.equals(this.currency, offer.currency) &&
+        Objects.equals(this.description, offer.description) &&
+        Objects.equals(this.disablePaymentForm, offer.disablePaymentForm) &&
         Objects.equals(this.id, offer.id) &&
+        Objects.equals(this.imagePath, offer.imagePath) &&
         Objects.equals(this.multiplePurchase, offer.multiplePurchase) &&
         Objects.equals(this.name, offer.name) &&
         Objects.equals(this.openEnded, offer.openEnded) &&
+        Objects.equals(this.physicalProduct, offer.physicalProduct) &&
         Objects.equals(this.price, offer.price) &&
+        Objects.equals(this.productType, offer.productType) &&
         Objects.equals(this.recurrence, offer.recurrence) &&
         Objects.equals(this.recurrenceCount, offer.recurrenceCount) &&
+        Objects.equals(this.renewalBillcycleBased, offer.renewalBillcycleBased) &&
+        Objects.equals(this.renewalType, offer.renewalType) &&
         Objects.equals(this.secureId, offer.secureId) &&
         Objects.equals(this.trialPeriod, offer.trialPeriod);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(company, id, multiplePurchase, name, openEnded, price, recurrence, recurrenceCount, secureId, trialPeriod);
+    return Objects.hash(company, createDate, currency, description, disablePaymentForm, id, imagePath, multiplePurchase, name, openEnded, physicalProduct, price, productType, recurrence, recurrenceCount, renewalBillcycleBased, renewalType, secureId, trialPeriod);
   }
 
 
@@ -275,13 +615,22 @@ public class Offer {
     sb.append("class Offer {\n");
     
     sb.append("    company: ").append(toIndentedString(company)).append("\n");
+    sb.append("    createDate: ").append(toIndentedString(createDate)).append("\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    disablePaymentForm: ").append(toIndentedString(disablePaymentForm)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    imagePath: ").append(toIndentedString(imagePath)).append("\n");
     sb.append("    multiplePurchase: ").append(toIndentedString(multiplePurchase)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    openEnded: ").append(toIndentedString(openEnded)).append("\n");
+    sb.append("    physicalProduct: ").append(toIndentedString(physicalProduct)).append("\n");
     sb.append("    price: ").append(toIndentedString(price)).append("\n");
+    sb.append("    productType: ").append(toIndentedString(productType)).append("\n");
     sb.append("    recurrence: ").append(toIndentedString(recurrence)).append("\n");
     sb.append("    recurrenceCount: ").append(toIndentedString(recurrenceCount)).append("\n");
+    sb.append("    renewalBillcycleBased: ").append(toIndentedString(renewalBillcycleBased)).append("\n");
+    sb.append("    renewalType: ").append(toIndentedString(renewalType)).append("\n");
     sb.append("    secureId: ").append(toIndentedString(secureId)).append("\n");
     sb.append("    trialPeriod: ").append(toIndentedString(trialPeriod)).append("\n");
     sb.append("}");

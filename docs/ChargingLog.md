@@ -20,12 +20,15 @@ Name | Type | Description | Notes
 **paymentId** | **String** |  |  [optional]
 **price** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
 **reason** | [**ReasonEnum**](#ReasonEnum) |  |  [optional]
+**refundDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **savedCard** | [**SavedCard**](SavedCard.md) |  |  [optional]
 **savedCardId** | **Long** |  |  [optional]
 **serviceInstanceId** | **Long** |  |  [optional]
 **status** | [**StatusEnum**](#StatusEnum) |  |  [optional]
+**subscriberId** | **Long** |  |  [optional]
 **subscriberSecureId** | **String** |  |  [optional]
 **subscriptionId** | **Long** |  |  [optional]
+**threeds** | **Boolean** |  |  [optional]
 **transactionId** | **String** |  |  [optional]
 
 
@@ -37,6 +40,7 @@ OFFLINE | &quot;OFFLINE&quot;
 IYZICO | &quot;IYZICO&quot;
 PAYU | &quot;PAYU&quot;
 PAYTR | &quot;PAYTR&quot;
+MOBILEXPRESS | &quot;MOBILEXPRESS&quot;
 
 
 <a name="ReasonEnum"></a>

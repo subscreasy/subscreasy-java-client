@@ -31,7 +31,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * User
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-19T15:02:48.500+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-11T10:08:09.886+03:00")
 public class User {
   @SerializedName("activated")
   private Boolean activated = null;
@@ -41,6 +41,9 @@ public class User {
 
   @SerializedName("company")
   private Company company = null;
+
+  @SerializedName("companyOwner")
+  private Boolean companyOwner = null;
 
   @SerializedName("createdDate")
   private OffsetDateTime createdDate = null;
@@ -68,6 +71,9 @@ public class User {
 
   @SerializedName("login")
   private String login = null;
+
+  @SerializedName("loginCount")
+  private Long loginCount = null;
 
   @SerializedName("resetDate")
   private OffsetDateTime resetDate = null;
@@ -132,6 +138,24 @@ public class User {
 
   public void setCompany(Company company) {
     this.company = company;
+  }
+
+  public User companyOwner(Boolean companyOwner) {
+    this.companyOwner = companyOwner;
+    return this;
+  }
+
+   /**
+   * Get companyOwner
+   * @return companyOwner
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public Boolean isCompanyOwner() {
+    return companyOwner;
+  }
+
+  public void setCompanyOwner(Boolean companyOwner) {
+    this.companyOwner = companyOwner;
   }
 
   public User createdDate(OffsetDateTime createdDate) {
@@ -296,6 +320,24 @@ public class User {
     this.login = login;
   }
 
+  public User loginCount(Long loginCount) {
+    this.loginCount = loginCount;
+    return this;
+  }
+
+   /**
+   * Get loginCount
+   * @return loginCount
+  **/
+  @ApiModelProperty(value = "")
+  public Long getLoginCount() {
+    return loginCount;
+  }
+
+  public void setLoginCount(Long loginCount) {
+    this.loginCount = loginCount;
+  }
+
   public User resetDate(OffsetDateTime resetDate) {
     this.resetDate = resetDate;
     return this;
@@ -327,6 +369,7 @@ public class User {
     return Objects.equals(this.activated, user.activated) &&
         Objects.equals(this.authorities, user.authorities) &&
         Objects.equals(this.company, user.company) &&
+        Objects.equals(this.companyOwner, user.companyOwner) &&
         Objects.equals(this.createdDate, user.createdDate) &&
         Objects.equals(this.email, user.email) &&
         Objects.equals(this.firstName, user.firstName) &&
@@ -336,12 +379,13 @@ public class User {
         Objects.equals(this.lastModifiedDate, user.lastModifiedDate) &&
         Objects.equals(this.lastName, user.lastName) &&
         Objects.equals(this.login, user.login) &&
+        Objects.equals(this.loginCount, user.loginCount) &&
         Objects.equals(this.resetDate, user.resetDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(activated, authorities, company, createdDate, email, firstName, id, imageUrl, langKey, lastModifiedDate, lastName, login, resetDate);
+    return Objects.hash(activated, authorities, company, companyOwner, createdDate, email, firstName, id, imageUrl, langKey, lastModifiedDate, lastName, login, loginCount, resetDate);
   }
 
 
@@ -353,6 +397,7 @@ public class User {
     sb.append("    activated: ").append(toIndentedString(activated)).append("\n");
     sb.append("    authorities: ").append(toIndentedString(authorities)).append("\n");
     sb.append("    company: ").append(toIndentedString(company)).append("\n");
+    sb.append("    companyOwner: ").append(toIndentedString(companyOwner)).append("\n");
     sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
@@ -362,6 +407,7 @@ public class User {
     sb.append("    lastModifiedDate: ").append(toIndentedString(lastModifiedDate)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    login: ").append(toIndentedString(login)).append("\n");
+    sb.append("    loginCount: ").append(toIndentedString(loginCount)).append("\n");
     sb.append("    resetDate: ").append(toIndentedString(resetDate)).append("\n");
     sb.append("}");
     return sb.toString();
