@@ -18,7 +18,7 @@ import com.kodfarki.subscreasy.Pair;
 import java.util.Map;
 import java.util.List;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-11T10:08:09.886+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-03T15:39:09.262+03:00")
 public class ApiKeyAuth implements Authentication {
   private final String location;
   private final String paramName;

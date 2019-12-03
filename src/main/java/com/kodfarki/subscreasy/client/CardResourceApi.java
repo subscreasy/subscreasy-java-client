@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 import com.kodfarki.subscreasy.client.model.SaveCardRequest;
+import com.kodfarki.subscreasy.client.model.SavedCard;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -121,11 +122,11 @@ public class CardResourceApi {
      * saveCard
      * 
      * @param request request (required)
-     * @return Object
+     * @return SavedCard
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object saveCardUsingPOST(SaveCardRequest request) throws ApiException {
-        ApiResponse<Object> resp = saveCardUsingPOSTWithHttpInfo(request);
+    public SavedCard saveCardUsingPOST(SaveCardRequest request) throws ApiException {
+        ApiResponse<SavedCard> resp = saveCardUsingPOSTWithHttpInfo(request);
         return resp.getData();
     }
 
@@ -133,12 +134,12 @@ public class CardResourceApi {
      * saveCard
      * 
      * @param request request (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;SavedCard&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> saveCardUsingPOSTWithHttpInfo(SaveCardRequest request) throws ApiException {
+    public ApiResponse<SavedCard> saveCardUsingPOSTWithHttpInfo(SaveCardRequest request) throws ApiException {
         com.squareup.okhttp.Call call = saveCardUsingPOSTValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<SavedCard>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -150,7 +151,7 @@ public class CardResourceApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call saveCardUsingPOSTAsync(SaveCardRequest request, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call saveCardUsingPOSTAsync(SaveCardRequest request, final ApiCallback<SavedCard> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -172,7 +173,7 @@ public class CardResourceApi {
         }
 
         com.squareup.okhttp.Call call = saveCardUsingPOSTValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<SavedCard>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

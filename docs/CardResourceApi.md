@@ -1,6 +1,6 @@
 # CardResourceApi
 
-All URIs are relative to *https://app.subscreasy.com*
+All URIs are relative to *https://sandbox.subscreasy.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="saveCardUsingPOST"></a>
 # **saveCardUsingPOST**
-> Object saveCardUsingPOST(request)
+> SavedCard saveCardUsingPOST(request)
 
 saveCard
 
@@ -33,7 +33,7 @@ apiKey.setApiKey("YOUR API KEY");
 CardResourceApi apiInstance = new CardResourceApi();
 SaveCardRequest request = new SaveCardRequest(); // SaveCardRequest | request
 try {
-    Object result = apiInstance.saveCardUsingPOST(request);
+    SavedCard result = apiInstance.saveCardUsingPOST(request);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CardResourceApi#saveCardUsingPOST");
@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**SavedCard**](SavedCard.md)
 
 ### Authorization
 

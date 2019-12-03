@@ -28,7 +28,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * Invoice
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-11T10:08:09.886+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-03T15:39:09.262+03:00")
 public class Invoice {
   @SerializedName("amount")
   private BigDecimal amount = null;

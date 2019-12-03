@@ -1,6 +1,6 @@
 # UserJwtControllerApi
 
-All URIs are relative to *https://app.subscreasy.com*
+All URIs are relative to *https://sandbox.subscreasy.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
