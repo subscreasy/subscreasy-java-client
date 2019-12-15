@@ -177,11 +177,11 @@ Class | Method | HTTP request | Description
 *SubscriberResourceApi* | [**getSubscriberByNameUsingGET**](docs/SubscriberResourceApi.md#getSubscriberByNameUsingGET) | **GET** /api/subscribers/name/{name} | getSubscriberByName
 *SubscriberResourceApi* | [**getSubscriberUsingGET**](docs/SubscriberResourceApi.md#getSubscriberUsingGET) | **GET** /api/subscribers/{id} | getSubscriber
 *SubscriberResourceApi* | [**updateSubscriberUsingPUT**](docs/SubscriberResourceApi.md#updateSubscriberUsingPUT) | **PUT** /api/subscribers | updateSubscriber
-*SubsriptionResourceApi* | [**cancelSubscriptionUsingPUT**](docs/SubsriptionResourceApi.md#cancelSubscriptionUsingPUT) | **PUT** /api/subscriptions/cancel | cancelSubscription
-*SubsriptionResourceApi* | [**getActiveSubscriptionsUsingGET**](docs/SubsriptionResourceApi.md#getActiveSubscriptionsUsingGET) | **GET** /api/subsriptions/subscriber/{secureId} | getActiveSubscriptions
-*SubsriptionResourceApi* | [**getAllCompanySubscriptionsUsingGET**](docs/SubsriptionResourceApi.md#getAllCompanySubscriptionsUsingGET) | **GET** /api/subscriptions/company/{id} | getAllCompanySubscriptions
-*SubsriptionResourceApi* | [**getSubsriptionUsingGET**](docs/SubsriptionResourceApi.md#getSubsriptionUsingGET) | **GET** /api/subsriptions/{id} | getSubsription
-*SubsriptionResourceApi* | [**startSubscriptionUsingPOST**](docs/SubsriptionResourceApi.md#startSubscriptionUsingPOST) | **POST** /api/subscriptions/start | startSubscription
+*SubscriptionResourceApi* | [**cancelSubscriptionUsingPUT**](docs/SubscriptionResourceApi.md#cancelSubscriptionUsingPUT) | **PUT** /api/subscriptions/cancel | cancelSubscription
+*SubscriptionResourceApi* | [**getActiveSubscriptionsUsingGET**](docs/SubscriptionResourceApi.md#getActiveSubscriptionsUsingGET) | **GET** /api/subsriptions/subscriber/{secureId} | getActiveSubscriptions
+*SubscriptionResourceApi* | [**getAllCompanySubscriptionsUsingGET**](docs/SubscriptionResourceApi.md#getAllCompanySubscriptionsUsingGET) | **GET** /api/subscriptions/company/{id} | getAllCompanySubscriptions
+*SubscriptionResourceApi* | [**getSubsriptionUsingGET**](docs/SubscriptionResourceApi.md#getSubsriptionUsingGET) | **GET** /api/subsriptions/{id} | getSubsription
+*SubscriptionResourceApi* | [**startSubscriptionUsingPOST**](docs/SubscriptionResourceApi.md#startSubscriptionUsingPOST) | **POST** /api/subscriptions/start | startSubscription
 *UsageNotificationResourceApi* | [**createUsageNotificationUsingPOST**](docs/UsageNotificationResourceApi.md#createUsageNotificationUsingPOST) | **POST** /api/usage-notifications | createUsageNotification
 *UsageNotificationResourceApi* | [**deleteUsageNotificationUsingDELETE**](docs/UsageNotificationResourceApi.md#deleteUsageNotificationUsingDELETE) | **DELETE** /api/usage-notifications/{id} | deleteUsageNotification
 *UsageNotificationResourceApi* | [**getAllUsageNotificationsUsingGET**](docs/UsageNotificationResourceApi.md#getAllUsageNotificationsUsingGET) | **GET** /api/usage-notifications | getAllUsageNotifications
