@@ -31,6 +31,13 @@ Add this dependency to your project's POM:
     <version>1.1.117</version>
     <scope>compile</scope>
 </dependency>
+
+<repositories>
+  <repository>
+	 <id>subscreasy</id>
+	 <url>https://raw.githubusercontent.com/subscreasy/maven/master</url>
+  </repository>
+</repositories>
 ```
 
 ### Gradle users
