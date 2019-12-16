@@ -13,11 +13,13 @@
 
 package com.kodfarki.subscreasy.client;
 
+import com.kodfarki.subscreasy.ApiClient;
 import com.kodfarki.subscreasy.ApiException;
-import com.kodfarki.subscreasy.client.model.Cancellation;
-import com.kodfarki.subscreasy.client.model.StartSubscriptionRequest;
-import com.kodfarki.subscreasy.client.model.StartSubscriptionResult;
-import com.kodfarki.subscreasy.client.model.Subsription;
+import com.kodfarki.subscreasy.Configuration;
+import com.kodfarki.subscreasy.auth.ApiKeyAuth;
+import com.kodfarki.subscreasy.client.card.TestPaymentCard;
+import com.kodfarki.subscreasy.client.model.*;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -32,9 +34,24 @@ import java.util.Map;
 @Ignore
 public class SubscriptionResourceApiTest {
 
-    private final SubscriptionResourceApi api = new SubscriptionResourceApi();
+    private static SubscriptionResourceApi api;
 
-    
+    // TODO Replace with your own API key
+    // TODO Check out https://www.subscreasy.com/doc/tr/api/authorization to retrieve your API KEY
+    private static final String YOUR_API_KEY = "REPLACE WITH YOUR API KEY!";
+
+    @BeforeClass
+    public static void init() {
+        ApiClient sandboxClient = Configuration.getSandboxApiClient();
+        sandboxClient.setDebugging(true);
+
+        ApiKeyAuth apiKey = (ApiKeyAuth) sandboxClient.getAuthentication("apiKey");
+        apiKey.setApiKey(YOUR_API_KEY);
+        apiKey.setApiKeyPrefix("Apikey");
+
+        api = new SubscriptionResourceApi(sandboxClient);
+    }
+
     /**
      * cancelSubscription
      *
@@ -114,7 +131,7 @@ public class SubscriptionResourceApiTest {
 
         // TODO: test validations
     }
-    
+
     /**
      * startSubscription
      *
@@ -125,7 +142,27 @@ public class SubscriptionResourceApiTest {
      */
     @Test
     public void startSubscriptionUsingPOSTTest() throws ApiException {
-        StartSubscriptionRequest request = null;
+        ApiClient defaultClient = Configuration.getSandboxApiClient();
+        defaultClient.setDebugging(true);
+
+        ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+        apiKey.setApiKey(YOUR_API_KEY);
+        apiKey.setApiKeyPrefix("Apikey");
+
+        StartSubscriptionRequest request = new StartSubscriptionRequest();
+
+        Subscriber subscriber = new Subscriber();
+        subscriber.setEmail("johndoe@gmail.com");
+        subscriber.setName("John");
+        subscriber.setSurname("Doe");
+        request.setSubscriber(subscriber);
+
+        Offer offer = new Offer();
+        offer.setId(4713L);
+        request.setOffer(offer);
+
+        request.setPaymentCard(TestPaymentCard.aktifbank());
+
         StartSubscriptionResult response = api.startSubscriptionUsingPOST(request);
 
         // TODO: test validations

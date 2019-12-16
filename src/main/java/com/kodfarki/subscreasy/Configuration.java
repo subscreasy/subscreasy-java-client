@@ -17,6 +17,8 @@ package com.kodfarki.subscreasy;
 public class Configuration {
     private static ApiClient defaultApiClient = new ApiClient();
 
+    private static ApiClient sandboxApiClient;
+
     /**
      * Get the default API client, which would be used when creating API
      * instances without providing an API client.
@@ -35,5 +37,14 @@ public class Configuration {
      */
     public static void setDefaultApiClient(ApiClient apiClient) {
         defaultApiClient = apiClient;
+    }
+
+    public static ApiClient getSandboxApiClient() {
+        if (sandboxApiClient == null) {
+            sandboxApiClient = new ApiClient();
+            sandboxApiClient.setBasePath("https://sandbox.subscreasy.com");
+        }
+
+        return sandboxApiClient;
     }
 }

@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>com.kodfarki.subscreasy</groupId>
     <artifactId>java-client</artifactId>
-    <version>1.0.18</version>
+    <version>1.1.117</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.kodfarki.subscreasy:java-client:1.0.18"
+compile "com.kodfarki.subscreasy:java-client:1.1.117"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/java-client-1.0.18.jar
+* target/java-client-1.1.117.jar
 * target/lib/*.jar
 
 ## Getting Started
