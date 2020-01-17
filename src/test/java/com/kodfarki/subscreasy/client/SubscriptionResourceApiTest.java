@@ -16,6 +16,7 @@ package com.kodfarki.subscreasy.client;
 import com.kodfarki.subscreasy.ApiClient;
 import com.kodfarki.subscreasy.ApiException;
 import com.kodfarki.subscreasy.Configuration;
+import com.kodfarki.subscreasy.ConfigurationSandbox;
 import com.kodfarki.subscreasy.auth.ApiKeyAuth;
 import com.kodfarki.subscreasy.client.card.TestPaymentCard;
 import com.kodfarki.subscreasy.client.model.*;
@@ -42,7 +43,7 @@ public class SubscriptionResourceApiTest {
 
     @BeforeClass
     public static void init() {
-        ApiClient sandboxClient = Configuration.getSandboxApiClient();
+        ApiClient sandboxClient = ConfigurationSandbox.getSandboxApiClient();
         sandboxClient.setDebugging(true);
 
         ApiKeyAuth apiKey = (ApiKeyAuth) sandboxClient.getAuthentication("apiKey");
@@ -142,7 +143,7 @@ public class SubscriptionResourceApiTest {
      */
     @Test
     public void startSubscriptionUsingPOSTTest() throws ApiException {
-        ApiClient defaultClient = Configuration.getSandboxApiClient();
+        ApiClient defaultClient = ConfigurationSandbox.getSandboxApiClient();
         defaultClient.setDebugging(true);
 
         ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
