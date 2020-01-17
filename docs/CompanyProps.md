@@ -4,6 +4,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**aktifbankClientId** | **Integer** |  |  [optional]
+**aktifbankEncryptionKey** | **String** |  |  [optional]
+**aktifbankName** | **String** |  |  [optional]
+**aktifbankPassword** | **String** |  |  [optional]
 **billingDate** | **Integer** |  |  [optional]
 **billingInformationMandatory** | **Boolean** |  | 
 **billingThresholdDays** | **Integer** |  |  [optional]
@@ -57,6 +61,7 @@ IYZICO | &quot;IYZICO&quot;
 PAYU | &quot;PAYU&quot;
 PAYTR | &quot;PAYTR&quot;
 MOBILEXPRESS | &quot;MOBILEXPRESS&quot;
+AKTIFBANK | &quot;AKTIFBANK&quot;
 
 
 

@@ -10,6 +10,8 @@ Method | HTTP request | Description
 [**getChargingLogUsingGET**](ChargingLogResourceApi.md#getChargingLogUsingGET) | **GET** /api/charging-logs/{id} | getChargingLog
 [**getChargingLogsByStatusUsingGET**](ChargingLogResourceApi.md#getChargingLogsByStatusUsingGET) | **GET** /api/charging-logs/status/{status} | getChargingLogsByStatus
 [**getPaymentsByMerchantSubscriberIdUsingGET**](ChargingLogResourceApi.md#getPaymentsByMerchantSubscriberIdUsingGET) | **GET** /api/charging-logs/subscriber/m/{merchantSubscriberId} | getPaymentsByMerchantSubscriberId
+[**getPaymentsBySubscriberIdUsingGET**](ChargingLogResourceApi.md#getPaymentsBySubscriberIdUsingGET) | **GET** /api/charging-logs/subscriber/id/{subscriberId} | getPaymentsBySubscriberId
+[**getPaymentsBySubscriberIdUsingGET1**](ChargingLogResourceApi.md#getPaymentsBySubscriberIdUsingGET1) | **GET** /api/charging-logs/subscriber/{subscriberSecureId} | getPaymentsBySubscriberId
 [**refundUsingPOST**](ChargingLogResourceApi.md#refundUsingPOST) | **POST** /api/charging-logs/refund/{chargingLogId} | refund
 [**updateChargingLogUsingPUT**](ChargingLogResourceApi.md#updateChargingLogUsingPUT) | **PUT** /api/charging-logs | updateChargingLog
 
@@ -330,6 +332,124 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **merchantSubscriberId** | **String**| merchantSubscriberId |
+ **page** | **Integer**| Page number of the requested page | [optional]
+ **size** | **Integer**| Size of a page | [optional]
+ **sort** | [**List&lt;String&gt;**](String.md)| Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported. | [optional]
+
+### Return type
+
+[**List&lt;ChargingLog&gt;**](ChargingLog.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+<a name="getPaymentsBySubscriberIdUsingGET"></a>
+# **getPaymentsBySubscriberIdUsingGET**
+> List&lt;ChargingLog&gt; getPaymentsBySubscriberIdUsingGET(subscriberId, page, size, sort)
+
+getPaymentsBySubscriberId
+
+### Example
+```java
+// Import classes:
+//import com.kodfarki.subscreasy.ApiClient;
+//import com.kodfarki.subscreasy.ApiException;
+//import com.kodfarki.subscreasy.Configuration;
+//import com.kodfarki.subscreasy.auth.*;
+//import com.kodfarki.subscreasy.client.ChargingLogResourceApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKey
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+apiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKey.setApiKeyPrefix("Token");
+
+ChargingLogResourceApi apiInstance = new ChargingLogResourceApi();
+Long subscriberId = 789L; // Long | subscriberId
+Integer page = 56; // Integer | Page number of the requested page
+Integer size = 56; // Integer | Size of a page
+List<String> sort = Arrays.asList("sort_example"); // List<String> | Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported.
+try {
+    List<ChargingLog> result = apiInstance.getPaymentsBySubscriberIdUsingGET(subscriberId, page, size, sort);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ChargingLogResourceApi#getPaymentsBySubscriberIdUsingGET");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **subscriberId** | **Long**| subscriberId |
+ **page** | **Integer**| Page number of the requested page | [optional]
+ **size** | **Integer**| Size of a page | [optional]
+ **sort** | [**List&lt;String&gt;**](String.md)| Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported. | [optional]
+
+### Return type
+
+[**List&lt;ChargingLog&gt;**](ChargingLog.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+<a name="getPaymentsBySubscriberIdUsingGET1"></a>
+# **getPaymentsBySubscriberIdUsingGET1**
+> List&lt;ChargingLog&gt; getPaymentsBySubscriberIdUsingGET1(subscriberSecureId, page, size, sort)
+
+getPaymentsBySubscriberId
+
+### Example
+```java
+// Import classes:
+//import com.kodfarki.subscreasy.ApiClient;
+//import com.kodfarki.subscreasy.ApiException;
+//import com.kodfarki.subscreasy.Configuration;
+//import com.kodfarki.subscreasy.auth.*;
+//import com.kodfarki.subscreasy.client.ChargingLogResourceApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKey
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+apiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKey.setApiKeyPrefix("Token");
+
+ChargingLogResourceApi apiInstance = new ChargingLogResourceApi();
+String subscriberSecureId = "subscriberSecureId_example"; // String | subscriberSecureId
+Integer page = 56; // Integer | Page number of the requested page
+Integer size = 56; // Integer | Size of a page
+List<String> sort = Arrays.asList("sort_example"); // List<String> | Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported.
+try {
+    List<ChargingLog> result = apiInstance.getPaymentsBySubscriberIdUsingGET1(subscriberSecureId, page, size, sort);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ChargingLogResourceApi#getPaymentsBySubscriberIdUsingGET1");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **subscriberSecureId** | **String**| subscriberSecureId |
  **page** | **Integer**| Page number of the requested page | [optional]
  **size** | **Integer**| Size of a page | [optional]
  **sort** | [**List&lt;String&gt;**](String.md)| Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported. | [optional]

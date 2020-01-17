@@ -27,8 +27,20 @@ import java.io.IOException;
 /**
  * CompanyProps
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-03T15:39:09.262+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-17T11:44:26.783+03:00")
 public class CompanyProps {
+  @SerializedName("aktifbankClientId")
+  private Integer aktifbankClientId = null;
+
+  @SerializedName("aktifbankEncryptionKey")
+  private String aktifbankEncryptionKey = null;
+
+  @SerializedName("aktifbankName")
+  private String aktifbankName = null;
+
+  @SerializedName("aktifbankPassword")
+  private String aktifbankPassword = null;
+
   @SerializedName("billingDate")
   private Integer billingDate = null;
 
@@ -143,7 +155,9 @@ public class CompanyProps {
     
     PAYTR("PAYTR"),
     
-    MOBILEXPRESS("MOBILEXPRESS");
+    MOBILEXPRESS("MOBILEXPRESS"),
+    
+    AKTIFBANK("AKTIFBANK");
 
     private String value;
 
@@ -230,6 +244,78 @@ public class CompanyProps {
 
   @SerializedName("wirecardUserCode")
   private String wirecardUserCode = null;
+
+  public CompanyProps aktifbankClientId(Integer aktifbankClientId) {
+    this.aktifbankClientId = aktifbankClientId;
+    return this;
+  }
+
+   /**
+   * Get aktifbankClientId
+   * @return aktifbankClientId
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getAktifbankClientId() {
+    return aktifbankClientId;
+  }
+
+  public void setAktifbankClientId(Integer aktifbankClientId) {
+    this.aktifbankClientId = aktifbankClientId;
+  }
+
+  public CompanyProps aktifbankEncryptionKey(String aktifbankEncryptionKey) {
+    this.aktifbankEncryptionKey = aktifbankEncryptionKey;
+    return this;
+  }
+
+   /**
+   * Get aktifbankEncryptionKey
+   * @return aktifbankEncryptionKey
+  **/
+  @ApiModelProperty(value = "")
+  public String getAktifbankEncryptionKey() {
+    return aktifbankEncryptionKey;
+  }
+
+  public void setAktifbankEncryptionKey(String aktifbankEncryptionKey) {
+    this.aktifbankEncryptionKey = aktifbankEncryptionKey;
+  }
+
+  public CompanyProps aktifbankName(String aktifbankName) {
+    this.aktifbankName = aktifbankName;
+    return this;
+  }
+
+   /**
+   * Get aktifbankName
+   * @return aktifbankName
+  **/
+  @ApiModelProperty(value = "")
+  public String getAktifbankName() {
+    return aktifbankName;
+  }
+
+  public void setAktifbankName(String aktifbankName) {
+    this.aktifbankName = aktifbankName;
+  }
+
+  public CompanyProps aktifbankPassword(String aktifbankPassword) {
+    this.aktifbankPassword = aktifbankPassword;
+    return this;
+  }
+
+   /**
+   * Get aktifbankPassword
+   * @return aktifbankPassword
+  **/
+  @ApiModelProperty(value = "")
+  public String getAktifbankPassword() {
+    return aktifbankPassword;
+  }
+
+  public void setAktifbankPassword(String aktifbankPassword) {
+    this.aktifbankPassword = aktifbankPassword;
+  }
 
   public CompanyProps billingDate(Integer billingDate) {
     this.billingDate = billingDate;
@@ -853,7 +939,11 @@ public class CompanyProps {
       return false;
     }
     CompanyProps companyProps = (CompanyProps) o;
-    return Objects.equals(this.billingDate, companyProps.billingDate) &&
+    return Objects.equals(this.aktifbankClientId, companyProps.aktifbankClientId) &&
+        Objects.equals(this.aktifbankEncryptionKey, companyProps.aktifbankEncryptionKey) &&
+        Objects.equals(this.aktifbankName, companyProps.aktifbankName) &&
+        Objects.equals(this.aktifbankPassword, companyProps.aktifbankPassword) &&
+        Objects.equals(this.billingDate, companyProps.billingDate) &&
         Objects.equals(this.billingInformationMandatory, companyProps.billingInformationMandatory) &&
         Objects.equals(this.billingThresholdDays, companyProps.billingThresholdDays) &&
         Objects.equals(this.branding, companyProps.branding) &&
@@ -891,7 +981,7 @@ public class CompanyProps {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billingDate, billingInformationMandatory, billingThresholdDays, branding, callbackUrl, company, contactEmail, domainName, hostedPageCSSPath, id, logoPath, mobilExpressApiPassword, mobilExpressMerchantKey, mobilExpressPosid, mobilePaymentGateway, notifyNewSubscription, notifyRenewal, notifySubscriptionCancellation, paymentGateway, paymentGatewayApiKey, paymentGatewaySecurityKey, paytrDirectApiEnabled, paytrMerchantId, payuMerchantKeyRenewals, payuSecretKeyRenewals, privacyPolicyUrl, sendDailyReports, subscreasyApiKey, subscreasySecureKey, wirecardErrorMessage, wirecardPin, wirecardSuccessfulMessage, wirecardTurkcellServisId, wirecardUserCode);
+    return Objects.hash(aktifbankClientId, aktifbankEncryptionKey, aktifbankName, aktifbankPassword, billingDate, billingInformationMandatory, billingThresholdDays, branding, callbackUrl, company, contactEmail, domainName, hostedPageCSSPath, id, logoPath, mobilExpressApiPassword, mobilExpressMerchantKey, mobilExpressPosid, mobilePaymentGateway, notifyNewSubscription, notifyRenewal, notifySubscriptionCancellation, paymentGateway, paymentGatewayApiKey, paymentGatewaySecurityKey, paytrDirectApiEnabled, paytrMerchantId, payuMerchantKeyRenewals, payuSecretKeyRenewals, privacyPolicyUrl, sendDailyReports, subscreasyApiKey, subscreasySecureKey, wirecardErrorMessage, wirecardPin, wirecardSuccessfulMessage, wirecardTurkcellServisId, wirecardUserCode);
   }
 
 
@@ -900,6 +990,10 @@ public class CompanyProps {
     StringBuilder sb = new StringBuilder();
     sb.append("class CompanyProps {\n");
     
+    sb.append("    aktifbankClientId: ").append(toIndentedString(aktifbankClientId)).append("\n");
+    sb.append("    aktifbankEncryptionKey: ").append(toIndentedString(aktifbankEncryptionKey)).append("\n");
+    sb.append("    aktifbankName: ").append(toIndentedString(aktifbankName)).append("\n");
+    sb.append("    aktifbankPassword: ").append(toIndentedString(aktifbankPassword)).append("\n");
     sb.append("    billingDate: ").append(toIndentedString(billingDate)).append("\n");
     sb.append("    billingInformationMandatory: ").append(toIndentedString(billingInformationMandatory)).append("\n");
     sb.append("    billingThresholdDays: ").append(toIndentedString(billingThresholdDays)).append("\n");

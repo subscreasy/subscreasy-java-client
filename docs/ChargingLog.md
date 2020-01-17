@@ -41,6 +41,7 @@ IYZICO | &quot;IYZICO&quot;
 PAYU | &quot;PAYU&quot;
 PAYTR | &quot;PAYTR&quot;
 MOBILEXPRESS | &quot;MOBILEXPRESS&quot;
+AKTIFBANK | &quot;AKTIFBANK&quot;
 
 
 <a name="ReasonEnum"></a>

@@ -28,7 +28,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * ServiceInstanceResult
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-03T15:39:09.262+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-17T11:44:26.783+03:00")
 public class ServiceInstanceResult {
   @SerializedName("capacity")
   private BigDecimal capacity = null;
@@ -44,6 +44,66 @@ public class ServiceInstanceResult {
 
   @SerializedName("overUsage")
   private BigDecimal overUsage = null;
+
+  /**
+   * Gets or Sets status
+   */
+  @JsonAdapter(StatusEnum.Adapter.class)
+  public enum StatusEnum {
+    NEW("NEW"),
+    
+    ACTIVE("ACTIVE"),
+    
+    SUSPENDED("SUSPENDED"),
+    
+    FINISHED("FINISHED"),
+    
+    CANCELLED("CANCELLED"),
+    
+    IN_TRIAL("IN_TRIAL"),
+    
+    PAYMENT_DUE("PAYMENT_DUE");
+
+    private String value;
+
+    StatusEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static StatusEnum fromValue(String text) {
+      for (StatusEnum b : StatusEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<StatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public StatusEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return StatusEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("status")
+  private StatusEnum status = null;
 
   @SerializedName("type")
   private String type = null;
@@ -141,6 +201,24 @@ public class ServiceInstanceResult {
     this.overUsage = overUsage;
   }
 
+  public ServiceInstanceResult status(StatusEnum status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @ApiModelProperty(value = "")
+  public StatusEnum getStatus() {
+    return status;
+  }
+
+  public void setStatus(StatusEnum status) {
+    this.status = status;
+  }
+
   public ServiceInstanceResult type(String type) {
     this.type = type;
     return this;
@@ -192,13 +270,14 @@ public class ServiceInstanceResult {
         Objects.equals(this.id, serviceInstanceResult.id) &&
         Objects.equals(this.name, serviceInstanceResult.name) &&
         Objects.equals(this.overUsage, serviceInstanceResult.overUsage) &&
+        Objects.equals(this.status, serviceInstanceResult.status) &&
         Objects.equals(this.type, serviceInstanceResult.type) &&
         Objects.equals(this.usage, serviceInstanceResult.usage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(capacity, endDate, id, name, overUsage, type, usage);
+    return Objects.hash(capacity, endDate, id, name, overUsage, status, type, usage);
   }
 
 
@@ -212,6 +291,7 @@ public class ServiceInstanceResult {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    overUsage: ").append(toIndentedString(overUsage)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
     sb.append("}");

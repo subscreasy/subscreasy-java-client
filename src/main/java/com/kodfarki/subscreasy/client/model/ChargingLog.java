@@ -29,7 +29,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * ChargingLog
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-03T15:39:09.262+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-17T11:44:26.783+03:00")
 public class ChargingLog {
   @SerializedName("appliedCoupon")
   private Long appliedCoupon = null;
@@ -80,7 +80,9 @@ public class ChargingLog {
     
     PAYTR("PAYTR"),
     
-    MOBILEXPRESS("MOBILEXPRESS");
+    MOBILEXPRESS("MOBILEXPRESS"),
+    
+    AKTIFBANK("AKTIFBANK");
 
     private String value;
 

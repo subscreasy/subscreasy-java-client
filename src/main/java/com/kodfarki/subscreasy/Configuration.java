@@ -13,11 +13,9 @@
 
 package com.kodfarki.subscreasy;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-03T15:39:09.262+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-17T11:44:26.783+03:00")
 public class Configuration {
     private static ApiClient defaultApiClient = new ApiClient();
-
-    private static ApiClient sandboxApiClient;
 
     /**
      * Get the default API client, which would be used when creating API
@@ -37,14 +35,5 @@ public class Configuration {
      */
     public static void setDefaultApiClient(ApiClient apiClient) {
         defaultApiClient = apiClient;
-    }
-
-    public static ApiClient getSandboxApiClient() {
-        if (sandboxApiClient == null) {
-            sandboxApiClient = new ApiClient();
-            sandboxApiClient.setBasePath("https://sandbox.subscreasy.com");
-        }
-
-        return sandboxApiClient;
     }
 }
