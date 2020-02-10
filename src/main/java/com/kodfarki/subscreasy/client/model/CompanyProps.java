@@ -27,10 +27,13 @@ import java.io.IOException;
 /**
  * CompanyProps
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-17T11:44:26.783+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-02-10T21:13:53.160+03:00")
 public class CompanyProps {
   @SerializedName("aktifbankClientId")
   private Integer aktifbankClientId = null;
+
+  @SerializedName("aktifbankClientIdForSaveCard")
+  private Integer aktifbankClientIdForSaveCard = null;
 
   @SerializedName("aktifbankEncryptionKey")
   private String aktifbankEncryptionKey = null;
@@ -38,8 +41,14 @@ public class CompanyProps {
   @SerializedName("aktifbankName")
   private String aktifbankName = null;
 
+  @SerializedName("aktifbankNameForSaveCard")
+  private String aktifbankNameForSaveCard = null;
+
   @SerializedName("aktifbankPassword")
   private String aktifbankPassword = null;
+
+  @SerializedName("aktifbankPasswordForSaveCard")
+  private String aktifbankPasswordForSaveCard = null;
 
   @SerializedName("billingDate")
   private Integer billingDate = null;
@@ -221,6 +230,12 @@ public class CompanyProps {
   @SerializedName("privacyPolicyUrl")
   private String privacyPolicyUrl = null;
 
+  @SerializedName("retryCount")
+  private Integer retryCount = null;
+
+  @SerializedName("retryPeriod")
+  private Integer retryPeriod = null;
+
   @SerializedName("sendDailyReports")
   private String sendDailyReports = null;
 
@@ -263,6 +278,24 @@ public class CompanyProps {
     this.aktifbankClientId = aktifbankClientId;
   }
 
+  public CompanyProps aktifbankClientIdForSaveCard(Integer aktifbankClientIdForSaveCard) {
+    this.aktifbankClientIdForSaveCard = aktifbankClientIdForSaveCard;
+    return this;
+  }
+
+   /**
+   * Get aktifbankClientIdForSaveCard
+   * @return aktifbankClientIdForSaveCard
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getAktifbankClientIdForSaveCard() {
+    return aktifbankClientIdForSaveCard;
+  }
+
+  public void setAktifbankClientIdForSaveCard(Integer aktifbankClientIdForSaveCard) {
+    this.aktifbankClientIdForSaveCard = aktifbankClientIdForSaveCard;
+  }
+
   public CompanyProps aktifbankEncryptionKey(String aktifbankEncryptionKey) {
     this.aktifbankEncryptionKey = aktifbankEncryptionKey;
     return this;
@@ -299,6 +332,24 @@ public class CompanyProps {
     this.aktifbankName = aktifbankName;
   }
 
+  public CompanyProps aktifbankNameForSaveCard(String aktifbankNameForSaveCard) {
+    this.aktifbankNameForSaveCard = aktifbankNameForSaveCard;
+    return this;
+  }
+
+   /**
+   * Get aktifbankNameForSaveCard
+   * @return aktifbankNameForSaveCard
+  **/
+  @ApiModelProperty(value = "")
+  public String getAktifbankNameForSaveCard() {
+    return aktifbankNameForSaveCard;
+  }
+
+  public void setAktifbankNameForSaveCard(String aktifbankNameForSaveCard) {
+    this.aktifbankNameForSaveCard = aktifbankNameForSaveCard;
+  }
+
   public CompanyProps aktifbankPassword(String aktifbankPassword) {
     this.aktifbankPassword = aktifbankPassword;
     return this;
@@ -315,6 +366,24 @@ public class CompanyProps {
 
   public void setAktifbankPassword(String aktifbankPassword) {
     this.aktifbankPassword = aktifbankPassword;
+  }
+
+  public CompanyProps aktifbankPasswordForSaveCard(String aktifbankPasswordForSaveCard) {
+    this.aktifbankPasswordForSaveCard = aktifbankPasswordForSaveCard;
+    return this;
+  }
+
+   /**
+   * Get aktifbankPasswordForSaveCard
+   * @return aktifbankPasswordForSaveCard
+  **/
+  @ApiModelProperty(value = "")
+  public String getAktifbankPasswordForSaveCard() {
+    return aktifbankPasswordForSaveCard;
+  }
+
+  public void setAktifbankPasswordForSaveCard(String aktifbankPasswordForSaveCard) {
+    this.aktifbankPasswordForSaveCard = aktifbankPasswordForSaveCard;
   }
 
   public CompanyProps billingDate(Integer billingDate) {
@@ -785,6 +854,42 @@ public class CompanyProps {
     this.privacyPolicyUrl = privacyPolicyUrl;
   }
 
+  public CompanyProps retryCount(Integer retryCount) {
+    this.retryCount = retryCount;
+    return this;
+  }
+
+   /**
+   * Get retryCount
+   * @return retryCount
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getRetryCount() {
+    return retryCount;
+  }
+
+  public void setRetryCount(Integer retryCount) {
+    this.retryCount = retryCount;
+  }
+
+  public CompanyProps retryPeriod(Integer retryPeriod) {
+    this.retryPeriod = retryPeriod;
+    return this;
+  }
+
+   /**
+   * Get retryPeriod
+   * @return retryPeriod
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getRetryPeriod() {
+    return retryPeriod;
+  }
+
+  public void setRetryPeriod(Integer retryPeriod) {
+    this.retryPeriod = retryPeriod;
+  }
+
   public CompanyProps sendDailyReports(String sendDailyReports) {
     this.sendDailyReports = sendDailyReports;
     return this;
@@ -940,9 +1045,12 @@ public class CompanyProps {
     }
     CompanyProps companyProps = (CompanyProps) o;
     return Objects.equals(this.aktifbankClientId, companyProps.aktifbankClientId) &&
+        Objects.equals(this.aktifbankClientIdForSaveCard, companyProps.aktifbankClientIdForSaveCard) &&
         Objects.equals(this.aktifbankEncryptionKey, companyProps.aktifbankEncryptionKey) &&
         Objects.equals(this.aktifbankName, companyProps.aktifbankName) &&
+        Objects.equals(this.aktifbankNameForSaveCard, companyProps.aktifbankNameForSaveCard) &&
         Objects.equals(this.aktifbankPassword, companyProps.aktifbankPassword) &&
+        Objects.equals(this.aktifbankPasswordForSaveCard, companyProps.aktifbankPasswordForSaveCard) &&
         Objects.equals(this.billingDate, companyProps.billingDate) &&
         Objects.equals(this.billingInformationMandatory, companyProps.billingInformationMandatory) &&
         Objects.equals(this.billingThresholdDays, companyProps.billingThresholdDays) &&
@@ -969,6 +1077,8 @@ public class CompanyProps {
         Objects.equals(this.payuMerchantKeyRenewals, companyProps.payuMerchantKeyRenewals) &&
         Objects.equals(this.payuSecretKeyRenewals, companyProps.payuSecretKeyRenewals) &&
         Objects.equals(this.privacyPolicyUrl, companyProps.privacyPolicyUrl) &&
+        Objects.equals(this.retryCount, companyProps.retryCount) &&
+        Objects.equals(this.retryPeriod, companyProps.retryPeriod) &&
         Objects.equals(this.sendDailyReports, companyProps.sendDailyReports) &&
         Objects.equals(this.subscreasyApiKey, companyProps.subscreasyApiKey) &&
         Objects.equals(this.subscreasySecureKey, companyProps.subscreasySecureKey) &&
@@ -981,7 +1091,7 @@ public class CompanyProps {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aktifbankClientId, aktifbankEncryptionKey, aktifbankName, aktifbankPassword, billingDate, billingInformationMandatory, billingThresholdDays, branding, callbackUrl, company, contactEmail, domainName, hostedPageCSSPath, id, logoPath, mobilExpressApiPassword, mobilExpressMerchantKey, mobilExpressPosid, mobilePaymentGateway, notifyNewSubscription, notifyRenewal, notifySubscriptionCancellation, paymentGateway, paymentGatewayApiKey, paymentGatewaySecurityKey, paytrDirectApiEnabled, paytrMerchantId, payuMerchantKeyRenewals, payuSecretKeyRenewals, privacyPolicyUrl, sendDailyReports, subscreasyApiKey, subscreasySecureKey, wirecardErrorMessage, wirecardPin, wirecardSuccessfulMessage, wirecardTurkcellServisId, wirecardUserCode);
+    return Objects.hash(aktifbankClientId, aktifbankClientIdForSaveCard, aktifbankEncryptionKey, aktifbankName, aktifbankNameForSaveCard, aktifbankPassword, aktifbankPasswordForSaveCard, billingDate, billingInformationMandatory, billingThresholdDays, branding, callbackUrl, company, contactEmail, domainName, hostedPageCSSPath, id, logoPath, mobilExpressApiPassword, mobilExpressMerchantKey, mobilExpressPosid, mobilePaymentGateway, notifyNewSubscription, notifyRenewal, notifySubscriptionCancellation, paymentGateway, paymentGatewayApiKey, paymentGatewaySecurityKey, paytrDirectApiEnabled, paytrMerchantId, payuMerchantKeyRenewals, payuSecretKeyRenewals, privacyPolicyUrl, retryCount, retryPeriod, sendDailyReports, subscreasyApiKey, subscreasySecureKey, wirecardErrorMessage, wirecardPin, wirecardSuccessfulMessage, wirecardTurkcellServisId, wirecardUserCode);
   }
 
 
@@ -991,9 +1101,12 @@ public class CompanyProps {
     sb.append("class CompanyProps {\n");
     
     sb.append("    aktifbankClientId: ").append(toIndentedString(aktifbankClientId)).append("\n");
+    sb.append("    aktifbankClientIdForSaveCard: ").append(toIndentedString(aktifbankClientIdForSaveCard)).append("\n");
     sb.append("    aktifbankEncryptionKey: ").append(toIndentedString(aktifbankEncryptionKey)).append("\n");
     sb.append("    aktifbankName: ").append(toIndentedString(aktifbankName)).append("\n");
+    sb.append("    aktifbankNameForSaveCard: ").append(toIndentedString(aktifbankNameForSaveCard)).append("\n");
     sb.append("    aktifbankPassword: ").append(toIndentedString(aktifbankPassword)).append("\n");
+    sb.append("    aktifbankPasswordForSaveCard: ").append(toIndentedString(aktifbankPasswordForSaveCard)).append("\n");
     sb.append("    billingDate: ").append(toIndentedString(billingDate)).append("\n");
     sb.append("    billingInformationMandatory: ").append(toIndentedString(billingInformationMandatory)).append("\n");
     sb.append("    billingThresholdDays: ").append(toIndentedString(billingThresholdDays)).append("\n");
@@ -1020,6 +1133,8 @@ public class CompanyProps {
     sb.append("    payuMerchantKeyRenewals: ").append(toIndentedString(payuMerchantKeyRenewals)).append("\n");
     sb.append("    payuSecretKeyRenewals: ").append(toIndentedString(payuSecretKeyRenewals)).append("\n");
     sb.append("    privacyPolicyUrl: ").append(toIndentedString(privacyPolicyUrl)).append("\n");
+    sb.append("    retryCount: ").append(toIndentedString(retryCount)).append("\n");
+    sb.append("    retryPeriod: ").append(toIndentedString(retryPeriod)).append("\n");
     sb.append("    sendDailyReports: ").append(toIndentedString(sendDailyReports)).append("\n");
     sb.append("    subscreasyApiKey: ").append(toIndentedString(subscreasyApiKey)).append("\n");
     sb.append("    subscreasySecureKey: ").append(toIndentedString(subscreasySecureKey)).append("\n");

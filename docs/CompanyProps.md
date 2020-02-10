@@ -5,9 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **aktifbankClientId** | **Integer** |  |  [optional]
+**aktifbankClientIdForSaveCard** | **Integer** |  |  [optional]
 **aktifbankEncryptionKey** | **String** |  |  [optional]
 **aktifbankName** | **String** |  |  [optional]
+**aktifbankNameForSaveCard** | **String** |  |  [optional]
 **aktifbankPassword** | **String** |  |  [optional]
+**aktifbankPasswordForSaveCard** | **String** |  |  [optional]
 **billingDate** | **Integer** |  |  [optional]
 **billingInformationMandatory** | **Boolean** |  | 
 **billingThresholdDays** | **Integer** |  |  [optional]
@@ -34,6 +37,8 @@ Name | Type | Description | Notes
 **payuMerchantKeyRenewals** | **String** |  |  [optional]
 **payuSecretKeyRenewals** | **String** |  |  [optional]
 **privacyPolicyUrl** | **String** |  |  [optional]
+**retryCount** | **Integer** |  |  [optional]
+**retryPeriod** | **Integer** |  |  [optional]
 **sendDailyReports** | **String** |  |  [optional]
 **subscreasyApiKey** | **String** |  |  [optional]
 **subscreasySecureKey** | **String** |  |  [optional]

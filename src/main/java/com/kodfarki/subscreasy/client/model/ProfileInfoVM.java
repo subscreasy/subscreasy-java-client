@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * ProfileInfoVM
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-17T11:44:26.783+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-02-10T21:13:53.160+03:00")
 public class ProfileInfoVM {
   @SerializedName("activeProfiles")
   private List<String> activeProfiles = null;
