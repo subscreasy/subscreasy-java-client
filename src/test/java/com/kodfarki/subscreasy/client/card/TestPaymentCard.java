@@ -27,4 +27,16 @@ public class TestPaymentCard {
 
         return paymentCard;
     }
+
+    public static PaymentCard paytr() {
+        PaymentCard card = new PaymentCard();
+        card.setCardHolderName("PAYTR TEST");
+        card.setCardNumber("4444555566667777");
+        card.setExpireMonth("12");
+        card.setExpireYear("99");
+        card.setCvc("000");
+        card.setCardFamily("bonus");
+//        card.setRegisterCard(0);
+        return card;
+    }
 }
