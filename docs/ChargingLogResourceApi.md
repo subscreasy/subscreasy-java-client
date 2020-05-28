@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**getPaymentsByMerchantSubscriberIdUsingGET**](ChargingLogResourceApi.md#getPaymentsByMerchantSubscriberIdUsingGET) | **GET** /api/charging-logs/subscriber/m/{merchantSubscriberId} | getPaymentsByMerchantSubscriberId
 [**getPaymentsBySubscriberIdUsingGET**](ChargingLogResourceApi.md#getPaymentsBySubscriberIdUsingGET) | **GET** /api/charging-logs/subscriber/id/{subscriberId} | getPaymentsBySubscriberId
 [**getPaymentsBySubscriberIdUsingGET1**](ChargingLogResourceApi.md#getPaymentsBySubscriberIdUsingGET1) | **GET** /api/charging-logs/subscriber/{subscriberSecureId} | getPaymentsBySubscriberId
+[**getPaymentsBySubscriptionUsingGET**](ChargingLogResourceApi.md#getPaymentsBySubscriptionUsingGET) | **GET** /api/charging-logs/subscription/{id} | getPaymentsBySubscription
 [**refundUsingPOST**](ChargingLogResourceApi.md#refundUsingPOST) | **POST** /api/charging-logs/refund/{chargingLogId} | refund
 [**updateChargingLogUsingPUT**](ChargingLogResourceApi.md#updateChargingLogUsingPUT) | **PUT** /api/charging-logs | updateChargingLog
 
@@ -453,6 +454,59 @@ Name | Type | Description  | Notes
  **page** | **Integer**| Page number of the requested page | [optional]
  **size** | **Integer**| Size of a page | [optional]
  **sort** | [**List&lt;String&gt;**](String.md)| Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported. | [optional]
+
+### Return type
+
+[**List&lt;ChargingLog&gt;**](ChargingLog.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+<a name="getPaymentsBySubscriptionUsingGET"></a>
+# **getPaymentsBySubscriptionUsingGET**
+> List&lt;ChargingLog&gt; getPaymentsBySubscriptionUsingGET(id)
+
+getPaymentsBySubscription
+
+### Example
+```java
+// Import classes:
+//import com.kodfarki.subscreasy.ApiClient;
+//import com.kodfarki.subscreasy.ApiException;
+//import com.kodfarki.subscreasy.Configuration;
+//import com.kodfarki.subscreasy.auth.*;
+//import com.kodfarki.subscreasy.client.ChargingLogResourceApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKey
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+apiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKey.setApiKeyPrefix("Token");
+
+ChargingLogResourceApi apiInstance = new ChargingLogResourceApi();
+Long id = 789L; // Long | id
+try {
+    List<ChargingLog> result = apiInstance.getPaymentsBySubscriptionUsingGET(id);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ChargingLogResourceApi#getPaymentsBySubscriptionUsingGET");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Long**| id |
 
 ### Return type
 

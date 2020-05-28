@@ -7,7 +7,6 @@ Method | HTTP request | Description
 [**authorizeUsingPUT**](EndpointsApi.md#authorizeUsingPUT) | **PUT** /api/authorize | authorize
 [**deductUsingPUT**](EndpointsApi.md#deductUsingPUT) | **PUT** /api/deduct | deduct
 [**getAuthorizedServicesUsingGET**](EndpointsApi.md#getAuthorizedServicesUsingGET) | **GET** /api/service/subscriber/{secureId} | getAuthorizedServices
-[**getChargingLogBySubscriptionUsingGET**](EndpointsApi.md#getChargingLogBySubscriptionUsingGET) | **GET** /api/charging-logs/subscription/{id} | getChargingLogBySubscription
 [**getCustomerTotalAmountUsingGET**](EndpointsApi.md#getCustomerTotalAmountUsingGET) | **GET** /api/customer-totalAmountCharge/{id} | getCustomerTotalAmount
 [**getInvoiceDetailsUsingGET**](EndpointsApi.md#getInvoiceDetailsUsingGET) | **GET** /api/getInvoiceDetails | getInvoiceDetails
 [**getMessageTemplateUsingGET**](EndpointsApi.md#getMessageTemplateUsingGET) | **GET** /api/message-templates/email/{lifecycleEventName} | getMessageTemplate
@@ -165,59 +164,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AuthorizedServicesResponse**](AuthorizedServicesResponse.md)
-
-### Authorization
-
-[apiKey](../README.md#apiKey)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-<a name="getChargingLogBySubscriptionUsingGET"></a>
-# **getChargingLogBySubscriptionUsingGET**
-> List&lt;ChargingLog&gt; getChargingLogBySubscriptionUsingGET(id)
-
-getChargingLogBySubscription
-
-### Example
-```java
-// Import classes:
-//import com.kodfarki.subscreasy.ApiClient;
-//import com.kodfarki.subscreasy.ApiException;
-//import com.kodfarki.subscreasy.Configuration;
-//import com.kodfarki.subscreasy.auth.*;
-//import com.kodfarki.subscreasy.client.EndpointsApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: apiKey
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
-apiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apiKey.setApiKeyPrefix("Token");
-
-EndpointsApi apiInstance = new EndpointsApi();
-Long id = 789L; // Long | id
-try {
-    List<ChargingLog> result = apiInstance.getChargingLogBySubscriptionUsingGET(id);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling EndpointsApi#getChargingLogBySubscriptionUsingGET");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **Long**| id |
-
-### Return type
-
-[**List&lt;ChargingLog&gt;**](ChargingLog.md)
 
 ### Authorization
 

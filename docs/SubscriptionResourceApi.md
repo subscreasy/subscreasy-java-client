@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**getSubscriptionsByMerchantSubscriberIdUsingGET**](SubscriptionResourceApi.md#getSubscriptionsByMerchantSubscriberIdUsingGET) | **GET** /api/subscriptions/subscriber/m/{merchantSubscriberId} | getSubscriptionsByMerchantSubscriberId
 [**getSubscriptionsByStatusUsingGET**](SubscriptionResourceApi.md#getSubscriptionsByStatusUsingGET) | **GET** /api/subscriptions/status/{status} | getSubscriptionsByStatus
 [**startSubscriptionUsingPOST**](SubscriptionResourceApi.md#startSubscriptionUsingPOST) | **POST** /api/subscriptions/start | startSubscription
+[**switchSubscriptionUsingPUT**](SubscriptionResourceApi.md#switchSubscriptionUsingPUT) | **PUT** /api/subscriptions/switch | switchSubscription
 
 
 <a name="cancelSubscriptionUsingPUT"></a>
@@ -617,4 +618,57 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+<a name="switchSubscriptionUsingPUT"></a>
+# **switchSubscriptionUsingPUT**
+> SwitchSubscriptionResponse switchSubscriptionUsingPUT(switchRequest)
+
+switchSubscription
+
+### Example
+```java
+// Import classes:
+//import com.kodfarki.subscreasy.ApiClient;
+//import com.kodfarki.subscreasy.ApiException;
+//import com.kodfarki.subscreasy.Configuration;
+//import com.kodfarki.subscreasy.auth.*;
+//import com.kodfarki.subscreasy.client.SubscriptionResourceApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apiKey
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+apiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKey.setApiKeyPrefix("Token");
+
+SubscriptionResourceApi apiInstance = new SubscriptionResourceApi();
+SubscriptionSwitch switchRequest = new SubscriptionSwitch(); // SubscriptionSwitch | switchRequest
+try {
+    SwitchSubscriptionResponse result = apiInstance.switchSubscriptionUsingPUT(switchRequest);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling SubscriptionResourceApi#switchSubscriptionUsingPUT");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **switchRequest** | [**SubscriptionSwitch**](SubscriptionSwitch.md)| switchRequest |
+
+### Return type
+
+[**SwitchSubscriptionResponse**](SwitchSubscriptionResponse.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
 
