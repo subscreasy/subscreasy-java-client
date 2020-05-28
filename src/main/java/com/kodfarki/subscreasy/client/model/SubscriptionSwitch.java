@@ -25,22 +25,22 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Cancellation
+ * SubscriptionSwitch
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-28T23:21:44.006+03:00")
-public class Cancellation {
+public class SubscriptionSwitch {
   /**
-   * Gets or Sets cancellationType
+   * Gets or Sets cancelExistingSubscription
    */
-  @JsonAdapter(CancellationTypeEnum.Adapter.class)
-  public enum CancellationTypeEnum {
+  @JsonAdapter(CancelExistingSubscriptionEnum.Adapter.class)
+  public enum CancelExistingSubscriptionEnum {
     IMMEDIATE("IMMEDIATE"),
     
     ENDOFTHEPERIOD("ENDOFTHEPERIOD");
 
     private String value;
 
-    CancellationTypeEnum(String value) {
+    CancelExistingSubscriptionEnum(String value) {
       this.value = value;
     }
 
@@ -53,8 +53,8 @@ public class Cancellation {
       return String.valueOf(value);
     }
 
-    public static CancellationTypeEnum fromValue(String text) {
-      for (CancellationTypeEnum b : CancellationTypeEnum.values()) {
+    public static CancelExistingSubscriptionEnum fromValue(String text) {
+      for (CancelExistingSubscriptionEnum b : CancelExistingSubscriptionEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
           return b;
         }
@@ -62,66 +62,66 @@ public class Cancellation {
       return null;
     }
 
-    public static class Adapter extends TypeAdapter<CancellationTypeEnum> {
+    public static class Adapter extends TypeAdapter<CancelExistingSubscriptionEnum> {
       @Override
-      public void write(final JsonWriter jsonWriter, final CancellationTypeEnum enumeration) throws IOException {
+      public void write(final JsonWriter jsonWriter, final CancelExistingSubscriptionEnum enumeration) throws IOException {
         jsonWriter.value(enumeration.getValue());
       }
 
       @Override
-      public CancellationTypeEnum read(final JsonReader jsonReader) throws IOException {
+      public CancelExistingSubscriptionEnum read(final JsonReader jsonReader) throws IOException {
         String value = jsonReader.nextString();
-        return CancellationTypeEnum.fromValue(String.valueOf(value));
+        return CancelExistingSubscriptionEnum.fromValue(String.valueOf(value));
       }
     }
   }
 
-  @SerializedName("cancellationType")
-  private CancellationTypeEnum cancellationType = null;
+  @SerializedName("cancelExistingSubscription")
+  private CancelExistingSubscriptionEnum cancelExistingSubscription = null;
 
-  @SerializedName("subscriberId")
-  private Long subscriberId = null;
+  @SerializedName("nextOfferId")
+  private Long nextOfferId = null;
 
   @SerializedName("subscriptionId")
   private Long subscriptionId = null;
 
-  public Cancellation cancellationType(CancellationTypeEnum cancellationType) {
-    this.cancellationType = cancellationType;
+  public SubscriptionSwitch cancelExistingSubscription(CancelExistingSubscriptionEnum cancelExistingSubscription) {
+    this.cancelExistingSubscription = cancelExistingSubscription;
     return this;
   }
 
    /**
-   * Get cancellationType
-   * @return cancellationType
+   * Get cancelExistingSubscription
+   * @return cancelExistingSubscription
   **/
   @ApiModelProperty(value = "")
-  public CancellationTypeEnum getCancellationType() {
-    return cancellationType;
+  public CancelExistingSubscriptionEnum getCancelExistingSubscription() {
+    return cancelExistingSubscription;
   }
 
-  public void setCancellationType(CancellationTypeEnum cancellationType) {
-    this.cancellationType = cancellationType;
+  public void setCancelExistingSubscription(CancelExistingSubscriptionEnum cancelExistingSubscription) {
+    this.cancelExistingSubscription = cancelExistingSubscription;
   }
 
-  public Cancellation subscriberId(Long subscriberId) {
-    this.subscriberId = subscriberId;
+  public SubscriptionSwitch nextOfferId(Long nextOfferId) {
+    this.nextOfferId = nextOfferId;
     return this;
   }
 
    /**
-   * Get subscriberId
-   * @return subscriberId
+   * Get nextOfferId
+   * @return nextOfferId
   **/
   @ApiModelProperty(value = "")
-  public Long getSubscriberId() {
-    return subscriberId;
+  public Long getNextOfferId() {
+    return nextOfferId;
   }
 
-  public void setSubscriberId(Long subscriberId) {
-    this.subscriberId = subscriberId;
+  public void setNextOfferId(Long nextOfferId) {
+    this.nextOfferId = nextOfferId;
   }
 
-  public Cancellation subscriptionId(Long subscriptionId) {
+  public SubscriptionSwitch subscriptionId(Long subscriptionId) {
     this.subscriptionId = subscriptionId;
     return this;
   }
@@ -148,25 +148,25 @@ public class Cancellation {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Cancellation cancellation = (Cancellation) o;
-    return Objects.equals(this.cancellationType, cancellation.cancellationType) &&
-        Objects.equals(this.subscriberId, cancellation.subscriberId) &&
-        Objects.equals(this.subscriptionId, cancellation.subscriptionId);
+    SubscriptionSwitch subscriptionSwitch = (SubscriptionSwitch) o;
+    return Objects.equals(this.cancelExistingSubscription, subscriptionSwitch.cancelExistingSubscription) &&
+        Objects.equals(this.nextOfferId, subscriptionSwitch.nextOfferId) &&
+        Objects.equals(this.subscriptionId, subscriptionSwitch.subscriptionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cancellationType, subscriberId, subscriptionId);
+    return Objects.hash(cancelExistingSubscription, nextOfferId, subscriptionId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Cancellation {\n");
+    sb.append("class SubscriptionSwitch {\n");
     
-    sb.append("    cancellationType: ").append(toIndentedString(cancellationType)).append("\n");
-    sb.append("    subscriberId: ").append(toIndentedString(subscriberId)).append("\n");
+    sb.append("    cancelExistingSubscription: ").append(toIndentedString(cancelExistingSubscription)).append("\n");
+    sb.append("    nextOfferId: ").append(toIndentedString(nextOfferId)).append("\n");
     sb.append("    subscriptionId: ").append(toIndentedString(subscriptionId)).append("\n");
     sb.append("}");
     return sb.toString();

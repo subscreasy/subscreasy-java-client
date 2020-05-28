@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.kodfarki.subscreasy.client.model;
 
 import java.util.Objects;
@@ -20,34 +19,34 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.File;
 import java.io.IOException;
-
 /**
- * Authority
+ * Body
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-28T23:21:44.006+03:00")
-public class Authority {
-  @SerializedName("name")
-  private String name = null;
 
-  public Authority name(String name) {
-    this.name = name;
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-05-28T23:09:04.198998+03:00[Europe/Istanbul]")
+public class Body {
+  @SerializedName("file")
+  private File file = null;
+
+  public Body file(File file) {
+    this.file = file;
     return this;
   }
 
    /**
-   * Get name
-   * @return name
+   * file
+   * @return file
   **/
-  @ApiModelProperty(required = true, value = "")
-  public String getName() {
-    return name;
+  @Schema(required = true, description = "file")
+  public File getFile() {
+    return file;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setFile(File file) {
+    this.file = file;
   }
 
 
@@ -59,22 +58,22 @@ public class Authority {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Authority authority = (Authority) o;
-    return Objects.equals(this.name, authority.name);
+    Body body = (Body) o;
+    return Objects.equals(this.file, body.file);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name);
+    return Objects.hash(Objects.hashCode(file));
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Authority {\n");
+    sb.append("class Body {\n");
     
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    file: ").append(toIndentedString(file)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -91,4 +90,3 @@ public class Authority {
   }
 
 }
-
